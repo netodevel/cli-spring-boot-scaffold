@@ -17,6 +17,7 @@ public class GenerateApp {
 			
 			if (command.startsWith(Commands.MODEL)) {
 				ModelGenerate modelGenerate = new ModelGenerate();
+				AbstractModelGenerate abstractModelGenerate = new AbstractModelGenerate();
 				String[] params = command.split(" ");
 				
 				String paramTotal = "";
@@ -25,6 +26,7 @@ public class GenerateApp {
 				}
 				
 				if (GenerateApp.validateParams(paramTotal)) {
+					abstractModelGenerate.generate(params);
 					modelGenerate.generate(params[3], paramTotal);
 				}
 			}

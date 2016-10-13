@@ -18,7 +18,7 @@ public class ModelGenerate implements IGenerate {
 				writer.println("");
 				writer.println("@Entity");
 				writer.println("@Table(name = '" + params[0] + "')");
-				writer.println("class " + params[0] + " (" + generateParams(params[1]) + ") {}");
+				writer.println("class " + params[0] + " (" + generateParams(params[1]) + ") : AbstractModel<Long>() {}");
 				writer.close();
 				System.out.println("model created!");
 			} catch (FileNotFoundException e) {
