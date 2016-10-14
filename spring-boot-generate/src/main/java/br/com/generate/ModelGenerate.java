@@ -18,9 +18,10 @@ public class ModelGenerate implements IGenerate {
 				writer.println("");
 				writer.println("@Entity");
 				writer.println("@Table(name = '" + params[0] + "')");
-				writer.println("class " + params[0] + " (" + generateParams(params[1]) + ") : AbstractModel<Long>() {}");
+				writer.println("class " + params[0] + " (" + generateParams(params[1]) + ") {}");
 				writer.close();
-				System.out.println("model created!");
+				System.out.println("invoke spring data-jpa");
+				System.out.println("create src/main/java/br/com/scaffold/model/" + params[0] + ".kt");
 			} catch (FileNotFoundException e) {
 			} catch (UnsupportedEncodingException e) {
 			}

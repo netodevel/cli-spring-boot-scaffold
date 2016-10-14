@@ -10,14 +10,11 @@ public class GenerateApp {
 		reader = new Scanner(System.in);
 		System.out.println("Spring boot generate...");
 		boolean loop = true;
-
 		while (loop) {
 			System.out.println("Enter with command: ");
 			String command = reader.nextLine();
-			
 			if (command.startsWith(Commands.MODEL)) {
 				ModelGenerate modelGenerate = new ModelGenerate();
-				AbstractModelGenerate abstractModelGenerate = new AbstractModelGenerate();
 				String[] params = command.split(" ");
 				
 				String paramTotal = "";
@@ -26,8 +23,9 @@ public class GenerateApp {
 				}
 				
 				if (GenerateApp.validateParams(paramTotal)) {
-					abstractModelGenerate.generate(params);
 					modelGenerate.generate(params[3], paramTotal);
+				} else {
+					System.out.println("error sintaxe!");
 				}
 			}
 			
@@ -52,9 +50,6 @@ public class GenerateApp {
 					validate = true;
 				} 
 			}
-		}
-		if (validate == false) {
-			System.out.println("Error sintaxe!");
 		}
 		return validate;
 	}
