@@ -14,7 +14,7 @@ public class ModelGenerate implements IGenerate {
 				File file = new File("src/main/java/br/com/scaffold/model/" + params[0] + ".kt");
 				file.getParentFile().mkdirs();
 				writer = new PrintWriter(file, "UTF-8");
-				imports(writer);
+				imports(writer, params);
 				writer.println("");
 				writer.println("@Entity");
 				writer.println("@Table(name = '" + params[0] + "')");
@@ -28,7 +28,7 @@ public class ModelGenerate implements IGenerate {
 		}
 	}
 	
-	public void imports(PrintWriter print) {
+	public void imports(PrintWriter print, String[] namesParams) {
 		print.println("package br.com.scaffold.model");
 		print.println("import javax.persistence.Entity");
 		print.println("import javax.persistence.Table");
