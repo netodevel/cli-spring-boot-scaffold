@@ -7,19 +7,21 @@ import java.io.UnsupportedEncodingException;
 public class RepositoryGenerate implements IGenerate {
 
 	public void generate(String... params) {
-		if (validateFile(params[0])) {
+		String CLASS_NAME = params[0];
+		
+		if (validateFile(CLASS_NAME)) {
 			PrintWriter writer = null;
 			try {
-				File file = new File("src/main/java/br/com/scaffold/repository/" + params[0] + "Repository.kt");
+				File file = new File("src/main/java/br/com/scaffold/repository/" + CLASS_NAME + "Repository.kt");
 				file.getParentFile().mkdirs();
 				writer = new PrintWriter(file, "UTF-8");
 				imports(writer, params);
 				writer.println("");
-				writer.println("interface " + params[0] + "Repository : JpaRepository<" + params[0] + ", Long> {");
+				writer.println("interface " + CLASS_NAME + "Repository : JpaRepository<" + CLASS_NAME + ", Long> {");
 				writer.println("}");
 				writer.close();
 				System.out.println("invoke spring data-jpa");
-				System.out.println("create src/main/java/br/com/scaffold/repository/" + params[0] + "Repository.kt");
+				System.out.println("create src/main/java/br/com/scaffold/repository/" + CLASS_NAME + "Repository.kt");
 			} catch (FileNotFoundException e) {
 			} catch (UnsupportedEncodingException e) {
 			}

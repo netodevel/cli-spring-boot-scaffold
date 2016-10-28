@@ -7,21 +7,23 @@ import java.io.UnsupportedEncodingException;
 public class ModelGenerate implements IGenerate {
 
 	public void generate(String... params) {
-		if (validateFile(params[0])) {
+		String CLASS_NAME = params[0];
+		String PARAMS = params[1];
+		
+		if (validateFile(CLASS_NAME)) {
 			PrintWriter writer = null;
 			try {
-				
-				File file = new File("src/main/java/br/com/scaffold/model/" + params[0] + ".kt");
+				File file = new File("src/main/java/br/com/scaffold/model/" + CLASS_NAME + ".kt");
 				file.getParentFile().mkdirs();
 				writer = new PrintWriter(file, "UTF-8");
 				imports(writer, params);
 				writer.println("");
 				writer.println("@Entity");
-				writer.println("@Table(name = '" + params[0] + "')");
-				writer.println("class " + params[0] + " (" + generateParams(params[1]) + ") {}");
+				writer.println("@Table(name = '" + CLASS_NAME + "')");
+				writer.println("class " + CLASS_NAME + " (" + generateParams(PARAMS) + ") {}");
 				writer.close();
 				System.out.println("invoke spring data-jpa");
-				System.out.println("create src/main/java/br/com/scaffold/model/" + params[0] + ".kt");
+				System.out.println("create src/main/java/br/com/scaffold/model/" + CLASS_NAME + ".kt");
 			} catch (FileNotFoundException e) {
 			} catch (UnsupportedEncodingException e) {
 			}
