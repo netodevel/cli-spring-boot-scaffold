@@ -10,6 +10,7 @@ import org.apache.commons.cli.ParseException;
 import br.com.generate.Commands;
 import br.com.generate.ControllerGenerate;
 import br.com.generate.ModelGenerate;
+import br.com.generate.ProjectGenerate;
 import br.com.generate.RepositoryGenerate;
 import br.com.generate.ServiceGenerate;
 
@@ -31,6 +32,12 @@ public class SpringGenerateMain {
 		}
 		
 		String [] arguments = line.getOptionValues("spring");
+		
+		if (arguments[1].equals(Commands.GENERATE_PROJECT)) {
+			String projectName = arguments[2];
+			ProjectGenerate projectGenerate = new ProjectGenerate();
+			projectGenerate.generate(projectName);
+		}
 		
 		if (arguments[1].equals(Commands.GENERATE_MODEL)) {
 			String className = arguments[2];

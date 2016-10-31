@@ -6,6 +6,7 @@ public final class Commands {
 	public static final String GENERATE_SERVICE = "service";
 	public static final String GENERATE_CONTROLLER = "controller";
 	public static final String GENERATE_SCAFFOLD = "scaffold";
+	public static final String GENERATE_PROJECT = "new";
 	
 }
 
