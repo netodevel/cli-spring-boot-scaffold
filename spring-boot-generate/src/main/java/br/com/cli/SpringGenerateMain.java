@@ -8,8 +8,10 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
 import br.com.generate.Commands;
+import br.com.generate.ControllerGenerate;
 import br.com.generate.ModelGenerate;
 import br.com.generate.RepositoryGenerate;
+import br.com.generate.ServiceGenerate;
 
 public class SpringGenerateMain {
 
@@ -27,8 +29,9 @@ public class SpringGenerateMain {
 		} catch (ParseException exp) {
 			System.err.println("Parsing failed.  Reason: " + exp.getMessage());
 		}
-
+		
 		String [] arguments = line.getOptionValues("spring");
+		
 		if (arguments[1].equals(Commands.GENERATE_MODEL)) {
 			String className = arguments[2];
 			String parameters = getParametersGenerate(arguments);
@@ -41,6 +44,48 @@ public class SpringGenerateMain {
 			RepositoryGenerate repositoryGenerate = new RepositoryGenerate();
 			repositoryGenerate.generate(className);
 		}
+		
+		if (arguments[1].equals(Commands.GENERATE_SERVICE)) {
+			String className = arguments[2];
+			ServiceGenerate serviceGenerate = new ServiceGenerate();
+			serviceGenerate.generate(className);
+		}
+		
+		if (arguments[1].equals(Commands.GENERATE_CONTROLLER)) {
+			String className = arguments[2];
+			ControllerGenerate controllerGenerate = new ControllerGenerate();
+			controllerGenerate.generate(className);
+		}
+		
+		if (arguments[1].equals(Commands.GENERATE_SCAFFOLD)) {
+			String className = arguments[2];
+			String parameters = getParametersGenerate(arguments);
+			
+			/**
+			 * Generate model
+			 */
+			ModelGenerate modelGenerate = new ModelGenerate();
+			modelGenerate.generate(className, parameters);
+			
+			/**
+			 * Generate repository
+			 */
+			RepositoryGenerate repositoryGenerate = new RepositoryGenerate();
+			repositoryGenerate.generate(className);
+			
+			/**
+			 * Generate Service
+			 */
+			ServiceGenerate serviceGenerate = new ServiceGenerate();
+			serviceGenerate.generate(className);
+			
+			/**
+			 * Generate Controller
+			 */
+			ControllerGenerate controllerGenerate = new ControllerGenerate();
+			controllerGenerate.generate(className);
+		}
+		
 		
 	}
 
