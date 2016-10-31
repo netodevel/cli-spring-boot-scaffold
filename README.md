@@ -6,6 +6,10 @@ Generate api scaffold kotlin with spring boot rest
 
 #Usage
 
+###Create project
+
+         -spring g new my-project
+
 ###Generate model
    
         -spring g model User mail:String password:String
@@ -28,9 +32,5 @@ Generate api scaffold kotlin with spring boot rest
 
 ###Todo
 
-* -spring g new my-project
-
-###How to use (temporary)
-
-      java -jar "jar" and execute commands
+* validate types of variables
 
