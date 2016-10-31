@@ -40,7 +40,7 @@
                 	<archive>
                     	<manifest>
                         	<addClasspath>true</addClasspath>
-                        	<mainClass>br.com.cli.GenerateMain</mainClass>
+                        	<mainClass>br.com.cli.SpringGenerateMain</mainClass>
                     	</manifest>
                 	</archive>
                 	<descriptorRefs>
