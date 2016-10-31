@@ -1,27 +1,36 @@
 # spring-boot-scaffold-kotlin
 
-##About
+#About
 Generate api scaffold kotlin with spring boot rest
 
 
-###Alert
-In development
+#Usage
+
+###Generate model
+   
+        -spring g model User mail:String password:String
+
+###Generate repository
+
+        -spring g repository User 
+
+###Generate service
         
+        -spring g service User
         
+###Generate controller
+
+        -spring g controller User
+        
+###Generate scaffold
+
+        -spring g scaffold User mail:String password:String
 
 ###Todo
 
-* -spring g model User mail:String password:String
-* -spring g Repository User 
-* -spring g Service User
-* -spring g Controller User
-* -spring g scaffold User mail:String password:String
-* -spring g config jpa
-
+* -spring g new my-project
 
 ###How to use (temporary)
 
       java -jar "jar" and execute commands
-
-
 
