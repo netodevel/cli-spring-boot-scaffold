@@ -33,4 +33,5 @@ Generate api scaffold kotlin with spring boot rest
 ###Todo
 
 * validate types of variables
+* install windows,linux
 
