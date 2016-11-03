@@ -6,6 +6,10 @@ import java.io.UnsupportedEncodingException;
 
 public class ModelGenerate implements IGenerate {
 
+	public ModelGenerate(String optionValue, String parameter) {
+		generate(optionValue, parameter);
+	}
+
 	public void generate(String... params) {
 		String CLASS_NAME = params[0];
 		String PARAMS = params[1];

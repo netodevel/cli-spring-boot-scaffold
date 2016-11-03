@@ -6,6 +6,10 @@ import java.io.UnsupportedEncodingException;
 
 public class RepositoryGenerate implements IGenerate {
 
+	public RepositoryGenerate(String optionValue) {
+		generate(optionValue);
+	}
+
 	public void generate(String... params) {
 		String CLASS_NAME = params[0];
 		

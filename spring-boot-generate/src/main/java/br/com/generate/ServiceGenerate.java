@@ -7,6 +7,10 @@ import java.io.UnsupportedEncodingException;
 
 public class ServiceGenerate implements IGenerate {
 
+	public ServiceGenerate(String optionValue) {
+		generate(optionValue);
+	}
+
 	@Override
 	public void generate(String... params) {
 		String CLASS_NAME = params[0];
