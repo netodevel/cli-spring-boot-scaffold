@@ -13,10 +13,10 @@ In development, help us make a fork!
 * nodejs
 
 
-#Install (Temporary)
+#Install
 
 ####Windows
-         npm install spring-api-scaffold-windows@1.0.3
+         npm install spring-boot-api-scaffold@0.0.1
 
 #Usage
 
