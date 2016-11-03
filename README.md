@@ -1,37 +1,61 @@
 # spring-boot-scaffold-kotlin
 
 #About
-Generate api scaffold kotlin with spring boot rest
+Generate api scaffold kotlin with spring boot rest, create api rest with kotlin and spring boot easy and productive.
 
+
+#Alert
+In development, help us make a fork!
+
+#Requeriments
+         
+* java
+* nodejs
+
+
+#Install
+         npm install spring-boot-api-scaffold@0.0.1
 
 #Usage
 
 ###Create project
 
-         -spring g new my-project
+         cli -spring g new my-project
 
 ###Generate model
    
-        -spring g model User mail:String password:String
+        cli -spring g model User mail:String password:String
 
 ###Generate repository
 
-        -spring g repository User 
+        cli -spring g repository User 
 
 ###Generate service
         
-        -spring g service User
+        cli -spring g service User
         
 ###Generate controller
 
-        -spring g controller User
+        cli -spring g controller User
         
 ###Generate scaffold
 
-        -spring g scaffold User mail:String password:String
+        cli -spring g scaffold User mail:String password:String
 
 ###Todo
 
-* validate types of variables
-* install windows,linux
+* validates types variables
+* validates exists project,class
+* set package to generate
+* install linux/windows single package node
+* gradle support
+* generate class Run Main @SpringBootApplication
+* generate Test JUnit @SpringBootTest
+* sample using scaffold
+* remove prefix cli
+
+###Acknowledgment
+         
+ [Bruno Lima](https://github.com/brunodles)
+       
 
