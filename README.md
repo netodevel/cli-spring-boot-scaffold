@@ -3,13 +3,17 @@
 #About
 Generate api scaffold kotlin with spring boot rest, create api rest with kotlin and spring boot easy and productive.
 
+
+#Alert
+In development, help us make a fork!
+
 #Requeriments
          
 * java
 * nodejs
 
 
-#Install
+#Install (Temporary)
 
 ####Windows
          npm install spring-api-scaffold-windows@1.0.3
@@ -42,9 +46,15 @@ Generate api scaffold kotlin with spring boot rest, create api rest with kotlin 
 
 ###Todo
 
-* validates
-* install linux
+* validates types variables
+* validates exists project,class
+* set package to generate
+* install linux/windows single package node
 * gradle support
+* generate class Run Main @SpringBootApplication
+* generate Test JUnit @SpringBootTest
+* sample using scaffold
+* remove prefix cli
 
 ###Credits
          
