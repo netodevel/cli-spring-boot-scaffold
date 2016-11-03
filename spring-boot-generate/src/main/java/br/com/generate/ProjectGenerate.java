@@ -4,6 +4,10 @@ import java.io.File;
 
 public class ProjectGenerate {
 
+	public ProjectGenerate(String optionValue) {
+		generate(optionValue);
+	}
+
 	public void generate(String nameProject) {
 
 		String currentLocation = System.getProperty("user.dir");
