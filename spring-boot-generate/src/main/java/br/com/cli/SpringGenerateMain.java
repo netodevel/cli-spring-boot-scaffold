@@ -1,6 +1,5 @@
 package br.com.cli;
 
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.apache.commons.cli.CommandLine;
@@ -19,6 +18,7 @@ import br.com.generate.ServiceGenerate;
 
 public class SpringGenerateMain {
 
+	@SuppressWarnings("unused")
 	private static Logger LOGGER = Logger.getLogger(SpringGenerateMain.class.getName());
 	private static Options options = new Options();
 
@@ -31,13 +31,11 @@ public class SpringGenerateMain {
 		
 		try {
 			line = parser.parse(options, args, true);
-			LOGGER.log(Level.WARNING, "stay here", "arguments");
 		} catch (ParseException exp) {
 			System.err.println("Parsing failed.  Reason: " + exp.getMessage());
 		}
 		
 		String [] arguments = line.getOptionValues("spring");
-		LOGGER.log(Level.WARNING, arguments.toString(), "arguments");
 		
 		if (arguments[1].equals(Commands.GENERATE_PROJECT)) {
 			String projectName = arguments[2];

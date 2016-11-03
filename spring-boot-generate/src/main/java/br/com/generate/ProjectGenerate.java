@@ -12,7 +12,6 @@ public class ProjectGenerate {
 
 		if (project) {
 			System.out.println("project " + nameProject + " created!");
-
 			/**
 			 * src/main/java
 			 */
@@ -51,8 +50,12 @@ public class ProjectGenerate {
 			PomGenerate pomGenerate = new PomGenerate();
 			pomGenerate.generate(baseDirProject, nameProject);
 			
-			System.out.println("finish");
+			/**
+			 * application.properties generate
+			 */
 			
+			ApplicationPropertiesGenerate applicationPropertiesGenerate = new ApplicationPropertiesGenerate();
+			applicationPropertiesGenerate.generate(baseDirProject);
 		} else {
 			System.out.println("failed to created project!");
 		}
