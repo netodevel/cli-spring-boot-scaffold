@@ -14,8 +14,6 @@ In development, help us make a fork!
 
 
 #Install
-
-####Windows
          npm install spring-boot-api-scaffold@0.0.1
 
 #Usage
