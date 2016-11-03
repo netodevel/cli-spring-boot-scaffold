@@ -54,7 +54,7 @@ In development, help us make a fork!
 * sample using scaffold
 * remove prefix cli
 
-###Credits
+###Acknowledgment
          
  [Bruno Lima](https://github.com/brunodles)
        
