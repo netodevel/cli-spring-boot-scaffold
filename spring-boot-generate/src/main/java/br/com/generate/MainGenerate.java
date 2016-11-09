@@ -22,7 +22,7 @@ public class MainGenerate implements IGenerate {
 				writer.println("public class MainApplication { ");
 				writer.println("");
 				writer.println("	public static void main(String[] args) {");
-				writer.println("		SpringApplication.run(ApplicationDemo.class, args);");
+				writer.println("		SpringApplication.run(MainApplication.class, args);");
 				writer.println("	}");
 				writer.println("");
 				writer.println("	@Bean");

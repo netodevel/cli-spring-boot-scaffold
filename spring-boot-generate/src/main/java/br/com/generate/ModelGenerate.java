@@ -23,7 +23,7 @@ public class ModelGenerate implements IGenerate {
 				imports(writer, params);
 				writer.println("");
 				writer.println("@Entity");
-				writer.println("@Table(name = '" + CLASS_NAME + "')");
+				writer.println("@Table(name = \"" + CLASS_NAME.toLowerCase() + "s" + "\")");
 				writer.println("class " + CLASS_NAME + " (" + generateParams(PARAMS) + ") {}");
 				writer.close();
 				System.out.println("invoke spring data-jpa");
