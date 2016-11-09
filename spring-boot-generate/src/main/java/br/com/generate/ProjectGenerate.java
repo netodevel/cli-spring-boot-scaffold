@@ -1,8 +1,12 @@
 package br.com.generate;
 
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ProjectGenerate {
+	
+	private static Logger LOGGER = Logger.getLogger(ProjectGenerate.class.getName());
 
 	public ProjectGenerate(String optionValue) {
 		generate(optionValue);
@@ -15,38 +19,37 @@ public class ProjectGenerate {
 		boolean project = new File(baseDirProject).mkdir();
 
 		if (project) {
-			System.out.println("project " + nameProject + " created!");
+
 			/**
 			 * src/main/java
 			 */
-			
 			Boolean dirJavaSoruces = new File(baseDirProject + "\\src\\main\\java").mkdirs();
-			if (dirJavaSoruces) { System.out.println("dir main java created"); }
+			if (dirJavaSoruces) { LOGGER.info("src\\main\\java created"); }
 
 			/**
 			 * src/main/resources
 			 */
 			Boolean dirJavaResources = new File(baseDirProject + "\\src\\main\\resources").mkdirs();
-			if (dirJavaResources) { System.out.println("dir main resources created"); }
+			if (dirJavaResources) { LOGGER.info("src\\main\\resources created"); }
 
 			/**
 			 * src/test/java
 			 */
 			Boolean dirTestJavaSources = new File(baseDirProject + "\\src\\test\\java").mkdirs();
-			if (dirTestJavaSources) { System.out.println("dir main test java created"); }
+			if (dirTestJavaSources) { LOGGER.info("src\\test\\java created"); }
 
 			
 			/**
 			 * src/test/resources
 			 */
 			Boolean dirTestResouces = new File(baseDirProject + "\\src\\test\\resources").mkdirs();
-			if (dirTestResouces) { System.out.println("dir main test resources created"); }
+			if (dirTestResouces) { LOGGER.info("src\\test\\resources created"); }
 			
 			/**
 			 * target
 			 */
 			Boolean dirTarget = new File(baseDirProject + "\\target").mkdir();
-			if (dirTarget) { System.out.println("dir target created"); }
+			if (dirTarget) {	LOGGER.info("\\target created"); }
 			
 			/**
 			 * Pom Generate
@@ -57,9 +60,17 @@ public class ProjectGenerate {
 			/**
 			 * application.properties generate
 			 */
-			
 			ApplicationPropertiesGenerate applicationPropertiesGenerate = new ApplicationPropertiesGenerate();
 			applicationPropertiesGenerate.generate(baseDirProject);
+
+			/**
+			 * MainApplicationRUN
+			 */
+			MainGenerate mainGenerate = new MainGenerate();
+			mainGenerate.generate(baseDirProject);
+			
+			LOGGER.info("project created!");
+			
 		} else {
 			System.out.println("failed to created project!");
 		}
