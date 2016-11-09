@@ -56,6 +56,7 @@ In development, help us make a fork!
 
 ###Acknowledgment
          
- [Bruno Lima](https://github.com/brunodles)
+ * [Bruno Lima](https://github.com/brunodles)
+ * [Ivan Marreta](https://github.com/ivanmarreta)
        
 
