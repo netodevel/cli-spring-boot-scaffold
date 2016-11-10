@@ -49,7 +49,6 @@ In development, help us make a fork!
 * set package to generate
 * install linux/windows single package node
 * gradle support
-* generate class Run Main @SpringBootApplication
 * generate Test JUnit @SpringBootTest
 * sample using scaffold
 * remove prefix cli
