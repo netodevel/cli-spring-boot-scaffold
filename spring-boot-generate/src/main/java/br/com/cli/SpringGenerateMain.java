@@ -41,7 +41,6 @@ public class SpringGenerateMain {
 				break;
 
 			case GENERATE_MODEL:
-
                 new ModelGenerate(optionValue, Parameter.getParametersGenerate(optionValues));
 				break;
 

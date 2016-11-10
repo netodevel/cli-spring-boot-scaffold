@@ -6,7 +6,11 @@ import java.io.UnsupportedEncodingException;
 
 public class ModelGenerate implements IGenerate {
 
+	private AbstractModelGenerate abstractModelGenerate;
+	
 	public ModelGenerate(String optionValue, String parameter) {
+		abstractModelGenerate = new AbstractModelGenerate();
+		abstractModelGenerate.generate(optionValue, parameter);
 		generate(optionValue, parameter);
 	}
 
@@ -24,7 +28,7 @@ public class ModelGenerate implements IGenerate {
 				writer.println("");
 				writer.println("@Entity");
 				writer.println("@Table(name = \"" + CLASS_NAME.toLowerCase() + "s" + "\")");
-				writer.println("class " + CLASS_NAME + " (@Id val id:Long, " + generateParams(PARAMS) + ") {}");
+				writer.println("class " + CLASS_NAME + " (@Id val id:Long, " + generateParams(PARAMS) + ") : AbstractModel<Long>() {}");
 				writer.close();
 				System.out.println("invoke spring data-jpa");
 				System.out.println("create src/main/java/br/com/scaffold/model/" + CLASS_NAME + ".kt");
