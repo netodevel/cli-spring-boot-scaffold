@@ -1,13 +1,9 @@
 package br.com.generate;
 
 import java.io.File;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ProjectGenerate {
 	
-	private static Logger LOGGER = Logger.getLogger(ProjectGenerate.class.getName());
-
 	public ProjectGenerate(String optionValue) {
 		generate(optionValue);
 	}
@@ -24,32 +20,32 @@ public class ProjectGenerate {
 			 * src/main/java
 			 */
 			Boolean dirJavaSoruces = new File(baseDirProject + "\\src\\main\\java").mkdirs();
-			if (dirJavaSoruces) { LOGGER.info("src\\main\\java created"); }
+			if (dirJavaSoruces) { System.out.println("src\\main\\java created"); }
 
 			/**
 			 * src/main/resources
 			 */
 			Boolean dirJavaResources = new File(baseDirProject + "\\src\\main\\resources").mkdirs();
-			if (dirJavaResources) { LOGGER.info("src\\main\\resources created"); }
+			if (dirJavaResources) { System.out.println("src\\main\\resources created");  }
 
 			/**
 			 * src/test/java
 			 */
 			Boolean dirTestJavaSources = new File(baseDirProject + "\\src\\test\\java").mkdirs();
-			if (dirTestJavaSources) { LOGGER.info("src\\test\\java created"); }
+			if (dirTestJavaSources) { System.out.println("src\\test\\java created"); }
 
 			
 			/**
 			 * src/test/resources
 			 */
 			Boolean dirTestResouces = new File(baseDirProject + "\\src\\test\\resources").mkdirs();
-			if (dirTestResouces) { LOGGER.info("src\\test\\resources created"); }
+			if (dirTestResouces) { System.out.println("src\\test\\resources created"); }
 			
 			/**
 			 * target
 			 */
 			Boolean dirTarget = new File(baseDirProject + "\\target").mkdir();
-			if (dirTarget) {	LOGGER.info("\\target created"); }
+			if (dirTarget) { System.out.println("\\target created"); }
 			
 			/**
 			 * Pom Generate
@@ -69,8 +65,7 @@ public class ProjectGenerate {
 			MainGenerate mainGenerate = new MainGenerate();
 			mainGenerate.generate(baseDirProject);
 			
-			LOGGER.info("project created!");
-			
+			System.out.println("Project created");
 		} else {
 			System.out.println("failed to created project!");
 		}

@@ -24,7 +24,7 @@ public class ModelGenerate implements IGenerate {
 				writer.println("");
 				writer.println("@Entity");
 				writer.println("@Table(name = \"" + CLASS_NAME.toLowerCase() + "s" + "\")");
-				writer.println("class " + CLASS_NAME + " (" + generateParams(PARAMS) + ") {}");
+				writer.println("class " + CLASS_NAME + " (@Id val id:Long, " + generateParams(PARAMS) + ") {}");
 				writer.close();
 				System.out.println("invoke spring data-jpa");
 				System.out.println("create src/main/java/br/com/scaffold/model/" + CLASS_NAME + ".kt");
