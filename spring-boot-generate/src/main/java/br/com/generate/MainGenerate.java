@@ -30,6 +30,7 @@ public class MainGenerate implements IGenerate {
 				writer.println("		ObjectMapper mapper = new ObjectMapper();");
 				writer.println("		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);");
 				writer.println("		mapper.configure(MapperFeature.DEFAULT_VIEW_INCLUSION, true);");
+				writer.println("		mapper.registerModule(new KotlinModule());");
 				writer.println("		return mapper;");
 				writer.println("	}");
 				writer.println("}");
