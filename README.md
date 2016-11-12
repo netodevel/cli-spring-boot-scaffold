@@ -3,6 +3,8 @@
 #About
 Generate api scaffold kotlin with spring boot rest, create api rest with kotlin and spring boot easy and productive.
 
+Scaffold for java web !
+
 
 #Alert
 In development, help us make a fork!
