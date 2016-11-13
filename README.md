@@ -1,11 +1,29 @@
+https://codeship.com/projects/e4a1d8b0-8b71-0134-1c87-26c6b97868f1/status?branch=master
+
 # spring-boot-scaffold-kotlin
 
 #About
 Generate api scaffold kotlin with spring boot rest, create api rest with kotlin and spring boot easy and productive.
 
-Scaffold for java web !
+Scaffold for java web, generate clean with simple classes.
 
 
+
+#Architecture
+
+           __br
+              __com
+                  __scaffold
+                           MainApplication.java
+                           __domain
+                                 Model.kt
+                           __repository
+                                 Repository.kt
+                           __service
+                                 Service.kt
+                           __controller
+                                 Controller.kt
+        
 #Alert
 In development, help us make a fork!
 
@@ -15,7 +33,7 @@ In development, help us make a fork!
 * nodejs
 
 
-#Install
+#Install (windows)
          npm install spring-boot-api-scaffold@0.0.1
 
 #Usage
