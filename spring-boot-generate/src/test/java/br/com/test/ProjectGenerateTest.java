@@ -17,25 +17,25 @@ public class ProjectGenerateTest {
 	private String nameProject = "testProject";
 	private String currentLocation; 
 	private String baseDirProject; 
-	
+
 	@Before
 	public void setUp() {
 		projectGenerate = new ProjectGenerate(nameProject);
 		currentLocation = System.getProperty("user.dir"); 
 		baseDirProject = currentLocation + "\\" + nameProject;
 	}
-	
+
 	@Test
 	public void testCreatedProject() {
 		File project = new File(baseDirProject);
 		Assert.assertTrue(project.exists());
 	}
-	
+
 	@Test
 	public void testCreatedProjectAlreadyExists() {
 		Assert.assertFalse(projectGenerate.generate(nameProject));
 	}
-	
+
 	@After
 	public void tearDown() {
 		File project = new File(baseDirProject);
@@ -45,5 +45,5 @@ public class ProjectGenerateTest {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 }
