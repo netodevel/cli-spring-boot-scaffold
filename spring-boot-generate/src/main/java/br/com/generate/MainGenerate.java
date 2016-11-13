@@ -52,6 +52,7 @@ public class MainGenerate implements IGenerate {
 		print.println("import com.fasterxml.jackson.databind.DeserializationFeature;");
 		print.println("import com.fasterxml.jackson.databind.MapperFeature;");
 		print.println("import com.fasterxml.jackson.databind.ObjectMapper;");
+		print.println("import com.fasterxml.jackson.module.kotlin.KotlinModule;");
 	}
 
 	@Override
