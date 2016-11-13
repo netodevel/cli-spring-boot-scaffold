@@ -8,7 +8,7 @@ public class ProjectGenerate {
 		generate(optionValue);
 	}
 
-	public void generate(String nameProject) {
+	public boolean generate(String nameProject) {
 
 		String currentLocation = System.getProperty("user.dir");
 		String baseDirProject = currentLocation + "\\" + nameProject;
@@ -66,8 +66,10 @@ public class ProjectGenerate {
 			mainGenerate.generate(baseDirProject);
 			
 			System.out.println(ColorsConsole.ANSI_GREEN +"created project successful");
+			return true;
 		} else {
 			System.out.println(ColorsConsole.ANSI_RED + "project already exists");
+			return false;
 		}
 	}
 
