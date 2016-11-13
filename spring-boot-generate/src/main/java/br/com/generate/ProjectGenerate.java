@@ -65,9 +65,9 @@ public class ProjectGenerate {
 			MainGenerate mainGenerate = new MainGenerate();
 			mainGenerate.generate(baseDirProject);
 			
-			System.out.println("Project created");
+			System.out.println(ColorsConsole.ANSI_GREEN +"created project successful");
 		} else {
-			System.out.println("failed to created project!");
+			System.out.println(ColorsConsole.ANSI_RED + "project already exists");
 		}
 	}
 
