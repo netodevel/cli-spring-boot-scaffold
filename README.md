@@ -38,8 +38,8 @@ In development. Help us! Make a fork!
 ###or add the environment variable
 
 ###windows
-   * [cli.bat](cli.bat)
-   * [spring-api-kotlin-0.1.jar]()
+   * [cli.bat](https://raw.githubusercontent.com/NetoDevel/spring-boot-scaffold-kotlin/master/spring-boot-generate/src/main/resources/install/windows/cli.bat)
+   * [spring-api-kotlin-0.1.jar](https://raw.githubusercontent.com/NetoDevel/spring-boot-scaffold-kotlin/master/spring-boot-generate/src/main/resources/install/windows/spring-api-kotlin-0.1.jar)
 
 ###Linux
    * todo
