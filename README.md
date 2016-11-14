@@ -30,8 +30,20 @@ In development. Help us! Make a fork!
          
 * java
 
-#Install (windows)
-         npm install spring-boot-api-scaffold@0.0.1
+#Install 
+
+###Using npm (windows) linux(todo)
+     npm install spring-boot-api-scaffold@0.0.1
+
+###or add the environment variable
+
+###windows
+   * [cli.bat](cli.bat)
+   * [spring-api-kotlin-0.1.jar]()
+
+###Linux
+   * todo
+
 
 #Usage
 
