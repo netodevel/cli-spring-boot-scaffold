@@ -2,9 +2,9 @@
 # spring-boot-scaffold-kotlin
 
 #About
-Generate api scaffold kotlin with spring boot rest, create api rest with kotlin and spring boot easy and productive.
+Generate api scaffold kotlin with spring boot rest, creating a api rest with kotlin and spring boot in an easy and productive way.
 
-Scaffold for java web, generate clean with simple classes.
+Scaffold for java web, a clean generate with simple classes.
 
 
 
@@ -24,13 +24,11 @@ Scaffold for java web, generate clean with simple classes.
                                  Controller.kt
         
 #Alert
-In development, help us make a fork!
+In development. Help us! Make a fork!
 
 #Requeriments
          
 * java
-* nodejs
-
 
 #Install (windows)
          npm install spring-boot-api-scaffold@0.0.1
