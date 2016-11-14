@@ -1,0 +1,1 @@
+java -jar spring-api-kotlin-0.1.jar %*
