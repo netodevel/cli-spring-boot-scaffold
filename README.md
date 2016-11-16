@@ -37,12 +37,7 @@ In development. Help us! Make a fork!
 
 ###or add the environment variable
 
-###windows
-   * [cli.bat](https://raw.githubusercontent.com/NetoDevel/spring-boot-scaffold-kotlin/master/spring-boot-generate/src/main/resources/install/windows/cli.bat)
-   * [spring-api-kotlin-0.1.jar](https://raw.githubusercontent.com/NetoDevel/spring-boot-scaffold-kotlin/master/spring-boot-generate/src/main/resources/install/windows/spring-api-kotlin-0.1.jar)
-
-###Linux
-   * todo
+ Acess the branch [install](https://github.com/NetoDevel/spring-boot-scaffold-kotlin/tree/install)
 
 
 #Usage
@@ -76,7 +71,7 @@ In development. Help us! Make a fork!
 * validates types variables
 * validates exists project,class
 * set package to generate
-* install linux/windows single package node
+* install linux single package node
 * gradle support
 * generate Test JUnit @SpringBootTest
 * sample using scaffold
