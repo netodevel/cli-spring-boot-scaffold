@@ -32,11 +32,6 @@ In development. Help us! Make a fork!
 
 #Install 
 
-###Using npm (windows) linux(todo)
-     npm install spring-boot-api-scaffold@0.0.1
-
-###or add the environment variable
-
  Acess the branch [install](https://github.com/NetoDevel/spring-boot-scaffold-kotlin/tree/install)
 
 
@@ -71,7 +66,6 @@ In development. Help us! Make a fork!
 * validates types variables
 * validates exists project,class
 * set package to generate
-* install linux single package node
 * gradle support
 * generate Test JUnit @SpringBootTest
 * sample using scaffold
