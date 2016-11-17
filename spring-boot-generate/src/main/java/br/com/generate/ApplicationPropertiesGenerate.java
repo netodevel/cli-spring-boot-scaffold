@@ -12,7 +12,7 @@ public class ApplicationPropertiesGenerate implements IGenerate {
 		String BASE_DIR = params[0];
 		PrintWriter writer = null;
 		try {
-			File file = new File(BASE_DIR + "src/main/resources/application.properties");
+			File file = new File(BASE_DIR + "/src/main/resources/application.properties");
 			file.getParentFile().mkdirs();
 			writer = new PrintWriter(file, "UTF-8");
 			writer.println("spring.datasource.url=jdbc:mysql://localhost/apikotlin");
