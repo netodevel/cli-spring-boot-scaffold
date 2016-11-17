@@ -13,7 +13,7 @@ public class MainGenerate implements IGenerate {
 		if (validateFile("MainApplication.java")) {
 			PrintWriter writer = null;
 			try {
-				File file = new File(BASE_DIR + "\\src\\main\\java\\br\\com\\scaffold\\MainApplication.java");
+				File file = new File(BASE_DIR + "/src/main/java/br/com/scaffold/MainApplication.java");
 				file.getParentFile().mkdirs();
 				writer = new PrintWriter(file, "UTF-8");
 				imports(writer, params);

@@ -14,7 +14,7 @@ public class PomGenerate implements IGenerate {
 		
 		PrintWriter writer = null;
 		try {
-			File file = new File(BASE_DIR + "\\pom.xml");
+			File file = new File(BASE_DIR + "/pom.xml");
 			file.getParentFile().mkdirs();
 			writer = new PrintWriter(file, "UTF-8");
 			writer.println("<project xmlns='http://maven.apache.org/POM/4.0.0' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd'>");
