@@ -82,6 +82,12 @@ public class ProjectGenerate {
 			applicationPropertiesGenerate.generate(baseDirProject);
 
 			/**
+			 * Scaffold.info
+			 */
+			ScaffoldInfoGenerate scaffoldInfoGenerate = new ScaffoldInfoGenerate();
+			scaffoldInfoGenerate.generate(baseDirProject);
+
+			/**
 			 * MainApplicationRUN
 			 */
 			MainGenerate mainGenerate = new MainGenerate();
