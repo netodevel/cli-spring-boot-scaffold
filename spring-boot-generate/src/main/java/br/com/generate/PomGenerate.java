@@ -11,6 +11,7 @@ public class PomGenerate implements IGenerate {
 	public void generate(String... params) {
 		String BASE_DIR = params[0];
 		String NAME_PROJECT = params[1];
+		String DATABASE = params[2];
 		
 		PrintWriter writer = null;
 		try {
@@ -55,10 +56,18 @@ public class PomGenerate implements IGenerate {
 			writer.println("			<version>2.0.0</version>");
 			writer.println("			<scope>test</scope>");
 			writer.println("		</dependency>");
-			writer.println("		<dependency>");
-			writer.println("			<groupId>mysql</groupId>");
-			writer.println("			<artifactId>mysql-connector-java</artifactId>");
-			writer.println("		</dependency>");
+			if(DatabaseConfiguration.MYSQL.equals(DATABASE)){
+				writer.println("		<dependency>");
+				writer.println("			<groupId>mysql</groupId>");
+				writer.println("			<artifactId>mysql-connector-java</artifactId>");
+				writer.println("		</dependency>");
+			} else if(DatabaseConfiguration.POSTGRES.equals(DATABASE)){
+				writer.println("		<dependency>");
+				writer.println("			<groupId>org.postgresql</groupId>");
+				writer.println("			<artifactId>postgresql</artifactId>");
+				writer.println("			<version>9.1-901-1.jdbc4</version>");
+				writer.println("		</dependency>");
+			}
 			writer.println("		<dependency>");
 			writer.println("			<groupId>com.fasterxml.jackson.module</groupId>");
 			writer.println("			<artifactId>jackson-module-kotlin</artifactId>");
