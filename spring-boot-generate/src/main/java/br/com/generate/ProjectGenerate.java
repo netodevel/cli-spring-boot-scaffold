@@ -9,11 +9,11 @@ import java.nio.file.Paths;
 
 public class ProjectGenerate {
 	
-	public ProjectGenerate(String optionValue) {
-		generate(optionValue);
+	public ProjectGenerate(String nameProject, String database) {
+		generate(nameProject, database);
 	}
 
-	public boolean generate(String nameProject) {
+	public boolean generate(String nameProject, String database) {
 		String baseDirProject = null;
 		String currentLocation = null;
 
@@ -25,10 +25,10 @@ public class ProjectGenerate {
 			baseDirProject = currentLocation + "\\" + nameProject;
 		}
 		boolean project = new File(baseDirProject).mkdir();
-		return generateProject(nameProject, baseDirProject, project);
+		return generateProject(nameProject, baseDirProject, project, database);
 	}
 
-	private boolean generateProject(String nameProject, String baseDirProject, boolean project) {
+	private boolean generateProject(String nameProject, String baseDirProject, boolean project, String database) {
 		if (project) {
 
 			Project projectGenerate = null;
@@ -73,13 +73,13 @@ public class ProjectGenerate {
 			 * Pom Generate
 			 */
 			PomGenerate pomGenerate = new PomGenerate();
-			pomGenerate.generate(baseDirProject, nameProject);
+			pomGenerate.generate(baseDirProject, nameProject, database);
 
 			/**
 			 * application.properties generate
 			 */
 			ApplicationPropertiesGenerate applicationPropertiesGenerate = new ApplicationPropertiesGenerate();
-			applicationPropertiesGenerate.generate(baseDirProject);
+			applicationPropertiesGenerate.generate(baseDirProject, database);
 
 			/**
 			 * Scaffold.info

@@ -5,17 +5,20 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
+import static br.com.generate.DatabaseConfiguration.*;
+
 public class ApplicationPropertiesGenerate implements IGenerate {
 
 	@Override
 	public void generate(String... params) {
 		String BASE_DIR = params[0];
+		String DATABASE = params[1];
 		PrintWriter writer = null;
 		try {
 			File file = new File(BASE_DIR + "/src/main/resources/application.properties");
 			file.getParentFile().mkdirs();
 			writer = new PrintWriter(file, "UTF-8");
-			writer.println("spring.datasource.url=jdbc:mysql://localhost/apikotlin");
+			writer.println("spring.datasource.url=jdbc:"+DATABASE+"://localhost"+ getPort(DATABASE)+"/apikotlin");
 			writer.println("spring.datasource.username=root");
 			writer.println("spring.datasource.password=root");
 			writer.println("spring.datasource.tomcat.test-on-borrow=true");

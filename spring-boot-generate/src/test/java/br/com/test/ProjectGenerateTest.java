@@ -15,12 +15,13 @@ public class ProjectGenerateTest {
 
 	private ProjectGenerate projectGenerate;
 	private String nameProject = "testProject";
+	private String database = "database";
 	private String currentLocation; 
 	private String baseDirProject; 
 
 	@Before
 	public void setUp() {
-		projectGenerate = new ProjectGenerate(nameProject);
+		projectGenerate = new ProjectGenerate(nameProject, database);
 		currentLocation = System.getProperty("user.dir"); 
 		baseDirProject = currentLocation + "\\" + nameProject;
 	}
@@ -33,7 +34,7 @@ public class ProjectGenerateTest {
 
 	@Test
 	public void testCreatedProjectAlreadyExists() {
-		Assert.assertFalse(projectGenerate.generate(nameProject));
+		Assert.assertFalse(projectGenerate.generate(nameProject, database));
 	}
 
 	@After
