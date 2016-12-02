@@ -1,7 +1,9 @@
 package br.com.attributes;
 
 /**
- * Created by josevieira on 11/17/16.
+ * 
+ * @author NetoDevel
+ *
  */
 public class Project {
 

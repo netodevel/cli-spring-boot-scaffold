@@ -2,7 +2,6 @@ package br.com.cli;
 
 import java.util.logging.Logger;
 
-import br.com.generate.*;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.GnuParser;
@@ -10,6 +9,16 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import br.com.factory.GenerateFactory;
+import br.com.generate.Command;
+import br.com.generate.DatabaseConfiguration;
+import br.com.generate.Parameter;
+
+/**
+ * 
+ * @author NetoDevel
+ *
+ */
 public class SpringGenerateMain {
 
 	@SuppressWarnings("unused")
@@ -22,7 +31,6 @@ public class SpringGenerateMain {
 	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 		options.addOption(OptionBuilder.withLongOpt("spring").withDescription("path to generates").hasArgs().withArgName("PATHS").create());
-
 		CommandLineParser parser = new GnuParser();
 		CommandLine line = null;
 
@@ -37,45 +45,8 @@ public class SpringGenerateMain {
         String projectName = optionValues[PROJECT_NAME];
 		String database = DatabaseConfiguration.getDataBase(optionValues);
 
-		switch (command){
-
-			case GENERATE_PROJECT:
-
-                new ProjectGenerate(projectName, database);
-				break;
-
-			case GENERATE_MODEL:
-                new ModelGenerate(projectName, Parameter.getParametersGenerate(optionValues));
-				break;
-
-			case GENERATE_REPOSITORY:
-
-                new RepositoryGenerate(projectName);
-				break;
-
-			case GENERATE_SERVICE:
-
-                new ServiceGenerate(projectName);
-				break;
-
-			case GENERATE_CONTROLLER:
-
-                new ControllerGenerate(projectName);
-				break;
-
-			case GENERATE_SCAFFOLD:
-
-                new ModelGenerate(projectName, Parameter.getParametersGenerate(optionValues));
-
-                new RepositoryGenerate(projectName);
-
-                new ServiceGenerate(projectName);
-
-                new ControllerGenerate(projectName);
-
-				break;
-		}
-
+		GenerateFactory generateFactory = new GenerateFactory();
+		generateFactory.getStrategy(command.getCommand(), projectName, Parameter.getParametersGenerate(optionValues), database);
 	}
 
 }

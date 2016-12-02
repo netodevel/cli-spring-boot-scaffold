@@ -1,15 +1,25 @@
-package br.com.generate;
+package br.com.strategy;
 
 import br.com.attributes.Project;
+import br.com.generate.ApplicationPropertiesGenerate;
+import br.com.generate.ColorsConsole;
+import br.com.generate.MainGenerate;
+import br.com.generate.PomGenerate;
+import br.com.generate.ScaffoldInfoGenerate;
 import br.com.util.DirectorysLinux;
 import br.com.util.DirectorysWindows;
 import org.apache.commons.lang.SystemUtils;
 import java.io.File;
 import java.nio.file.Paths;
 
-public class ProjectGenerate {
+/**
+ * Provider the generate of a project maven
+ * @author NetoDevel
+ *
+ */
+public class ProjectGenerateStrategy {
 	
-	public ProjectGenerate(String nameProject, String database) {
+	public ProjectGenerateStrategy(String nameProject, String database) {
 		generate(nameProject, database);
 	}
 

@@ -1,13 +1,18 @@
-package br.com.generate;
+package br.com.strategy;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-public class ControllerGenerate implements IGenerate {
+/**
+ * Provider the generate of a controller
+ * @author NetoDevel
+ *
+ */
+public class ControllerGenerateStrategy implements IGenerate {
 
-	public ControllerGenerate(String optionValue) {
+	public ControllerGenerateStrategy(String optionValue) {
 		generate(optionValue);
 	}
 

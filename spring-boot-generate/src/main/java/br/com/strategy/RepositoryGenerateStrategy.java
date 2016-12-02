@@ -1,12 +1,17 @@
-package br.com.generate;
+package br.com.strategy;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-public class RepositoryGenerate implements IGenerate {
+/**
+ * Provider the generate of a repository JPA
+ * @author Jose
+ *
+ */
+public class RepositoryGenerateStrategy implements IGenerate {
 
-	public RepositoryGenerate(String optionValue) {
+	public RepositoryGenerateStrategy(String optionValue) {
 		generate(optionValue);
 	}
 

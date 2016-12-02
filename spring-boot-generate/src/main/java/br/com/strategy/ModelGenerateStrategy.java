@@ -1,14 +1,21 @@
-package br.com.generate;
+package br.com.strategy;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-public class ModelGenerate implements IGenerate {
+import br.com.generate.AbstractModelGenerate;
+
+/**
+ * Provider the generate of a model/entity
+ * @author NetoDevel
+ *
+ */
+public class ModelGenerateStrategy implements IGenerate {
 
 	private AbstractModelGenerate abstractModelGenerate;
 	
-	public ModelGenerate(String optionValue, String parameter) {
+	public ModelGenerateStrategy(String optionValue, String parameter) {
 		abstractModelGenerate = new AbstractModelGenerate();
 		abstractModelGenerate.generate(optionValue, parameter);
 		generate(optionValue, parameter);

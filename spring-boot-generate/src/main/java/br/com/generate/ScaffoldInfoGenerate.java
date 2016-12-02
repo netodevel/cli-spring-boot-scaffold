@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
+import br.com.strategy.IGenerate;
+
 /**
  * Created by josevieira on 11/24/16.
  */
@@ -19,7 +21,7 @@ public class ScaffoldInfoGenerate implements IGenerate {
             file.getParentFile().mkdirs();
             writer = new PrintWriter(file, "UTF-8");
             imports(writer, params);
-            writer.println("package-name:");
+            writer.println("package:");
             writer.println("database:");
             writer.println("username:");
             writer.println("password:");

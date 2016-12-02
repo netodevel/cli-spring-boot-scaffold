@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
+import br.com.strategy.IGenerate;
+
 import static br.com.generate.DatabaseConfiguration.*;
 
 public class ApplicationPropertiesGenerate implements IGenerate {

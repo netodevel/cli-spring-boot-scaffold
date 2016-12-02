@@ -1,13 +1,18 @@
-package br.com.generate;
+package br.com.strategy;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-public class ServiceGenerate implements IGenerate {
+/**
+ * Provider the generate of a service
+ * @author Jose
+ *
+ */
+public class ServiceGenerateStrategy implements IGenerate {
 
-	public ServiceGenerate(String optionValue) {
+	public ServiceGenerateStrategy(String optionValue) {
 		generate(optionValue);
 	}
 

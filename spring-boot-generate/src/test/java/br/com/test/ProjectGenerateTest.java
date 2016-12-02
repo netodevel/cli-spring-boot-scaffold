@@ -9,11 +9,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.generate.ProjectGenerate;
+import br.com.strategy.ProjectGenerateStrategy;
 
 public class ProjectGenerateTest {
 
-	private ProjectGenerate projectGenerate;
+	private ProjectGenerateStrategy projectGenerate;
 	private String nameProject = "testProject";
 	private String database = "database";
 	private String currentLocation; 
@@ -21,7 +21,7 @@ public class ProjectGenerateTest {
 
 	@Before
 	public void setUp() {
-		projectGenerate = new ProjectGenerate(nameProject, database);
+		projectGenerate = new ProjectGenerateStrategy(nameProject, database);
 		currentLocation = System.getProperty("user.dir"); 
 		baseDirProject = currentLocation + "\\" + nameProject;
 	}

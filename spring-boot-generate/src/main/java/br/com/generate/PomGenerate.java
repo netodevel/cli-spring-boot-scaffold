@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
+import br.com.strategy.IGenerate;
+
 public class PomGenerate implements IGenerate {
 
 	@Override

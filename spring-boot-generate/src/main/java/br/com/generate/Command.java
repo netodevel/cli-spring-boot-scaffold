@@ -13,7 +13,7 @@ public enum Command {
     GENERATE_SERVICE("service"),
     GENERATE_CONTROLLER("controller"),
     GENERATE_SCAFFOLD("scaffold"),
-    GENERATE_PROJECT("new");
+    GENERATE_PROJECT("init");
 
     private String command;
 
