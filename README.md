@@ -11,7 +11,7 @@ Scaffold for java web, a clean generate with simple classes.
 
 
 
-#Architecture
+#Structure
 
            __br
               __com
@@ -42,7 +42,11 @@ In development. Help us! Make a fork!
 
 ###Create project
 
-         cli -spring g new my-project
+         cli -spring g init my-project
+         
+###Enter in project
+        
+         cd my-project
 
 ###Generate model
    
