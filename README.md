@@ -32,41 +32,18 @@ In development. Help us! Make a fork!
 #Requeriments
          
 * java
+* Spring Boot CLI (1.4.1 or higher):
 
-#Install 
+#Install (todo)
+ 
+    $ spring version
+    Spring CLI v1.4.1.RELEASE
 
- Acess the branch [install](https://github.com/NetoDevel/spring-boot-scaffold-kotlin/tree/install)
+And install the Spring Scaffold plugin
 
+    $ mvn install
+    $ spring install br.com.netodevel: spring-scaffold-cli: 1.0.0.BUILD-SNAPSHOT
 
-#Usage
-
-###Create project
-
-         cli -spring g init my-project
-         
-###Enter in project
-        
-         cd my-project
-
-###Generate model
-   
-        cli -spring g model User mail:String password:String
-
-###Generate repository
-
-        cli -spring g repository User 
-
-###Generate service
-        
-        cli -spring g service User
-        
-###Generate controller
-
-        cli -spring g controller User
-        
-###Generate scaffold
-
-        cli -spring g scaffold User mail:String password:String
 
 ###Todo
 
@@ -76,7 +53,6 @@ In development. Help us! Make a fork!
 * gradle support
 * generate Test JUnit @SpringBootTest
 * sample using scaffold
-* remove prefix cli
 
 ###Acknowledgment
          
