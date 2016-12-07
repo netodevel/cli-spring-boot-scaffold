@@ -9,6 +9,7 @@ import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
 import br.com.strategy.ControllerGenerateStrategy;
+import br.com.strategy.MainGenerateStrategy;
 import br.com.strategy.ModelGenerateStrategy;
 import br.com.strategy.RepositoryGenerateStrategy;
 import br.com.strategy.ServiceGenerateStrategy;
@@ -40,6 +41,7 @@ public class ScaffoldHandler extends OptionHandler {
 	}
 
 	private void generateScaffold(String nameClass, String parametersClass) {
+		new MainGenerateStrategy("");
 		new ModelGenerateStrategy(nameClass, parametersClass);
 		new RepositoryGenerateStrategy(nameClass);
 		new ServiceGenerateStrategy(nameClass);

@@ -1,13 +1,29 @@
-package br.com.generate;
+package br.com.strategy;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.nio.file.Paths;
 
-import br.com.strategy.IGenerate;
+import org.apache.commons.lang.SystemUtils;
 
-public class MainGenerate implements IGenerate {
+
+/**
+ * @author NetoDevel
+ * @since 0.0.1
+ */
+public class MainGenerateStrategy implements IGenerate {
+	
+	public MainGenerateStrategy(String optionValue) {
+		String currentLocation = null;
+		if (SystemUtils.IS_OS_LINUX) {
+			currentLocation = Paths.get(".").toAbsolutePath().toString();
+		} else if (SystemUtils.IS_OS_WINDOWS) {
+			currentLocation = System.getProperty("user.dir");
+		}
+		generate(currentLocation);
+	}
 	
 	@Override
 	public void generate(String... params) {
