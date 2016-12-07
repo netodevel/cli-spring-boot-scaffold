@@ -5,6 +5,7 @@ import java.util.Arrays;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
+import br.com.strategy.ModelGenerateStrategy;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 
@@ -15,8 +16,10 @@ import joptsimple.OptionSpec;
  */
 public class ModelHandler extends OptionHandler {
 
+	@SuppressWarnings("unused")
 	private OptionSpec<String> nameEntity;
 	
+	@SuppressWarnings("unused")
 	private OptionSpec<String> parametersEntity;
 	
 	@Override
@@ -31,11 +34,11 @@ public class ModelHandler extends OptionHandler {
 	protected ExitStatus run(OptionSet options) throws Exception {
 		String nameClass = (String) options.valueOf("n");
 		String parametersClass = (String) options.valueOf("p");
-		generateProject(nameClass, parametersClass);
+		generateModel(nameClass, parametersClass);
 		return ExitStatus.OK;
 	}
 
-	private void generateProject(String nameClass, String parameterClass) {
-		System.out.println("generate model: " + nameClass + parameterClass);
+	private void generateModel(String nameClass, String parameterClass) {
+		new ModelGenerateStrategy(nameClass, parameterClass);
 	}
 }
