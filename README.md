@@ -34,7 +34,7 @@ In development. Help us! Make a fork!
 * java
 * Spring Boot CLI (1.4.1 or higher):
 
-#Install (todo)
+#Install
  
     $ spring version
     Spring CLI v1.4.1.RELEASE
@@ -53,6 +53,7 @@ And install the Spring Scaffold plugin
 * gradle support
 * generate Test JUnit @SpringBootTest
 * sample using scaffold
+* add dependecies in pom.xml
 
 ###Acknowledgment
          
