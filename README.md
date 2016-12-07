@@ -42,7 +42,7 @@ In development. Help us! Make a fork!
 And install the Spring Scaffold plugin
 
     $ mvn install
-    $ spring install br.com.netodevel: spring-scaffold-cli: 1.0.0.BUILD-SNAPSHOT
+    $ spring install br.com.netodevel:spring-scaffold-cli:1.0.0.BUILD-SNAPSHOT
 
 
 ###Todo
