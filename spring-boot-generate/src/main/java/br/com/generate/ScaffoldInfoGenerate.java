@@ -8,7 +8,8 @@ import java.io.UnsupportedEncodingException;
 import br.com.strategy.IGenerate;
 
 /**
- * Created by josevieira on 11/24/16.
+ * @author NetoDevel
+ * @since 0.0.1
  */
 public class ScaffoldInfoGenerate implements IGenerate {
 

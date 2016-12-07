@@ -3,9 +3,8 @@ package br.com.strategy;
 import java.io.PrintWriter;
 
 /**
- * 
  * @author NetoDevel
- *
+ * @since 0.0.1
  */
 public interface IGenerate {
 	public void generate(String... params);

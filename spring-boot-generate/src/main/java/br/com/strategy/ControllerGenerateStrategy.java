@@ -8,6 +8,7 @@ import java.io.UnsupportedEncodingException;
 /**
  * Provider the generate of a controller
  * @author NetoDevel
+ * @since 0.0.1
  *
  */
 public class ControllerGenerateStrategy implements IGenerate {

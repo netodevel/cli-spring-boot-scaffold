@@ -9,16 +9,16 @@ import br.com.generate.AbstractModelGenerate;
 /**
  * Provider the generate of a model/entity
  * @author NetoDevel
- *
+ * @since 0.0.1
  */
 public class ModelGenerateStrategy implements IGenerate {
 
 	private AbstractModelGenerate abstractModelGenerate;
 	
-	public ModelGenerateStrategy(String optionValue, String parameter) {
+	public ModelGenerateStrategy(String nameClass, String parameter) {
 		abstractModelGenerate = new AbstractModelGenerate();
-		abstractModelGenerate.generate(optionValue, parameter);
-		generate(optionValue, parameter);
+		abstractModelGenerate.generate(nameClass, parameter);
+		generate(nameClass, parameter);
 	}
 
 	public void generate(String... params) {

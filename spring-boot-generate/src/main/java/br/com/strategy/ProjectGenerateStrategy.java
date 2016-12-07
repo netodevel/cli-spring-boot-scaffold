@@ -15,7 +15,7 @@ import java.nio.file.Paths;
 /**
  * Provider the generate of a project maven
  * @author NetoDevel
- *
+ * @since 0.0.1
  */
 public class ProjectGenerateStrategy {
 	

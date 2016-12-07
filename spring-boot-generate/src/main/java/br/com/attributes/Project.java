@@ -1,9 +1,8 @@
 package br.com.attributes;
 
 /**
- * 
  * @author NetoDevel
- *
+ * @since 0.0.1
  */
 public class Project {
 

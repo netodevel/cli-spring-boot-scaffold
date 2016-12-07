@@ -1,7 +1,8 @@
 package br.com.util;
 
 /**
- * Created by josevieira on 11/17/16.
+ * @author NetoDevel
+ * @since 0.0.1
  */
 public class DirectorysLinux {
 

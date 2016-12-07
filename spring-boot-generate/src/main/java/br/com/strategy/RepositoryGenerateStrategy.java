@@ -7,7 +7,7 @@ import java.io.UnsupportedEncodingException;
 /**
  * Provider the generate of a repository JPA
  * @author Jose
- *
+ * @since 0.0.1
  */
 public class RepositoryGenerateStrategy implements IGenerate {
 
