@@ -24,17 +24,17 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.github.NetoDevel</groupId>
-			<artifactId>spring-boot-scaffold-kotlin</artifactId>
-			<version>0.0.1</version>
+			<groupId>br.com</groupId>
+			<artifactId>spring-boot-generate</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
 	</dependencies>
 
 	<repositories>
 		<repository>
-			<id>jitpack.io</id>
-			<url>https://jitpack.io</url>
+			<id>my-local-repo</id>
+			<url>https://github.com/NetoDevel/spring-boot-scaffold-kotlin/tree/master/spring-boot-generate</url>
 		</repository>
 	</repositories>
 
