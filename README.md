@@ -13,18 +13,18 @@ Scaffold for java web, a clean generate with simple classes.
 
 #Structure
 
-           __br
-              __com
-                  __scaffold
-                           MainApplication.java
-                           __domain
-                                 Model.kt
-                           __repository
-                                 Repository.kt
-                           __service
-                                 Service.kt
-                           __controller
-                                 Controller.kt
+    __br
+       __com
+           __scaffold
+                    MainApplication.java
+                    __domain
+                          Model.kt
+                    __repository
+                          Repository.kt
+                    __service
+                          Service.kt
+                    __controller
+                          Controller.kt
         
 #Alert
 In development. Help us! Make a fork!
@@ -43,6 +43,13 @@ And install the Spring Scaffold plugin
 
     $ mvn install
     $ spring install br.com.netodevel:spring-scaffold-cli:0.0.1-SNAPSHOT
+
+
+#Usage
+
+    $ spring init my-project
+    $ cd my-project
+    $ spring scaffold -n User -p name:String email:String
 
 
 ###Todo
