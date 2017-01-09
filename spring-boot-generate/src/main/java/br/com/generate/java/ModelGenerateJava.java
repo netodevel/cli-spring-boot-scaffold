@@ -1,0 +1,91 @@
+package br.com.generate.java;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+
+import br.com.strategy.IGenerate;
+
+/**
+ * @author NetoDevel
+ */
+public class ModelGenerateJava implements IGenerate {
+
+
+	public ModelGenerateJava(String nameClass, String parameters) {
+		generate(nameClass, parameters);
+	}
+	
+	@Override
+	public void generate(String... params) {
+		String CLASS_NAME = params[0];
+		String PARAMS = params[1];
+		
+		if (validateFile(CLASS_NAME)) {
+			PrintWriter writer = null;
+			try {
+				File file = new File("src/main/java/br/com/scaffold/model/" + CLASS_NAME + ".java");
+				file.getParentFile().mkdirs();
+				writer = new PrintWriter(file, "UTF-8");
+				imports(writer, params);
+				writer.println(""); 
+				writer.println("@Entity"); //TODO: add lombok annotation.
+				writer.println("@Table(name = \"" + CLASS_NAME.toLowerCase() + "s" + "\")");
+				writer.println("class " + CLASS_NAME + " extends AbstractModel<Long>() {");
+				writer.println("");
+				writer.println(generateParams(PARAMS));
+				writer.println("");
+				writer.println("}");
+				writer.close();
+				System.out.println("invoke spring data-jpa");
+				System.out.println("create src/main/java/br/com/scaffold/model/" + CLASS_NAME + ".java");
+			} catch (FileNotFoundException e) {
+			} catch (UnsupportedEncodingException e) {
+			}
+		}
+	}
+
+	@Override
+	public void imports(PrintWriter print, String[] namesClass) {
+		print.println("package br.com.scaffold.model;");
+		print.println("import javax.persistence.Entity;");
+		print.println("import javax.persistence.Table;");
+		print.println("import javax.persistence.Id;");
+		print.println("import javax.persistence.GenerationType;");
+		print.println("import javax.persistence.GeneratedValue;");
+	}
+
+	@Override
+	public String generateParams(String params) {
+		final int NAME_VARIABLE = 0;
+		final int TYPE_VARIABLE = 1;
+		
+		String[] variablesSplits = params.split(" ");
+		String[] typeAndNameVars = {""};
+		
+		String finalParameters = "";
+		for (int i = 0; i < variablesSplits.length; i++) {
+
+			typeAndNameVars = variablesSplits[i].split(":");
+			
+			String column = "    @Column(name = '" + typeAndNameVars[NAME_VARIABLE] + "')";
+			String lineVariables = "    private " + typeAndNameVars[TYPE_VARIABLE] + " " + typeAndNameVars[NAME_VARIABLE] + ";";
+			String lineClean = "\n";
+			
+			finalParameters += lineClean;
+			finalParameters += column;
+			finalParameters += lineClean;
+			finalParameters += lineVariables;
+			finalParameters += lineClean;
+		}
+		return finalParameters;
+	}
+
+	@Override
+	public boolean validateFile(String nameFile) {
+		return true;
+	}
+	
+	
+}
