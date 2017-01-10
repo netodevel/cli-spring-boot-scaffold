@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
+import br.com.generate.AbstractModelGenerate;
 import br.com.strategy.IGenerate;
 
 /**
@@ -12,8 +13,11 @@ import br.com.strategy.IGenerate;
  */
 public class ModelGenerateJava implements IGenerate {
 
-
+	private AbstractModelGenerate abstractModelGenerate;
+	
 	public ModelGenerateJava(String nameClass, String parameters) {
+		abstractModelGenerate = new AbstractModelGenerate();
+		abstractModelGenerate.generate(nameClass, parameters);
 		generate(nameClass, parameters);
 	}
 	
@@ -32,7 +36,7 @@ public class ModelGenerateJava implements IGenerate {
 				writer.println(""); 
 				writer.println("@Entity"); //TODO: add lombok annotation.
 				writer.println("@Table(name = \"" + CLASS_NAME.toLowerCase() + "s" + "\")");
-				writer.println("class " + CLASS_NAME + " extends AbstractModel<Long>() {");
+				writer.println("public class " + CLASS_NAME + " extends AbstractModel<Long> {");
 				writer.println("");
 				writer.println(generateParams(PARAMS));
 				writer.println("");
@@ -54,6 +58,7 @@ public class ModelGenerateJava implements IGenerate {
 		print.println("import javax.persistence.Id;");
 		print.println("import javax.persistence.GenerationType;");
 		print.println("import javax.persistence.GeneratedValue;");
+		print.println("import javax.persistence.Column;");
 	}
 
 	@Override
@@ -69,7 +74,7 @@ public class ModelGenerateJava implements IGenerate {
 
 			typeAndNameVars = variablesSplits[i].split(":");
 			
-			String column = "    @Column(name = '" + typeAndNameVars[NAME_VARIABLE] + "')";
+			String column = "    @Column(name = \"" + typeAndNameVars[NAME_VARIABLE] + "\")";
 			String lineVariables = "    private " + typeAndNameVars[TYPE_VARIABLE] + " " + typeAndNameVars[NAME_VARIABLE] + ";";
 			String lineClean = "\n";
 			
