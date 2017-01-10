@@ -42,7 +42,6 @@ public class ModelGenerateJava implements IGenerate {
 				writer.println("");
 				writer.println("}");
 				writer.close();
-				System.out.println("invoke spring data-jpa");
 				System.out.println("create src/main/java/br/com/scaffold/model/" + CLASS_NAME + ".java");
 			} catch (FileNotFoundException e) {
 			} catch (UnsupportedEncodingException e) {
@@ -89,7 +88,13 @@ public class ModelGenerateJava implements IGenerate {
 
 	@Override
 	public boolean validateFile(String nameFile) {
-		return true;
+		File f = new File("src/main/java/br/com/scaffold/model/" + nameFile + ".java");
+		if(f.exists()) { 
+			System.out.println("File already exists!");
+			return false;
+		} else {
+			return true;
+		}
 	}
 	
 	
