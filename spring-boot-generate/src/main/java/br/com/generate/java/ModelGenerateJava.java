@@ -38,8 +38,8 @@ public class ModelGenerateJava implements IGenerate {
 				writer.println("@Table(name = \"" + CLASS_NAME.toLowerCase() + "s" + "\")");
 				writer.println("public class " + CLASS_NAME + " extends AbstractModel<Long> {");
 				writer.println("");
+				writer.println("	private static final long serialVersionUID = 1L;");
 				writer.println(generateParams(PARAMS));
-				writer.println("");
 				writer.println("}");
 				writer.close();
 				System.out.println("create src/main/java/br/com/scaffold/model/" + CLASS_NAME + ".java");
@@ -54,9 +54,6 @@ public class ModelGenerateJava implements IGenerate {
 		print.println("package br.com.scaffold.model;");
 		print.println("import javax.persistence.Entity;");
 		print.println("import javax.persistence.Table;");
-		print.println("import javax.persistence.Id;");
-		print.println("import javax.persistence.GenerationType;");
-		print.println("import javax.persistence.GeneratedValue;");
 		print.println("import javax.persistence.Column;");
 	}
 
