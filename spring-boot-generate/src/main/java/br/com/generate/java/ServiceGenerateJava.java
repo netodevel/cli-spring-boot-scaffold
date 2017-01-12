@@ -28,22 +28,38 @@ public class ServiceGenerateJava implements IGenerate {
 				String nameParamObject = CLASS_NAME.toLowerCase() + "Object";
 				
 				writer.println("");
+				
 				writer.println("@Service");
 				writer.println("@Transactional(readOnly = true)");
 				writer.println("public class " + CLASS_NAME + "Service {");
 				writer.println("");
+				
 				writer.println("	@Autowired");
 				writer.println("	private " + CLASS_NAME + "Repository " + nameRepository + ";");
 				writer.println("");
-				writer.println("	public List<"+ CLASS_NAME +"> index() {");
+
+				writer.println("	public List<"+ CLASS_NAME +"> findAll() {");
 				writer.println("		return " + nameRepository + ".findAll();");
 				writer.println("	}");
 				writer.println("");
+				
+				writer.println("	public "+ CLASS_NAME +" findOne(Long id) {");
+				writer.println("		return " + nameRepository + ".findOne(id);");
+				writer.println("	}");
+				writer.println("");
+				
 				writer.println("	@Transactional(readOnly = false)");
 				writer.println("	public " + CLASS_NAME + " save(" + CLASS_NAME + " " + nameParamObject + ") {") ;
 				writer.println("		return " + nameRepository + ".save("+ nameParamObject +");");
 				writer.println("	}");
 				writer.println("");
+				
+				writer.println("	@Transactional(readOnly = false)");
+				writer.println("	public void delete(" + CLASS_NAME + " " + nameParamObject + ") {") ;
+				writer.println("		" + nameRepository + ".delete("+ nameParamObject +");");
+				writer.println("	}");
+				writer.println("");
+				
 				writer.println("}");
 				writer.close();
 				System.out.println("create src/main/java/br/com/scaffold/service/" + CLASS_NAME + "Service.java");
