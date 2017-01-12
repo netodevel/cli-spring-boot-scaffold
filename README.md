@@ -8,23 +8,6 @@
 Generate api scaffold kotlin with spring boot rest, creating a api rest with kotlin and spring boot in an easy and productive way.
 
 Scaffold for java web, a clean generate with simple classes.
-
-
-
-#Structure
-
-    __br
-       __com
-           __scaffold
-                    MainApplication.java
-                    __domain
-                          Model.kt
-                    __repository
-                          Repository.kt
-                    __service
-                          Service.kt
-                    __controller
-                          Controller.kt
         
 #Alert
 In development. Help us! Make a fork!
@@ -51,16 +34,30 @@ And install the Spring Scaffold plugin
     $ cd my-project
     $ spring scaffold -n User -p name:String email:String
 
+#Structure
 
-###Todo
+    __br
+       __com
+           __scaffold
+                    MainApplication.java
+                    __domain
+                          User.kt
+                    __repository
+                          UserRepository.kt
+                    __service
+                          UserService.kt
+                    __controller
+                          UserController.kt
 
-* validates types variables
-* validates exists project,class
-* set package to generate
-* gradle support
-* generate Test JUnit @SpringBootTest
-* sample using scaffold
-* add dependecies in pom.xml
+
+| HTTP Status   | Endpoints     | Function       |
+| ------------- |:-------------:| -----:         |
+| GET           | /users        | list all users |
+| GET           | /users/{id}   | show user      |
+| POST          | /users        | save user      |
+| PUT           | {id}/users    | update user    |
+| DELETE        | {id}/users    | delete user    |
+
 
 ###Acknowledgment
          
