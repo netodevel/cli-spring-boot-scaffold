@@ -40,18 +40,46 @@ public class ControllerGenerateJava implements IGenerate {
 				/**
 				 * GET INDEX
 				 */
-				writer.println("	@GetMapping(\""+ urlName +"\") ");
+				writer.println("	@GetMapping(\"/"+ urlName +"\") ");
 				writer.println("	public List<"+CLASS_NAME+"> index() {");
 				writer.println("		return " + nameService + ".findAll();");
 				writer.println("	}");
 				writer.println("");
 				
 				/**
-				 * GET NEW
+				 * GET SHOW
 				 */
-				writer.println("	@GetMapping(\""+ urlName +"/new \")");
-				writer.println("	public "+CLASS_NAME+" save(@ModelAttribute(\""+nameParamObject+"\") "+CLASS_NAME+" " + nameParamObject + ") {");
+				writer.println("	@GetMapping(\"/"+ urlName +"/{id} \") ");
+				writer.println("	public "+CLASS_NAME+" show(@PathVariable(\"id\") Long id) {");
+				writer.println("		return " + nameService + ".findOne(id);");
+				writer.println("	}");
+				writer.println("");
+				
+				/**
+				 * POST 
+				 */
+				writer.println("	@PostMapping(\"/"+ urlName +"\")");
+				writer.println("	public "+CLASS_NAME+" create(@RequestBody "+CLASS_NAME+" " + nameParamObject + ") {");
 				writer.println("		return " + nameService + ".save(" + nameParamObject + ");");
+				writer.println("	}");
+				writer.println("");
+
+				/**
+				 * PUT 
+				 */
+				writer.println("	@PutMapping(\"/"+ urlName +"\")");
+				writer.println("	public "+CLASS_NAME+" update(@RequestBody "+CLASS_NAME+" " + nameParamObject + ") {");
+				writer.println("		return " + nameService + ".save(" + nameParamObject + ");");
+				writer.println("	}");
+				writer.println("");
+				
+				/**
+				 * DELETE 
+				 */
+				writer.println("	@DeleteMapping(\"/"+ urlName +"/{id} \")");
+				writer.println("	public void delete(@PathVariable(\"id\") Long id) {");
+				writer.println("		" + CLASS_NAME + " " + nameParamObject + " = " + nameService + ".findOne(id);");
+				writer.println("		" + nameService + ".delete(" + nameParamObject + ");");
 				writer.println("	}");
 				writer.println("");
 				
@@ -72,12 +100,10 @@ public class ControllerGenerateJava implements IGenerate {
 		print.println("import org.springframework.web.bind.annotation.GetMapping;");
 		print.println("import org.springframework.web.bind.annotation.PostMapping;");
 		print.println("import org.springframework.web.bind.annotation.RequestBody;");
-		print.println("import org.springframework.web.bind.annotation.RequestParam;");
 		print.println("import org.springframework.web.bind.annotation.PutMapping;");
 		print.println("import org.springframework.web.bind.annotation.DeleteMapping;");
 		print.println("import org.springframework.web.bind.annotation.PathVariable;");
 		print.println("import java.util.List;");
-		print.println("import org.springframework.web.bind.annotation.ModelAttribute;");
 		print.println("import br.com.scaffold.model." + namesClass[0] + ";");
 		print.println("import br.com.scaffold.service." + namesClass[0] + "Service;");
 	}
