@@ -55,7 +55,7 @@ And install the Spring Scaffold plugin
 | GET           | /users        | list all users |
 | GET           | /users/{id}   | show user      |
 | POST          | /users        | save user      |
-| PUT           | {id}/users    | update user    |
+| PUT           | /users        | update user    |
 | DELETE        | {id}/users    | delete user    |
 
 
