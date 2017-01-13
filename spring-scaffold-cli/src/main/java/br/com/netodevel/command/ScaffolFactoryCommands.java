@@ -26,11 +26,11 @@ public class ScaffolFactoryCommands implements CommandFactory {
 
 	public Collection<Command> getCommands() {
 		return Arrays.<Command>asList(
-			new ModelCommand("model", "generate entities kotlin", new ModelHandler()),
-			new RepositoryCommand("repository", "generate repositories kotlin", new RepositoryHandler()),
-			new ServiceCommand("service", "generate services kotlin", new ServiceHandler()),
-			new ControllerCommand("controller", "generate controllers kotlin", new ControllerHandler()),
-			new ScaffoldCommand("scaffold", "generate api scaffold kotlin", new ScaffoldHandler()));
+			new ModelCommand("model", "generate entities", new ModelHandler()),
+			new RepositoryCommand("repository", "generate repositories", new RepositoryHandler()),
+			new ServiceCommand("service", "generate services", new ServiceHandler()),
+			new ControllerCommand("controller", "generate controllers", new ControllerHandler()),
+			new ScaffoldCommand("scaffold", "generate api scaffold", new ScaffoldHandler()));
 	}
 
 }

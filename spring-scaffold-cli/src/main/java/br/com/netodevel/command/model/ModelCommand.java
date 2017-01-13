@@ -16,18 +16,19 @@ import org.springframework.boot.cli.command.options.OptionHandler;
 public class ModelCommand extends OptionParsingCommand {
 
 	public ModelCommand(String name, String description, OptionHandler handler) {
-		super("model", "generate entitys kotlin", new ModelHandler());
+		super("model", "generate entities", new ModelHandler());
 	}
 	
 	public String getUsageHelp() {
 		// TODO Auto-generated method stub
-		return "[name-entity] [attributes]";
+		return "[name-entity] [attributes] [language]";
 	}
 
 	@Override
 	public Collection<HelpExample> getExamples() {
 		List<HelpExample> list = new ArrayList<HelpExample>();
-		list.add(new HelpExample("create entity kotlin", "model -n User -p name:String"));
+		list.add(new HelpExample("create entities java", "model -n User -p name:String"));
+		list.add(new HelpExample("create entities kotlin", "model -n User -p name:String -l kotlin"));
 		return list;
 	}
 	
