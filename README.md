@@ -1,11 +1,11 @@
 
-# spring-boot-scaffold-kotlin
+# spring-boot-scaffold
 
 [![Join the chat at https://gitter.im/spring-boot-scaffold-kotlin/Lobby](https://badges.gitter.im/spring-boot-scaffold-kotlin/Lobby.svg)](https://gitter.im/spring-boot-scaffold-kotlin/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
  [![bagde](https://codeship.com/projects/e4a1d8b0-8b71-0134-1c87-26c6b97868f1/status?branch=master)](https://codeship.com/projects/184622)
 
 #About
-Generate api scaffold kotlin with spring boot rest, creating a api rest with kotlin and spring boot in an easy and productive way.
+Generate api scaffold with spring boot rest, creating a api rest with and spring boot in an easy and productive way.
 
 Scaffold for java web, a clean generate with simple classes.
         
