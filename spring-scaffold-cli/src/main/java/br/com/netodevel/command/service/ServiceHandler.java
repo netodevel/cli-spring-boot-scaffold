@@ -8,7 +8,8 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.strategy.ServiceGenerateStrategy;
+import br.com.generate.java.ServiceGenerateJava;
+import br.com.generate.kotlin.ServiceGenerateKotlin;
 
 /**
  * @author NetoDevel
@@ -19,19 +20,36 @@ public class ServiceHandler extends OptionHandler {
 	@SuppressWarnings("unused")
 	private OptionSpec<String> nameEntity;
 	
+	@SuppressWarnings("unused")
+	private OptionSpec<String> language;
+	
 	@Override
 	protected void options() {
 		this.nameEntity = option(Arrays.asList("nameEntity", "n"), "Name of entity to generate service").withRequiredArg();
+		this.language = option(Arrays.asList("language", "l"), "language generate java or kotlin").withOptionalArg();
 	}
 	
 	@Override
 	protected ExitStatus run(OptionSet options) throws Exception {
 		String nameClass = (String) options.valueOf("n");
-		generateService(nameClass);
+		String language = (String) options.valueOf("l");
+		if (language == null) {
+			generateServiceJava(nameClass);
+		} else if (language.equals(" java")) {
+			generateServiceJava(nameClass);
+		} else if (language.equals(" kotlin")) {
+			generateServiceKotlin(nameClass);
+		}
 		return ExitStatus.OK;
 	}
 
-	private void generateService(String nameClass) {
-		new ServiceGenerateStrategy(nameClass);
+	private void generateServiceKotlin(String nameClass) {
+		new ServiceGenerateKotlin(nameClass);
 	}
+	
+	private void generateServiceJava(String nameClass) {
+		new ServiceGenerateJava(nameClass);
+	}
+	
+	
 }

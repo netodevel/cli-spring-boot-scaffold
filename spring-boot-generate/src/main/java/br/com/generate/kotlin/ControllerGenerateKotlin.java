@@ -1,9 +1,11 @@
-package br.com.strategy;
+package br.com.generate.kotlin;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+
+import br.com.generate.IBaseScaffold;
 
 /**
  * Provider the generate of a controller
@@ -11,9 +13,9 @@ import java.io.UnsupportedEncodingException;
  * @since 0.0.1
  *
  */
-public class ControllerGenerateStrategy implements IGenerate {
+public class ControllerGenerateKotlin implements IBaseScaffold {
 
-	public ControllerGenerateStrategy(String optionValue) {
+	public ControllerGenerateKotlin(String optionValue) {
 		generate(optionValue);
 	}
 

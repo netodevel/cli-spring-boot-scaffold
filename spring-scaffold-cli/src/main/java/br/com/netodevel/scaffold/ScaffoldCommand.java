@@ -26,7 +26,8 @@ public class ScaffoldCommand extends OptionParsingCommand{
 	@Override
 	public Collection<HelpExample> getExamples() {
 		List<HelpExample> list = new ArrayList<HelpExample>();
-		list.add(new HelpExample("create scaffold api kotlin", "scaffold -n User -p name:String"));
+		list.add(new HelpExample("create scaffold api kotlin", "scaffold -n User -p name:String -l kotlin"));
+		list.add(new HelpExample("create scaffold api java", "scaffold -n User -p name:String -l java"));
 		return list;
 	}
 }

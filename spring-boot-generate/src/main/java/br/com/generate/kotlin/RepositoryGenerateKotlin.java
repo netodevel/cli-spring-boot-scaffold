@@ -1,17 +1,19 @@
-package br.com.strategy;
+package br.com.generate.kotlin;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+
+import br.com.generate.IBaseScaffold;
 
 /**
  * Provider the generate of a repository JPA
  * @author Jose
  * @since 0.0.1
  */
-public class RepositoryGenerateStrategy implements IGenerate {
+public class RepositoryGenerateKotlin implements IBaseScaffold {
 
-	public RepositoryGenerateStrategy(String optionValue) {
+	public RepositoryGenerateKotlin(String optionValue) {
 		generate(optionValue);
 	}
 

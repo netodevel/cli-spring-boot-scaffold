@@ -5,9 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-import br.com.strategy.IGenerate;
-
-public class AbstractModelGenerate implements IGenerate {
+public class AbstractModelGenerate implements IBaseScaffold {
 
 	public void generate(String... params) {
 		if (validateFile("AbstractModel.java")) {

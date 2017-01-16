@@ -17,7 +17,6 @@ public class ServiceCommand extends OptionParsingCommand {
 	public ServiceCommand(String name, String description, OptionHandler handler) {
 		super(name, description, handler);
 	}
-	
 
 	@Override
 	public String getUsageHelp() {
@@ -27,7 +26,8 @@ public class ServiceCommand extends OptionParsingCommand {
 	@Override
 	public Collection<HelpExample> getExamples() {
 		List<HelpExample> list = new ArrayList<HelpExample>();
-		list.add(new HelpExample("create service kotlin", "service -n User"));
+		list.add(new HelpExample("create service kotlin", "service -n User -l kotlin"));
+		list.add(new HelpExample("create service java", "service -n User -l java"));
 		return list;
 	}
 

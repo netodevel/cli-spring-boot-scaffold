@@ -1,4 +1,4 @@
-package br.com.strategy;
+package br.com.generate.kotlin;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,14 +8,16 @@ import java.nio.file.Paths;
 
 import org.apache.commons.lang.SystemUtils;
 
+import br.com.generate.IBaseScaffold;
+
 
 /**
  * @author NetoDevel
  * @since 0.0.1
  */
-public class MainGenerateStrategy implements IGenerate {
+public class MainGenerateKotlin implements IBaseScaffold {
 	
-	public MainGenerateStrategy(String optionValue) {
+	public MainGenerateKotlin(String optionValue) { //parameter not has using
 		String currentLocation = null;
 		if (SystemUtils.IS_OS_LINUX) {
 			currentLocation = Paths.get(".").toAbsolutePath().toString();

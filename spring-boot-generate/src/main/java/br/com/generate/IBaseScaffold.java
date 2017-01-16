@@ -1,4 +1,4 @@
-package br.com.strategy;
+package br.com.generate;
 
 import java.io.PrintWriter;
 
@@ -6,7 +6,7 @@ import java.io.PrintWriter;
  * @author NetoDevel
  * @since 0.0.1
  */
-public interface IGenerate {
+public interface IBaseScaffold {
 	public void generate(String... params);
 	public void imports(PrintWriter print, String [] namesClass);
 	public String generateParams(String params);

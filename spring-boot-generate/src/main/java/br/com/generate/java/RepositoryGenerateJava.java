@@ -5,9 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-import br.com.strategy.IGenerate;
+import br.com.generate.IBaseScaffold;
 
-public class RepositoryGenerateJava implements IGenerate {
+public class RepositoryGenerateJava implements IBaseScaffold {
 	
 	public RepositoryGenerateJava(String className) {
 		generate(className);

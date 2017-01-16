@@ -5,13 +5,11 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-import br.com.strategy.IGenerate;
-
 /**
  * @author NetoDevel
  * @since 0.0.1
  */
-public class ScaffoldInfoGenerate implements IGenerate {
+public class ScaffoldInfoGenerate implements IBaseScaffold {
 
     @Override
     public void generate(String... params) {

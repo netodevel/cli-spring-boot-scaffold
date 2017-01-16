@@ -6,12 +6,12 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 import br.com.generate.AbstractModelGenerate;
-import br.com.strategy.IGenerate;
+import br.com.generate.IBaseScaffold;
 
 /**
  * @author NetoDevel
  */
-public class ModelGenerateJava implements IGenerate {
+public class ModelGenerateJava implements IBaseScaffold {
 
 	private AbstractModelGenerate abstractModelGenerate;
 	
@@ -66,7 +66,7 @@ public class ModelGenerateJava implements IGenerate {
 		String[] typeAndNameVars = {""};
 		
 		String finalParameters = "";
-		for (int i = 0; i < variablesSplits.length; i++) {
+		for (int i = 1; i < variablesSplits.length; i++) {
 
 			typeAndNameVars = variablesSplits[i].split(":");
 			

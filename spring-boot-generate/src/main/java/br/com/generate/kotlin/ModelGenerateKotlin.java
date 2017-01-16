@@ -1,21 +1,22 @@
-package br.com.strategy;
+package br.com.generate.kotlin;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 import br.com.generate.AbstractModelGenerate;
+import br.com.generate.IBaseScaffold;
 
 /**
  * Provider the generate of a model/entity
  * @author NetoDevel
  * @since 0.0.1
  */
-public class ModelGenerateStrategy implements IGenerate {
+public class ModelGenerateKotlin implements IBaseScaffold {
 
 	private AbstractModelGenerate abstractModelGenerate;
 	
-	public ModelGenerateStrategy(String nameClass, String parameter) {
+	public ModelGenerateKotlin(String nameClass, String parameter) {
 		abstractModelGenerate = new AbstractModelGenerate();
 		abstractModelGenerate.generate(nameClass, parameter);
 		generate(nameClass, parameter);

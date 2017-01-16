@@ -6,7 +6,7 @@ import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
 import br.com.generate.java.ModelGenerateJava;
-import br.com.strategy.ModelGenerateStrategy;
+import br.com.generate.kotlin.ModelGenerateKotlin;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 
@@ -44,7 +44,7 @@ public class ModelHandler extends OptionHandler {
 		String language = (String) options.valueOf("l");
 		if (language == null) {
 			generateModelJava(nameClass, parametersClass);
-		} else if (language.equals("java")) {
+		} else if (language.equals(" java")) {
 			generateModelJava(nameClass, parametersClass);
 		} else if (language.equals(" kotlin")) {
 			generateModelKotlin(nameClass, parametersClass);
@@ -53,7 +53,7 @@ public class ModelHandler extends OptionHandler {
 	}
 
 	private void generateModelKotlin(String nameClass, String parameterClass) {
-		new ModelGenerateStrategy(nameClass, parameterClass);
+		new ModelGenerateKotlin(nameClass, parameterClass);
 	}
 	
 	private void generateModelJava(String nameClass, String parameters) {
