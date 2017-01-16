@@ -7,7 +7,9 @@
 #About
 Generate api scaffold with spring boot rest, creating a api rest with and spring boot in an easy and productive way.
 
-Scaffold for java web, a clean generate with simple classes.
+Scaffold for java/kotlin web, a clean generate with simple classes.
+
+
         
 #Alert
 In development. Help us! Make a fork!
@@ -24,6 +26,8 @@ In development. Help us! Make a fork!
 
 And install the Spring Scaffold plugin
 
+    $ git clone https://github.com/NetoDevel/cli-spring-boot-scaffold.git
+    $ cd spring-boot-scaffold
     $ mvn install
     $ spring install br.com.netodevel:spring-scaffold-cli:0.0.1-SNAPSHOT
 
@@ -41,13 +45,13 @@ And install the Spring Scaffold plugin
            __scaffold
                     MainApplication.java
                     __domain
-                          User.kt
+                          User.java
                     __repository
-                          UserRepository.kt
+                          UserRepository.java
                     __service
-                          UserService.kt
+                          UserService.java
                     __controller
-                          UserController.kt
+                          UserController.java
 
 
 | HTTP Status   | Endpoints     | Function       |
@@ -58,6 +62,39 @@ And install the Spring Scaffold plugin
 | PUT           | /users        | update user    |
 | DELETE        | {id}/users    | delete user    |
 
+
+#Documentation
+
+|Commands   |Parameters                                 |Examples
+| ------------- |:-------------:                         | -------------:  
+| spring model  | -n className -p parameters -l language | spring model -n User -p name:String -l (java or kotlin)
+| spring repository  | -n className  -l language         | spring repository -n User -l (java or kotlin)
+| spring service  | -n className  -l language            | spring service -n User -l (java or kotlin)
+| spring controller  | -n className  -l language         | spring controller -n User -l (java or kotlin)
+| spring scaffold  | -n className -p parameters -l language | spring scaffold -n User -p name:String -l (java or kotlin)
+
+
+#License
+
+    The MIT License (MIT)
+
+    Copyright (c) 2016 Felipe Oliveira
+
+    Permission is hereby granted, free of charge, to any person obtaining a 
+    copy of this software and associated documentation files (the "Software"), 
+    to deal in the Software without restriction, including without limitation 
+    the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+    and/or sell copies of the Software, and to permit persons to whom the Software is 
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included 
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+    PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
+    FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ###Acknowledgment
          
