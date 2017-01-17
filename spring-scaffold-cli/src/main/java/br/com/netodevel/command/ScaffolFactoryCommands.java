@@ -8,6 +8,8 @@ import org.springframework.boot.cli.command.CommandFactory;
 
 import br.com.netodevel.command.controller.ControllerCommand;
 import br.com.netodevel.command.controller.ControllerHandler;
+import br.com.netodevel.command.migrate.DBCreateCommand;
+import br.com.netodevel.command.migrate.DBCreateHandler;
 import br.com.netodevel.command.model.ModelCommand;
 import br.com.netodevel.command.model.ModelHandler;
 import br.com.netodevel.command.repository.RepositoryCommand;
@@ -30,7 +32,8 @@ public class ScaffolFactoryCommands implements CommandFactory {
 			new RepositoryCommand("repository", "generate repositories", new RepositoryHandler()),
 			new ServiceCommand("service", "generate services", new ServiceHandler()),
 			new ControllerCommand("controller", "generate controllers", new ControllerHandler()),
-			new ScaffoldCommand("scaffold", "generate api scaffold", new ScaffoldHandler()));
+			new ScaffoldCommand("scaffold", "generate api scaffold", new ScaffoldHandler()),
+			new DBCreateCommand("dbcreate", "create database", new DBCreateHandler()));
 	}
 
 }
