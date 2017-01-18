@@ -27,7 +27,7 @@ In development. Help us! Make a fork!
 And install the Spring Scaffold plugin
 
     $ git clone https://github.com/NetoDevel/cli-spring-boot-scaffold.git
-    $ cd spring-boot-scaffold
+    $ cd cli-spring-boot-scaffold
     $ mvn install
     $ spring install br.com.netodevel:spring-scaffold-cli:0.0.1-SNAPSHOT
 
@@ -60,7 +60,7 @@ And install the Spring Scaffold plugin
 | GET           | /users/{id}   | show user      |
 | POST          | /users        | save user      |
 | PUT           | /users        | update user    |
-| DELETE        | {id}/users    | delete user    |
+| DELETE        | /users/{id}    | delete user    |
 
 
 #Documentation
@@ -72,6 +72,7 @@ And install the Spring Scaffold plugin
 | spring service  | -n className  -l language            | spring service -n User -l (java or kotlin)
 | spring controller  | -n className  -l language         | spring controller -n User -l (java or kotlin)
 | spring scaffold  | -n className -p parameters -l language | spring scaffold -n User -p name:String -l (java or kotlin)
+| spring dbcreate  | -n dataBaseName -p typeDataBase | spring dbcreate -n mydatabase -p (mysql or postgresql)
 
 
 #License
