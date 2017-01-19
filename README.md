@@ -36,6 +36,7 @@ And install the Spring Scaffold plugin
 
     $ spring init my-project
     $ cd my-project
+    $ spring setupscaffold -n com.example -u root -p root  
     $ spring scaffold -n User -p name:String email:String
 
 #Structure
@@ -72,6 +73,7 @@ And install the Spring Scaffold plugin
 | spring service  | -n className  -l language            | spring service -n User -l (java or kotlin)
 | spring controller  | -n className  -l language         | spring controller -n User -l (java or kotlin)
 | spring scaffold  | -n className -p parameters -l language | spring scaffold -n User -p name:String -l (java or kotlin)
+| spring setupscaffold| -n namePackage -u username database -p password database| spring setupscaffold -n com.example -u root -p root
 | spring dbcreate  | -n dataBaseName -p typeDataBase | spring dbcreate -n mydatabase -p (mysql or postgresql)
 
 
