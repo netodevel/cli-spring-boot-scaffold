@@ -8,12 +8,11 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.command.ModelGenerateJava;
-import br.com.generate.java.command.RepositoryGenerateJava;
 import br.com.generate.java.command.controller.ControllerScaffoldGenerateJava;
+import br.com.generate.java.command.model.ModelGenerateJava;
+import br.com.generate.java.command.repository.RepositoryGenerateJava;
 import br.com.generate.java.command.service.ServiceGenerateJava;
 import br.com.generate.kotlin.command.ControllerGenerateKotlin;
-import br.com.generate.kotlin.command.MainGenerateKotlin;
 import br.com.generate.kotlin.command.ModelGenerateKotlin;
 import br.com.generate.kotlin.command.RepositoryGenerateKotlin;
 import br.com.generate.kotlin.command.ServiceGenerateKotlin;
@@ -56,7 +55,6 @@ public class ScaffoldHandler extends OptionHandler {
 	}
 
 	private void generateScaffoldKotlin(String nameClass, String parametersClass) {
-		new MainGenerateKotlin("");
 		new ModelGenerateKotlin(nameClass, parametersClass);
 		new RepositoryGenerateKotlin(nameClass);
 		new ServiceGenerateKotlin(nameClass);
@@ -64,7 +62,6 @@ public class ScaffoldHandler extends OptionHandler {
 	}
 	
 	private void generateScaffoldJava(String nameClass, String parametersClass) {
-		new MainGenerateKotlin("");
 		new ModelGenerateJava(nameClass, parametersClass);
 		new RepositoryGenerateJava(nameClass);
 		new ServiceGenerateJava(nameClass);

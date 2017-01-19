@@ -1,4 +1,4 @@
-package br.com.generate.java.command;
+package br.com.generate.java.command.repository;
 
 import java.io.File;
 import java.io.FileNotFoundException;

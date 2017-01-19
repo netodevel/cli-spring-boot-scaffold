@@ -8,7 +8,7 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.command.RepositoryGenerateJava;
+import br.com.generate.java.command.repository.RepositoryGenerateJava;
 import br.com.generate.kotlin.command.RepositoryGenerateKotlin;
 
 /**

@@ -16,6 +16,8 @@ import br.com.netodevel.command.repository.RepositoryCommand;
 import br.com.netodevel.command.repository.RepositoryHandler;
 import br.com.netodevel.command.service.ServiceCommand;
 import br.com.netodevel.command.service.ServiceHandler;
+import br.com.netodevel.command.setup.SetupScaffoldCommand;
+import br.com.netodevel.command.setup.SetupScaffoldHandler;
 import br.com.netodevel.scaffold.ScaffoldCommand;
 import br.com.netodevel.scaffold.ScaffoldHandler;
 
@@ -24,7 +26,7 @@ import br.com.netodevel.scaffold.ScaffoldHandler;
  * @author NetoDevel
  * @since 0.0.1
  */
-public class ScaffolFactoryCommands implements CommandFactory {
+public class ScaffoldFactoryCommands implements CommandFactory {
 
 	public Collection<Command> getCommands() {
 		return Arrays.<Command>asList(
@@ -33,7 +35,8 @@ public class ScaffolFactoryCommands implements CommandFactory {
 			new ServiceCommand("service", "generate services", new ServiceHandler()),
 			new ControllerCommand("controller", "generate controllers", new ControllerHandler()),
 			new ScaffoldCommand("scaffold", "generate api scaffold", new ScaffoldHandler()),
-			new DBCreateCommand("dbcreate", "create database", new DBCreateHandler()));
+			new DBCreateCommand("dbcreate", "create database", new DBCreateHandler()),
+			new SetupScaffoldCommand("setupscaffold", "setup scaffold", new SetupScaffoldHandler()));
 	}
 
 }

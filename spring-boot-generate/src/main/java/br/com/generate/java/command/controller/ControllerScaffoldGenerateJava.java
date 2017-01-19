@@ -117,7 +117,7 @@ public class ControllerScaffoldGenerateJava implements IBaseScaffold {
 	public boolean validateFile(String nameFile) {
 		File f = new File("src/main/java/br/com/scaffold/controller/" + nameFile + "Controller.java");
 		if(f.exists()) { 
-			System.out.println("File already exists!");
+			System.out.println(nameFile + "Controller already exists!");
 			return false;
 		} else {
 			return true;

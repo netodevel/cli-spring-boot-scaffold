@@ -2,13 +2,14 @@ package br.com.netodevel.command.model;
 
 import java.util.Arrays;
 
+import joptsimple.OptionSet;
+import joptsimple.OptionSpec;
+
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.command.ModelGenerateJava;
+import br.com.generate.java.command.model.ModelGenerateJava;
 import br.com.generate.kotlin.command.ModelGenerateKotlin;
-import joptsimple.OptionSet;
-import joptsimple.OptionSpec;
 
 /**
  * 

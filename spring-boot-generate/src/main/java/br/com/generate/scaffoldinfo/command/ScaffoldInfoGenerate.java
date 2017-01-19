@@ -13,19 +13,24 @@ import br.com.generate.IBaseScaffold;
  */
 public class ScaffoldInfoGenerate extends ReadScaffoldInfo implements IBaseScaffold {
 
+	public ScaffoldInfoGenerate(String...params) {
+		generate(params);
+	}
+	
     @Override
     public void generate(String... params) {
-        String BASE_DIR = params[0];
         PrintWriter writer = null;
         try {
-            File file = new File(BASE_DIR + "/src/main/resources/scaffold.info");
+            File file = new File(getUserDir() + "/src/main/resources/scaffold.info");
             file.getParentFile().mkdirs();
             writer = new PrintWriter(file, "UTF-8");
             imports(writer, params);
-            writer.println("package:br.com.example");
-            writer.println("database:mydatabase");
-            writer.println("username:root");
-            writer.println("password:root");
+            String namePackage = params[0] != null ? params[0] : "com.example";
+            String userDataBase = params[1] != null ? params[1] : "root";
+            String passWordDatabase = params[1] != null ? params[1] : "root";
+            writer.println("package:" + namePackage);
+            writer.println("username:" + userDataBase);
+            writer.println("password:" + passWordDatabase);
             writer.close();
             System.out.println("create /src/main/resources/scaffold.info");
         } catch (FileNotFoundException e) {
