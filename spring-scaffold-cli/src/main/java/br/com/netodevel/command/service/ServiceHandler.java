@@ -8,8 +8,8 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.ServiceGenerateJava;
-import br.com.generate.kotlin.ServiceGenerateKotlin;
+import br.com.generate.java.command.service.ServiceGenerateJava;
+import br.com.generate.kotlin.command.ServiceGenerateKotlin;
 
 /**
  * @author NetoDevel

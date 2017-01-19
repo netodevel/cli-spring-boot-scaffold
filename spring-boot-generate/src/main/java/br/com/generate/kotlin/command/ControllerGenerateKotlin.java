@@ -1,4 +1,4 @@
-package br.com.generate.kotlin;
+package br.com.generate.kotlin.command;
 
 import java.io.File;
 import java.io.FileNotFoundException;

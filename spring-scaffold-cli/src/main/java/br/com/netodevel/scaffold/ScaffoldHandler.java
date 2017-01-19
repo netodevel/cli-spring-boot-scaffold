@@ -8,15 +8,15 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.ControllerGenerateJava;
-import br.com.generate.java.ModelGenerateJava;
-import br.com.generate.java.RepositoryGenerateJava;
-import br.com.generate.java.ServiceGenerateJava;
-import br.com.generate.kotlin.ControllerGenerateKotlin;
-import br.com.generate.kotlin.MainGenerateKotlin;
-import br.com.generate.kotlin.ModelGenerateKotlin;
-import br.com.generate.kotlin.RepositoryGenerateKotlin;
-import br.com.generate.kotlin.ServiceGenerateKotlin;
+import br.com.generate.java.command.ModelGenerateJava;
+import br.com.generate.java.command.RepositoryGenerateJava;
+import br.com.generate.java.command.controller.ControllerScaffoldGenerateJava;
+import br.com.generate.java.command.service.ServiceGenerateJava;
+import br.com.generate.kotlin.command.ControllerGenerateKotlin;
+import br.com.generate.kotlin.command.MainGenerateKotlin;
+import br.com.generate.kotlin.command.ModelGenerateKotlin;
+import br.com.generate.kotlin.command.RepositoryGenerateKotlin;
+import br.com.generate.kotlin.command.ServiceGenerateKotlin;
 
 /**
  * @author NetoDevel
@@ -68,7 +68,7 @@ public class ScaffoldHandler extends OptionHandler {
 		new ModelGenerateJava(nameClass, parametersClass);
 		new RepositoryGenerateJava(nameClass);
 		new ServiceGenerateJava(nameClass);
-		new ControllerGenerateJava(nameClass);
+		new ControllerScaffoldGenerateJava(nameClass);
 	}
 	
 }

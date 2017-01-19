@@ -1,4 +1,4 @@
-package br.com.generate.java;
+package br.com.generate.java.command.controller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,9 +7,9 @@ import java.io.UnsupportedEncodingException;
 
 import br.com.generate.IBaseScaffold;
 
-public class ControllerGenerateJava implements IBaseScaffold {
+public class ControllerScaffoldGenerateJava implements IBaseScaffold {
 
-	public ControllerGenerateJava(String className) {
+	public ControllerScaffoldGenerateJava(String className) {
 		generate(className);
 	}
 	

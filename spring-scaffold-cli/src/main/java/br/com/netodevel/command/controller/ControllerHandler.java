@@ -8,8 +8,8 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.ControllerGenerateJava;
-import br.com.generate.kotlin.ControllerGenerateKotlin;
+import br.com.generate.java.command.controller.ControllerScaffoldGenerateJava;
+import br.com.generate.kotlin.command.ControllerGenerateKotlin;
 
 /**
  * @author NetoDevel
@@ -48,7 +48,7 @@ public class ControllerHandler extends OptionHandler {
 	}
 	
 	private void generateControllerJava(String nameClass) {
-		new ControllerGenerateJava(nameClass);
+		new ControllerScaffoldGenerateJava(nameClass);
 	}
 	
 }

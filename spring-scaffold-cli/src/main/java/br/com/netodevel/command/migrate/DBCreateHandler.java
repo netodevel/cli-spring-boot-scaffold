@@ -32,7 +32,8 @@ public class DBCreateHandler extends OptionHandler {
 	protected ExitStatus run(OptionSet options) throws Exception {
 		String nameDatabase = (String) options.valueOf("n");
 		String typeDatabase = (String) options.valueOf("p");
-		CreateDatabase.createDatabase(nameDatabase.replaceAll(" ", ""), typeDatabase.replaceAll(" ", ""));
+		CreateDatabase migrateDataBase = new CreateDatabase();
+		migrateDataBase.createDatabase(nameDatabase.replaceAll(" ", ""), typeDatabase.replaceAll(" ", ""));
 		return ExitStatus.OK;
 	}
 	

@@ -1,15 +1,17 @@
-package br.com.generate;
+package br.com.genereate.scaffoldinfo.command;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
+import br.com.generate.IBaseScaffold;
+
 /**
  * @author NetoDevel
  * @since 0.0.1
  */
-public class ScaffoldInfoGenerate implements IBaseScaffold {
+public class ScaffoldInfoGenerate extends ReadScaffoldInfo implements IBaseScaffold {
 
     @Override
     public void generate(String... params) {
@@ -20,12 +22,11 @@ public class ScaffoldInfoGenerate implements IBaseScaffold {
             file.getParentFile().mkdirs();
             writer = new PrintWriter(file, "UTF-8");
             imports(writer, params);
-            writer.println("package:");
-            writer.println("database:");
-            writer.println("username:");
-            writer.println("password:");
+            writer.println("package:br.com.example");
+            writer.println("database:mydatabase");
+            writer.println("username:root");
+            writer.println("password:root");
             writer.close();
-            System.out.println("invoke scaffold");
             System.out.println("create /src/main/resources/scaffold.info");
         } catch (FileNotFoundException e) {
         } catch (UnsupportedEncodingException e) {
@@ -44,6 +45,12 @@ public class ScaffoldInfoGenerate implements IBaseScaffold {
 
     @Override
     public boolean validateFile(String nameFile) {
-        return false;
+    	File f = new File(getUserDir() + "/src/main/resources/scaffold.info");
+		if(f.exists()) { 
+			System.out.println("scaffold.info already exists!");
+			return false;
+		} else {
+			return true;
+		}
     }
 }
