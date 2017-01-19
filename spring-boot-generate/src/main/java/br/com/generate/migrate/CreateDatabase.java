@@ -1,4 +1,4 @@
-package br.com.dbmigrate;
+package br.com.generate.migrate;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import br.com.genereate.scaffoldinfo.command.ReadScaffoldInfo;
+import br.com.generate.scaffoldinfo.command.ReadScaffoldInfo;
 
 /**
  * @author NetoDevel

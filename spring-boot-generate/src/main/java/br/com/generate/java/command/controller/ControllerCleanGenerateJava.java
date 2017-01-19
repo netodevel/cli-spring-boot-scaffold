@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 import br.com.generate.IBaseGenerateClean;
-import br.com.genereate.scaffoldinfo.command.ReadScaffoldInfo;
+import br.com.generate.scaffoldinfo.command.ReadScaffoldInfo;
 
 public class ControllerCleanGenerateJava extends ReadScaffoldInfo implements IBaseGenerateClean {
 	
@@ -53,4 +53,5 @@ public class ControllerCleanGenerateJava extends ReadScaffoldInfo implements IBa
 			return true;
 		}
 	}
+	
 }

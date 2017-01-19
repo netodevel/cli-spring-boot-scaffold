@@ -8,7 +8,7 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.dbmigrate.CreateDatabase;
+import br.com.generate.migrate.CreateDatabase;
 
 /**
  * @author NetoDevel

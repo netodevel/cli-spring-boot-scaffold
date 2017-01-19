@@ -1,4 +1,4 @@
-package br.com.genereate.scaffoldinfo.command;
+package br.com.generate.scaffoldinfo.command;
 
 import java.io.BufferedReader;
 import java.io.File;

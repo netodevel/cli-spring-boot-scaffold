@@ -1,4 +1,4 @@
-package br.com.attributes;
+package br.com.util;
 
 /**
  * @author NetoDevel
