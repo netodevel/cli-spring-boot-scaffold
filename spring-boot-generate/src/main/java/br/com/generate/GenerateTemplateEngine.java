@@ -1,6 +1,5 @@
 package br.com.generate;
 
-import br.com.generate.scaffoldinfo.command.ReadScaffoldInfo;
 
 /**
  * @author NetoDevel

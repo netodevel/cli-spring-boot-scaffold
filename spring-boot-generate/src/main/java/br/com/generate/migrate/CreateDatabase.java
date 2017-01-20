@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import br.com.generate.scaffoldinfo.command.ReadScaffoldInfo;
+import br.com.generate.ReadScaffoldInfo;
 
 /**
  * @author NetoDevel

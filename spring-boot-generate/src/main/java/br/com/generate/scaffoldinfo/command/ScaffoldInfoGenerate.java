@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 import br.com.generate.IBaseScaffold;
+import br.com.generate.ReadScaffoldInfo;
 
 /**
  * @author NetoDevel

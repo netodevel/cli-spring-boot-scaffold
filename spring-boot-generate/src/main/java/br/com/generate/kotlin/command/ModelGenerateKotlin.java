@@ -4,8 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-import br.com.generate.AbstractModelGenerate;
 import br.com.generate.IBaseScaffold;
+import br.com.generate.java.command.model.AbstractModelGenerate;
 
 /**
  * Provider the generate of a model/entity
