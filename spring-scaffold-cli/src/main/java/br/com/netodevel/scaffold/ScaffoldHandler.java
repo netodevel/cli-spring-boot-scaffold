@@ -17,6 +17,7 @@ import br.com.generate.kotlin.command.ControllerGenerateKotlin;
 import br.com.generate.kotlin.command.ModelGenerateKotlin;
 import br.com.generate.kotlin.command.RepositoryGenerateKotlin;
 import br.com.generate.kotlin.command.ServiceGenerateKotlin;
+import br.com.generate.template_engine.thymeleaf.ThymeleafGenerate;
 
 /**
  * @author NetoDevel
@@ -67,6 +68,7 @@ public class ScaffoldHandler extends OptionHandler {
 		new RepositoryGenerateJava(nameClass);
 		new ServiceGenerateJava(nameClass);
 		new ControllerGenerateJava(nameClass);
+		new ThymeleafGenerate(nameClass, parametersClass);
 	}
 	
 }

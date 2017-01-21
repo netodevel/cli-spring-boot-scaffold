@@ -7,9 +7,9 @@ import org.apache.commons.io.FileUtils;
 
 import br.com.generate.GenerateTemplateEngine;
 
-public class GenerateThymeleafFiles extends GenerateTemplateEngine {
+public class ThymeleafGenerate extends GenerateTemplateEngine {
 
-	public GenerateThymeleafFiles(String className, String parameters) throws IOException {
+	public ThymeleafGenerate(String className, String parameters) throws IOException {
 		generateIndexHtml(className, parameters);
 		generateFormHtml(className, parameters);
 	}
@@ -62,7 +62,7 @@ public class GenerateThymeleafFiles extends GenerateTemplateEngine {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		new GenerateThymeleafFiles("User", "name:String email:String");
+		new ThymeleafGenerate("User", "name:String email:String");
 	}
 	
 	
