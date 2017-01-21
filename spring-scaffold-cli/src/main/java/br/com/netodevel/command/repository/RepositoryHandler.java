@@ -1,5 +1,6 @@
 package br.com.netodevel.command.repository;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 import joptsimple.OptionSet;
@@ -47,7 +48,7 @@ public class RepositoryHandler extends OptionHandler {
 		new RepositoryGenerateKotlin(nameClass);
 	}
 	
-	private void generateRepositoryJava(String nameClass) {
+	private void generateRepositoryJava(String nameClass) throws IOException {
 		new RepositoryGenerateJava(nameClass);
 	}
 }

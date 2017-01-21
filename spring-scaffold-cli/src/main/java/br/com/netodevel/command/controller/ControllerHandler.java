@@ -1,5 +1,6 @@
 package br.com.netodevel.command.controller;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 import joptsimple.OptionSet;
@@ -8,7 +9,7 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.command.controller.ControllerScaffoldGenerateJava;
+import br.com.generate.java.command.controller.ControllerGenerateJava;
 import br.com.generate.kotlin.command.ControllerGenerateKotlin;
 
 /**
@@ -47,8 +48,8 @@ public class ControllerHandler extends OptionHandler {
 		new ControllerGenerateKotlin(nameClass);
 	}
 	
-	private void generateControllerJava(String nameClass) {
-		new ControllerScaffoldGenerateJava(nameClass);
+	private void generateControllerJava(String nameClass) throws IOException {
+		new ControllerGenerateJava(nameClass);
 	}
 	
 }

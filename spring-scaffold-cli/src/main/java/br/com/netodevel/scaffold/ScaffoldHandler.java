@@ -1,5 +1,6 @@
 package br.com.netodevel.scaffold;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 import joptsimple.OptionSet;
@@ -8,7 +9,7 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.command.controller.ControllerScaffoldGenerateJava;
+import br.com.generate.java.command.controller.ControllerGenerateJava;
 import br.com.generate.java.command.model.ModelGenerateJava;
 import br.com.generate.java.command.repository.RepositoryGenerateJava;
 import br.com.generate.java.command.service.ServiceGenerateJava;
@@ -61,11 +62,11 @@ public class ScaffoldHandler extends OptionHandler {
 		new ControllerGenerateKotlin(nameClass);
 	}
 	
-	private void generateScaffoldJava(String nameClass, String parametersClass) {
+	private void generateScaffoldJava(String nameClass, String parametersClass) throws IOException {
 		new ModelGenerateJava(nameClass, parametersClass);
 		new RepositoryGenerateJava(nameClass);
 		new ServiceGenerateJava(nameClass);
-		new ControllerScaffoldGenerateJava(nameClass);
+		new ControllerGenerateJava(nameClass);
 	}
 	
 }

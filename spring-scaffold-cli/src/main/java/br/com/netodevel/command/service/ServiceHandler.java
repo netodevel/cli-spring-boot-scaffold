@@ -1,5 +1,6 @@
 package br.com.netodevel.command.service;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 import joptsimple.OptionSet;
@@ -47,7 +48,7 @@ public class ServiceHandler extends OptionHandler {
 		new ServiceGenerateKotlin(nameClass);
 	}
 	
-	private void generateServiceJava(String nameClass) {
+	private void generateServiceJava(String nameClass) throws IOException {
 		new ServiceGenerateJava(nameClass);
 	}
 	

@@ -14,13 +14,13 @@ public class ControllerCleanGenerateJava extends ReadScaffoldInfo {
 	}	
 	
 	public void generate(String className) throws IOException {
-		File javaTemplateFile = new File(getUserDir() + "/src/main/resources/templates/java/template-clean-controller.txt");
+		File javaTemplateFile = new File(getUserDir() + "/src/main/resources/templates/java/controller/template-clean-controller.txt");
 		String javaStrings = FileUtils.readFileToString(javaTemplateFile);
 		
 		javaStrings = javaStrings.replace("${package}", getPackage() + ".controller");
 		javaStrings = javaStrings.replace("${className}", className);
 		
-		File newJavaFile = new File(getPathPackage() + "controller/" + className + ".java");
+		File newJavaFile = new File(getPathPackage() + "controller/" + className + "Controller.java");
 		FileUtils.writeStringToFile(newJavaFile, javaStrings);
 		System.out.println("create " + getPathPackage() + className + "Controller.java");
 	}

@@ -1,5 +1,6 @@
 package br.com.netodevel.command.model;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 import joptsimple.OptionSet;
@@ -57,7 +58,7 @@ public class ModelHandler extends OptionHandler {
 		new ModelGenerateKotlin(nameClass, parameterClass);
 	}
 	
-	private void generateModelJava(String nameClass, String parameters) {
+	private void generateModelJava(String nameClass, String parameters) throws IOException {
 		new ModelGenerateJava(nameClass, parameters);
 	}
 }
