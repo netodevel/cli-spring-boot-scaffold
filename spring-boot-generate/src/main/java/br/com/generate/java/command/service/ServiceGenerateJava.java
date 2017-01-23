@@ -1,36 +1,23 @@
 package br.com.generate.java.command.service;
 
-import java.io.File;
-import java.io.IOException;
+import br.com.generate.ReadTemplateFile;
 
-import org.apache.commons.io.FileUtils;
+public class ServiceGenerateJava extends ReadTemplateFile {
 
-import br.com.generate.ReadScaffoldInfo;
-
-public class ServiceGenerateJava extends ReadScaffoldInfo {
-
-	public ServiceGenerateJava(String className) throws IOException {
-		generate(className);
+	@Override
+	public String getLayer() {
+		return "service";
 	}
-	
-	public void generate(String className) throws IOException {
-		File javaTemplateFile = new File(getUserDir() + "/src/main/resources/templates/java/service/template-service.txt");
-		String javaStrings = FileUtils.readFileToString(javaTemplateFile);
 
-		javaStrings = javaStrings.replace("${package}", getPackage() + ".service");
-		javaStrings = javaStrings.replace("${package_model}", getPackage() + ".model");
-		javaStrings = javaStrings.replace("${package_repository}", getPackage() + ".repository");
-		javaStrings = javaStrings.replace("${className}", className);
-		javaStrings = javaStrings.replace("${paramClassName}", className.toLowerCase());
+	@Override
+	protected String operationGenerate(String javaStrings, String nameClass, String parameters) {
+		return javaStrings.replace("${package}", getPackage() + ".service")
+				.replace("${package_model}", getPackage() + ".model")
+				.replace("${package_repository}", getPackage() + ".repository")
+				.replace("${className}", nameClass)
+				.replace("${paramClassName}", nameClass.toLowerCase());
 
-		File newJavaFile = new File(getPathPackage() + "service/" + className + "Service.java");
-		FileUtils.writeStringToFile(newJavaFile, javaStrings);
-		System.out.println("create " + getPathPackage() + className + "Service.java");
 	}
-	
-	public static void main(String[] args) throws IOException {
-		new ServiceGenerateJava("User");
-	}
-	
+
 }
-	
+

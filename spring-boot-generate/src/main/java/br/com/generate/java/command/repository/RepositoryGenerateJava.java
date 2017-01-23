@@ -1,29 +1,26 @@
 package br.com.generate.java.command.repository;
 
-import java.io.File;
 import java.io.IOException;
 
-import org.apache.commons.io.FileUtils;
+import br.com.generate.ReadTemplateFile;
 
-import br.com.generate.ReadScaffoldInfo;
+public class RepositoryGenerateJava extends ReadTemplateFile {
 
-public class RepositoryGenerateJava extends ReadScaffoldInfo {
-
-	public RepositoryGenerateJava(String className) throws IOException {
-		generate(className);
+	@Override
+	public String getLayer() {
+		return "repository";
 	}
 
-	public void generate(String className) throws IOException {
-		File javaTemplateFile = new File(getUserDir() + "/src/main/resources/templates/java/repository/template-repository.txt");
-		String javaStrings = FileUtils.readFileToString(javaTemplateFile);
-
-		javaStrings = javaStrings.replace("${package}", getPackage() + ".repository");
-		javaStrings = javaStrings.replace("${package_model}", getPackage() + ".model");
-		javaStrings = javaStrings.replace("${className}", className);
-
-		File newJavaFile = new File(getPathPackage() + "repository/" + className + "Repository.java");
-		FileUtils.writeStringToFile(newJavaFile, javaStrings);
-		System.out.println("create " + getPathPackage() + "repository/" + className + "Repository.java");
+	@Override
+	protected String operationGenerate(String javaStrings, String nameClass, String parameters) {
+		return javaStrings.replace("${package}", getPackage() + ".repository")
+				.replace("${package_model}", getPackage() + ".model")
+				.replace("${className}", nameClass);
 	}
 
+	
+	public static void main(String[] args) throws IOException {
+		new RepositoryGenerateJava().generate("User", null, "template-repository.txt");
+	}
+	
 }

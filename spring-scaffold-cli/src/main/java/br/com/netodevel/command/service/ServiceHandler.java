@@ -35,11 +35,11 @@ public class ServiceHandler extends OptionHandler {
 		String nameClass = (String) options.valueOf("n");
 		String language = (String) options.valueOf("l");
 		if (language == null) {
-			generateServiceJava(nameClass);
+			generateServiceJava(nameClass.trim());
 		} else if (language.trim().equals("java")) {
-			generateServiceJava(nameClass);
+			generateServiceJava(nameClass.trim());
 		} else if (language.trim().equals("kotlin")) {
-			generateServiceKotlin(nameClass);
+			generateServiceKotlin(nameClass.trim());
 		}
 		return ExitStatus.OK;
 	}
@@ -49,7 +49,7 @@ public class ServiceHandler extends OptionHandler {
 	}
 	
 	private void generateServiceJava(String nameClass) throws IOException {
-		new ServiceGenerateJava(nameClass);
+		new ServiceGenerateJava().generate(nameClass, null, "template-service.txt");
 	}
 	
 	

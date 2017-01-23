@@ -51,12 +51,12 @@ public class ScaffoldHandler extends OptionHandler {
 		SupportTypes supportTypes = new SupportTypes();
 		
 		if (language == null) {
-			generateJava(nameClass, parametersClass, supportTypes);
+			generateJava(nameClass.trim(), parametersClass.trim(), supportTypes);
 		} else if (language.trim().equals("java")) {
-			generateJava(nameClass, parametersClass, supportTypes);
+			generateJava(nameClass.trim(), parametersClass.trim(), supportTypes);
 		} else if (language.trim().equals("kotlin")) {
-			if (supportTypes.validate(parametersClass)) {
-				generateScaffoldKotlin(nameClass, parametersClass);
+			if (supportTypes.validate(parametersClass.trim())) {
+				generateScaffoldKotlin(nameClass.trim(), parametersClass.trim());
 			}
 		}
 		return ExitStatus.OK;
@@ -76,10 +76,10 @@ public class ScaffoldHandler extends OptionHandler {
 	}
 	
 	private void generateScaffoldJava(String nameClass, String parametersClass) throws IOException {
-		new ModelGenerateJava(nameClass, parametersClass);
-		new RepositoryGenerateJava(nameClass);
-		new ServiceGenerateJava(nameClass);
-		new ControllerGenerateJava(nameClass);
+		new ModelGenerateJava().generate(nameClass, parametersClass, "template-model.txt");
+		new RepositoryGenerateJava().generate(nameClass, null, "template-repository.txt");
+		new ServiceGenerateJava().generate(nameClass, null, "template-service.txt");
+		new ControllerGenerateJava().generate(nameClass, null, "template-controller.txt");
 		new ThymeleafGenerate(nameClass, parametersClass);
 	}
 	

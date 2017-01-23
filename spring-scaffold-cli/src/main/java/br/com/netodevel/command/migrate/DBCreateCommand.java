@@ -22,8 +22,8 @@ public class DBCreateCommand extends OptionParsingCommand {
 	@Override
 	public Collection<HelpExample> getExamples() {
 		List<HelpExample> list = new ArrayList<HelpExample>();
-		list.add(new HelpExample("create database mysql", "spring dbcreate -n mydatabase -p mysql"));
-		list.add(new HelpExample("create database postgresql", "spring dbcreate -n mydatabase -p postgresql"));
+		list.add(new HelpExample("create database mysql", "spring db:create -n mydatabase -p mysql"));
+		list.add(new HelpExample("create database postgresql", "spring db:create -n mydatabase -p postgresql"));
 		return list;
 	}
 	

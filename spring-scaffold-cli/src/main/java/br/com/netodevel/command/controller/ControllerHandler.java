@@ -35,11 +35,11 @@ public class ControllerHandler extends OptionHandler {
 		String nameClass = (String) options.valueOf("n");
 		String language = (String) options.valueOf("l");
 		if (language == null) {
-			generateControllerJava(nameClass);
+			generateControllerJava(nameClass.trim());
 		} else if (language.trim().equals("java")) {
-			generateControllerJava(nameClass);
+			generateControllerJava(nameClass.trim());
 		} else if (language.trim().equals("kotlin")) {
-			generateControllerKotlin(nameClass);
+			generateControllerKotlin(nameClass.trim());
 		}
 		return ExitStatus.OK;
 	}
@@ -49,7 +49,7 @@ public class ControllerHandler extends OptionHandler {
 	}
 	
 	private void generateControllerJava(String nameClass) throws IOException {
-		new ControllerGenerateJava(nameClass);
+		new ControllerGenerateJava().generate(nameClass, "", "template-controller.txt");
 	}
 	
 }

@@ -35,11 +35,11 @@ public class RepositoryHandler extends OptionHandler {
 		String nameClass = (String) options.valueOf("n");
 		String language = (String) options.valueOf("l");
 		if (language == null) {
-			generateRepositoryJava(nameClass);
+			generateRepositoryJava(nameClass.trim());
 		} else if (language.trim().equals("java")) {
-			generateRepositoryJava(nameClass);
+			generateRepositoryJava(nameClass.trim());
 		} else if (language.trim().equals("kotlin")) {
-			generateRepositoryKotlin(nameClass);
+			generateRepositoryKotlin(nameClass.trim());
 		}
 		return ExitStatus.OK;
 	}
@@ -49,6 +49,6 @@ public class RepositoryHandler extends OptionHandler {
 	}
 	
 	private void generateRepositoryJava(String nameClass) throws IOException {
-		new RepositoryGenerateJava(nameClass);
+		new RepositoryGenerateJava().generate(nameClass, null, "template-repository.txt");
 	}
 }

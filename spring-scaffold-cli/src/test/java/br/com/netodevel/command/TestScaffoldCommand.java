@@ -14,7 +14,7 @@ public class TestScaffoldCommand {
 	@Test
 	public void testRunScaffoldCommand() {
 		try {
-			new ScaffoldCommand("scaffold", "generate api scaffold kotlin", new ScaffoldHandler()).run("-n User", "-p name:String");
+			new ScaffoldCommand("scaffold", "generate scaffold", new ScaffoldHandler()).run("-n User", "-p name:String email:String");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

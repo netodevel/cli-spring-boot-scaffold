@@ -1,36 +1,28 @@
 package br.com.generate.java.command.controller;
 
-import java.io.File;
 import java.io.IOException;
 
-import org.apache.commons.io.FileUtils;
+import br.com.generate.ReadTemplateFile;
 
-import br.com.generate.ReadScaffoldInfo;
+public class ControllerGenerateJava extends ReadTemplateFile {
 
-public class ControllerGenerateJava extends ReadScaffoldInfo {
-
-	public ControllerGenerateJava(String className) throws IOException {
-		generate(className);
+	@Override
+	public String getLayer() {
+		return "controller";
 	}
 
-	public void generate(String className) throws IOException {
-		File javaTemplateFile = new File(getUserDir() + "/src/main/resources/templates/java/controller/template-controller.txt");
-		String javaStrings = FileUtils.readFileToString(javaTemplateFile);
-
-		javaStrings = javaStrings.replace("${package}", getPackage() + ".controller");
-		javaStrings = javaStrings.replace("${package_model}", getPackage() + ".model");
-		javaStrings = javaStrings.replace("${package_service}", getPackage() + ".service");
-		javaStrings = javaStrings.replace("${className}", className);
-		javaStrings = javaStrings.replace("${paramClassName}", className.toLowerCase());
-		javaStrings = javaStrings.replace("${url_path}", className.toLowerCase() + "s");
-
-		File newJavaFile = new File(getPathPackage() + "controller/" + className + "Controller.java");
-		FileUtils.writeStringToFile(newJavaFile, javaStrings);
-		System.out.println("create " + getPathPackage()  + "controller/" + className + "Controller.java");
+	@Override
+	protected String operationGenerate(String javaStrings, String nameClass, String parameters) {
+		return javaStrings.replace("${package}", getPackage() + ".controller")
+				.replace("${package_model}", getPackage() + ".model")
+				.replace("${package_service}", getPackage() + ".service")
+				.replace("${className}", nameClass)
+				.replace("${paramClassName}", nameClass.toLowerCase())
+				.replace("${url_path}", nameClass.toLowerCase() + "s");
 	}
 	
 	public static void main(String[] args) throws IOException {
-		new ControllerGenerateJava("User");
+		new ControllerGenerateJava().generate("User", "", "template-controller.txt");
 	}
 
 }

@@ -34,8 +34,9 @@ public class ThymeleafGenerate extends GenerateTemplateEngine {
 		htmlString = htmlString.replace("${th_attributes}", thAttributes);
 		htmlString = htmlString.replace("${td_attributes}", tdAttributes);
 		
-		File newHtmlFile = new File("templates/" + className.toLowerCase() + "/index.html");
+		File newHtmlFile = new File(getUserDir() + "/src/main/resources/templates/" + className.toLowerCase() + "/index.html");
 		FileUtils.writeStringToFile(newHtmlFile, htmlString);
+		System.out.println("create /src/main/resources/templates/" + className.toLowerCase() + "/index.html");
 	}
 
 	public void generateFormHtml(String className, String parameters) throws IOException {
@@ -53,8 +54,9 @@ public class ThymeleafGenerate extends GenerateTemplateEngine {
 		htmlString = htmlString.replace("url_path", pathUrl);
 		htmlString = htmlString.replace("${input_parameters}", inputParameters);
 		
-		File newHtmlFile = new File("templates/" + className.toLowerCase() + "/form.html");
+		File newHtmlFile = new File(getUserDir() + "/src/main/resources/templates/" + className.toLowerCase() + "/form.html");
 		FileUtils.writeStringToFile(newHtmlFile, htmlString);
+		System.out.println("create /src/main/resources/templates/" + className.toLowerCase() + "/form.html");
 	}
 	
 	public void generateShowHtml() {

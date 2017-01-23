@@ -49,12 +49,12 @@ public class ModelHandler extends OptionHandler {
 		SupportTypes supportTypes = new SupportTypes();
 		
 		if (language == null) {
-			generateJava(nameClass, parametersClass, supportTypes);
+			generateJava(nameClass.trim(), parametersClass.trim(), supportTypes);
 		} else if (language.trim().equals("java")) {
-			generateJava(nameClass, parametersClass, supportTypes);
+			generateJava(nameClass.trim(), parametersClass.trim(), supportTypes);
 		} else if (language.trim().equals("kotlin")) {
-			if (supportTypes.validate(parametersClass)) {
-				generateModelKotlin(nameClass, parametersClass);
+			if (supportTypes.validate(parametersClass.trim())) {
+				generateModelKotlin(nameClass.trim(), parametersClass.trim());
 			}
 		}
 		return ExitStatus.OK;
@@ -71,6 +71,6 @@ public class ModelHandler extends OptionHandler {
 	}
 	
 	private void generateModelJava(String nameClass, String parameters) throws IOException {
-		new ModelGenerateJava(nameClass, parameters);
+		new ModelGenerateJava().generate(nameClass, parameters, "template-model.txt");
 	}
 }
