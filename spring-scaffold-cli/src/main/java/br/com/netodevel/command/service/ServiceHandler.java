@@ -36,9 +36,9 @@ public class ServiceHandler extends OptionHandler {
 		String language = (String) options.valueOf("l");
 		if (language == null) {
 			generateServiceJava(nameClass);
-		} else if (language.equals(" java")) {
+		} else if (language.trim().equals("java")) {
 			generateServiceJava(nameClass);
-		} else if (language.equals(" kotlin")) {
+		} else if (language.trim().equals("kotlin")) {
 			generateServiceKotlin(nameClass);
 		}
 		return ExitStatus.OK;

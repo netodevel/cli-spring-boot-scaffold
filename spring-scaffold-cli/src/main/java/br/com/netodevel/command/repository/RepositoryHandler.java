@@ -36,9 +36,9 @@ public class RepositoryHandler extends OptionHandler {
 		String language = (String) options.valueOf("l");
 		if (language == null) {
 			generateRepositoryJava(nameClass);
-		} else if (language.equals(" java")) {
+		} else if (language.trim().equals("java")) {
 			generateRepositoryJava(nameClass);
-		} else if (language.equals(" kotlin")) {
+		} else if (language.trim().equals("kotlin")) {
 			generateRepositoryKotlin(nameClass);
 		}
 		return ExitStatus.OK;

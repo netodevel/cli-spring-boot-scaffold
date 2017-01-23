@@ -9,6 +9,7 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
+import br.com.generate.SupportTypes;
 import br.com.generate.java.command.controller.ControllerGenerateJava;
 import br.com.generate.java.command.model.ModelGenerateJava;
 import br.com.generate.java.command.repository.RepositoryGenerateJava;
@@ -46,14 +47,25 @@ public class ScaffoldHandler extends OptionHandler {
 		String nameClass = (String) options.valueOf("n");
 		String parametersClass = (String) options.valueOf("p");
 		String language = (String) options.valueOf("l");
+		
+		SupportTypes supportTypes = new SupportTypes();
+		
 		if (language == null) {
-			generateScaffoldJava(nameClass, parametersClass);
-		} else if (language.equals(" java")) {
-			generateScaffoldJava(nameClass, parametersClass);
-		} else if (language.equals(" kotlin")) {
-			generateScaffoldKotlin(nameClass, parametersClass);
+			generateJava(nameClass, parametersClass, supportTypes);
+		} else if (language.trim().equals("java")) {
+			generateJava(nameClass, parametersClass, supportTypes);
+		} else if (language.trim().equals("kotlin")) {
+			if (supportTypes.validate(parametersClass)) {
+				generateScaffoldKotlin(nameClass, parametersClass);
+			}
 		}
 		return ExitStatus.OK;
+	}
+
+	private void generateJava(String nameClass, String parametersClass, SupportTypes supportTypes) throws IOException {
+		if (supportTypes.validate(parametersClass)) {
+			generateScaffoldJava(nameClass, parametersClass);
+		}
 	}
 
 	private void generateScaffoldKotlin(String nameClass, String parametersClass) {

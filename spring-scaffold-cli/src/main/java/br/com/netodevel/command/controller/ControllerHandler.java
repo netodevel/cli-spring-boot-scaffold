@@ -36,9 +36,9 @@ public class ControllerHandler extends OptionHandler {
 		String language = (String) options.valueOf("l");
 		if (language == null) {
 			generateControllerJava(nameClass);
-		} else if (language.equals(" java")) {
+		} else if (language.trim().equals("java")) {
 			generateControllerJava(nameClass);
-		} else if (language.equals(" kotlin")) {
+		} else if (language.trim().equals("kotlin")) {
 			generateControllerKotlin(nameClass);
 		}
 		return ExitStatus.OK;
