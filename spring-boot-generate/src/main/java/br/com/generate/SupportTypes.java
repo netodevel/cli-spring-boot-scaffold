@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class SupportTypes {
 
-	public List<String> typesSupported = Arrays.asList("String", "Double", "Float", "Long", "Integer", "Short", "Byte", "Char", "Boolean", "Object", "BigDecimal");
+	public List<String> typesSupported = Arrays.asList("String", "Double", "Float", "Long", "Integer", "Short", "Byte", "Char", "Boolean", "Object", "BigDecimal", "Date");
 	
 	public boolean validate(String parameters, String layer) {
 		if (layer.equals(Layers.MODEL)) {

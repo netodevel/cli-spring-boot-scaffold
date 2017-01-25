@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import br.com.generate.Layers;
 import br.com.generate.ReadTemplateFile;
+import br.com.util.ModelGenerateUtils;
 
 /**
  * @author NetoDevel
@@ -18,9 +19,11 @@ public class ModelGenerateJava extends ReadTemplateFile {
 	@Override
 	protected String operationGenerate(String javaStrings, String nameClass, String parameters) {
 		return javaStrings.replace("${package}", getPackage() + ".model")
+				.replace("${imports}", ModelGenerateUtils.generateImports(parameters))
 				.replace("${className}", nameClass)
 				.replace("${name_table}", nameClass.toLowerCase() + "s")
-				.replace("${parameters}", generateParams(parameters));
+				.replace("${parameters}", generateParams(parameters))
+				.replace("${getters}", ModelGenerateUtils.generateGettersAndSetters(parameters));
 	}
 	
 	public String generateParams(String params) {
@@ -43,8 +46,8 @@ public class ModelGenerateJava extends ReadTemplateFile {
 		return finalParameters;
 	}
 
-	public static void main(String[] args) throws IOException {
-		new ModelGenerateJava().generate("User", "name:String", "template-model.txt");
+	public static void main(String[] args) throws IOException  {
+		new ModelGenerateJava().generate("User", "name:String mail:String age:Integer dataCreated:Date", "template-model.txt");
 	}
 	
 }
