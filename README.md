@@ -103,5 +103,6 @@ And install the Spring Scaffold plugin
          
  * [Bruno Lima](https://github.com/brunodles)
  * [Ivan Marreta](https://github.com/ivanmarreta)
+ * [Bruno Barros](https://github.com/brunobarros)
        
 
