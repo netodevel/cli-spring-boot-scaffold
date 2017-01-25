@@ -29,7 +29,7 @@ public class ModelGenerateJava extends ReadTemplateFile {
 	public String generateParams(String params) {
 		String[] variablesSplits = params.split(" ");
 		String finalParameters = "";
-		for (int i = 0; i < variablesSplits.length; i++) {
+		for (int i = 1; i < variablesSplits.length; i++) {
 
 			String [] typeAndNameVars = variablesSplits[i].split(":");
 

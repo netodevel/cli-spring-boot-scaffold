@@ -9,7 +9,6 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.SupportTypes;
 import br.com.generate.java.command.model.ModelGenerateJava;
 import br.com.generate.kotlin.command.ModelGenerateKotlin;
 
@@ -47,11 +46,11 @@ public class ModelHandler extends OptionHandler {
 		String language = (String) options.valueOf("l");
 		
 		if (language == null) {
-			generateJava(nameClass.trim(), parametersClass.trim());
+			generateJava(nameClass.trim(), parametersClass);
 		} else if (language.trim().equals("java")) {
-			generateJava(nameClass.trim(), parametersClass.trim());
+			generateJava(nameClass.trim(), parametersClass);
 		} else if (language.trim().equals("kotlin")) {
-			generateModelKotlin(nameClass.trim(), parametersClass.trim());
+			generateModelKotlin(nameClass.trim(), parametersClass);
 		}
 		
 		return ExitStatus.OK;

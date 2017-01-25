@@ -50,11 +50,11 @@ public class ScaffoldHandler extends OptionHandler {
 		
 		
 		if (language == null) {
-			generateJava(nameClass.trim(), parametersClass.trim());
+			generateJava(nameClass.trim(), parametersClass);
 		} else if (language.trim().equals("java")) {
-			generateJava(nameClass.trim(), parametersClass.trim());
+			generateJava(nameClass.trim(), parametersClass);
 		} else if (language.trim().equals("kotlin")) {
-			generateScaffoldKotlin(nameClass.trim(), parametersClass.trim());
+			generateScaffoldKotlin(nameClass.trim(), parametersClass);
 		}
 		return ExitStatus.OK;
 	}
