@@ -42,7 +42,7 @@ public class ModelGenerateUtils {
 	public static String generateImports(String parameters) {
 		String[] separator = parameters.split(" ");
 		String imports = "";
-		for (int i = 1; i < separator.length; i++) {
+		for (int i = 0; i < separator.length; i++) {
 			String [] nameAndType = separator[i].split(":");
 
 			for (int j = 0; j < listGenerateImports().size(); j++) {
@@ -58,7 +58,7 @@ public class ModelGenerateUtils {
 	public static String generateGettersAndSetters(String parameters) {
 		String[] separator = parameters.split(" ");
 		String gettersAndSetters = "";
-		for (int i = 1; i < separator.length; i++) {
+		for (int i = 0; i < separator.length; i++) {
 			String [] nameAndType = separator[i].split(":");
 			String name = nameAndType[0];
 			String type = nameAndType[1];

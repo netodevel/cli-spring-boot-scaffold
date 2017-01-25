@@ -14,7 +14,7 @@ public class SupportTypes {
 	public boolean validate(String parameters, String layer) {
 		if (layer.equals(Layers.MODEL)) {
 			String[] separator = parameters.split(" ");
-			for (int i = 1; i < separator.length; i++) {
+			for (int i = 0; i < separator.length; i++) {
 				String [] nameAndType = separator[i].split(":");
 				if (!typesSupported.contains(nameAndType[1].trim())) {
 					System.out.println("Error: type " + nameAndType[1] + " not supported.");

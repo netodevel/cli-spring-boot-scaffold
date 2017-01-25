@@ -16,18 +16,20 @@ public abstract class AbstractThymeleafGenerate extends ReadScaffoldInfo {
 			String [] nameAndType = params[i].split(":");
 			thParameters += "<th>" + nameAndType[0] + "</th> \n";
 		}
+
+		thParameters += "<th>Action</th>";
 		return thParameters;
 	}
 	
 	public String generateTdParameters(String className, String parameters) {
 		String [] params = parameters.split(" ");
-		String thParameters = "";
-		
+		String tdParameters = "";
 		for (int i = 0; i < params.length; i++) {
 			String [] nameAndType = params[i].split(":");
-			thParameters += "<td th:text=\"${" + className.toLowerCase() + "." + nameAndType[0] + "}\"></td> \n";
+			tdParameters += "<td th:text=\"${" + className.toLowerCase() + "." + nameAndType[0] + "}\"></td> \n";
 		}
-		return thParameters;
+		tdParameters += "<td><a th:href=\"@{/"+ className.toLowerCase() + "s/" + "${" + className.toLowerCase() + ".id}" + "/update}\">update</a></td>";
+		return tdParameters;
 	}
 
 	public String generateInputParameters(String parameters) {
@@ -45,5 +47,6 @@ public abstract class AbstractThymeleafGenerate extends ReadScaffoldInfo {
 		
 		return inputParameters;
 	}
+	
 	
 }

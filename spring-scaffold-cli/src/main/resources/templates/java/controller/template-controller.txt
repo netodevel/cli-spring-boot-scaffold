@@ -45,7 +45,7 @@ public class ${className}Controller {
 		return "${paramClassName}/form";
 	}
 	
-	@PostMapping(value = "/new")
+	@PostMapping
 	public String create(@Valid @ModelAttribute ${className} entity, BindingResult result, RedirectAttributes redirectAttributes) {
 		try {
 			${paramClassName}Service.save(entity);

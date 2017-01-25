@@ -18,7 +18,13 @@ public abstract class AbstractGenerate extends ReadScaffoldInfo implements IGene
 	}
 
 	public void outPutFile(String javaStrings, String fileOutPutName) throws IOException {
-		File newJavaFile = new File(getPathPackage() + getLayer() + "/" + fileOutPutName + StringUtils.capitalize(getLayer()) + ".java");
+		String nameFileOutPut;
+		if (getLayer().equals(Layers.MODEL)) {
+			nameFileOutPut = getPathPackage() + getLayer() + "/" + fileOutPutName + ".java";
+		} else {
+			nameFileOutPut = getPathPackage() + getLayer() + "/" + fileOutPutName + StringUtils.capitalize(getLayer()) + ".java";
+		}
+		File newJavaFile = new File(nameFileOutPut);
 		FileUtils.writeStringToFile(newJavaFile, javaStrings);
 		System.out.println("create " + getPathPackage()  + getLayer() + "/" + fileOutPutName + StringUtils.capitalize(getLayer()) + ".java");
 	}

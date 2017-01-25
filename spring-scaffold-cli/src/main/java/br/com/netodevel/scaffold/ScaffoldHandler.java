@@ -9,7 +9,6 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.SupportTypes;
 import br.com.generate.java.command.controller.ControllerGenerateJava;
 import br.com.generate.java.command.model.ModelGenerateJava;
 import br.com.generate.java.command.repository.RepositoryGenerateJava;
@@ -47,8 +46,6 @@ public class ScaffoldHandler extends OptionHandler {
 		String nameClass = (String) options.valueOf("n");
 		String parametersClass = (String) options.valueOf("p");
 		String language = (String) options.valueOf("l");
-		
-		
 		if (language == null) {
 			generateJava(nameClass.trim(), parametersClass);
 		} else if (language.trim().equals("java")) {

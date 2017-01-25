@@ -9,8 +9,16 @@ import org.apache.commons.io.IOUtils;
 public class ThymeleafGenerate extends AbstractThymeleafGenerate {
 
 	public ThymeleafGenerate(String className, String parameters) throws IOException {
+		generateTemplateLayout();
 		generateIndexHtml(className, parameters);
 		generateFormHtml(className, parameters);
+	}
+
+	public void generateTemplateLayout() throws IOException {
+		String htmlString = IOUtils.toString(getClass().getResourceAsStream("/templates/template-layout.html"), null);
+		File newHtmlFile = new File(getUserDir() + "/src/main/resources/templates/layout.html");
+		FileUtils.writeStringToFile(newHtmlFile, htmlString);
+		System.out.println("create /src/main/resources/templates/layout.html");
 	}
 	
 	public void generateIndexHtml(String className, String parameters) throws IOException {
@@ -21,7 +29,7 @@ public class ThymeleafGenerate extends AbstractThymeleafGenerate {
 		String pathUrl = "/" + className.toLowerCase() + "s";
 		String thAttributes = generateThParameters(parameters);
 		String tdAttributes = generateTdParameters(className, parameters);
-		String eachParam = className;
+		String eachParam = "list" + className;
 		
 		htmlString = htmlString.replace("${template}", template);
 		htmlString = htmlString.replace("${className}", classNameParam);
@@ -55,10 +63,6 @@ public class ThymeleafGenerate extends AbstractThymeleafGenerate {
 		
 		FileUtils.writeStringToFile(newHtmlFile, htmlString);
 		System.out.println("create /src/main/resources/templates/" + className.toLowerCase() + "/form.html");
-	}
-	
-	public void generateShowHtml() {
-	
 	}
 	
 	public static void main(String[] args) throws IOException {
