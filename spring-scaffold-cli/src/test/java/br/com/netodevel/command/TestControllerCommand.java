@@ -14,7 +14,7 @@ public class TestControllerCommand {
 	@Test
 	public void testRunControllerCommand() {
 		try {
-			new ControllerCommand("controller", "generate controllers kotlin", new ControllerHandler()).run("-n User");
+			new ControllerCommand("controller", "generate controllers", new ControllerHandler()).run("-n User");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
