@@ -28,7 +28,7 @@ public abstract class AbstractThymeleafGenerate extends ReadScaffoldInfo {
 			String [] nameAndType = params[i].split(":");
 			tdParameters += "<td th:text=\"${" + className.toLowerCase() + "." + nameAndType[0] + "}\"></td> \n";
 		}
-		tdParameters += "<td><a th:href=\"@{/"+ className.toLowerCase() + "s/" + "${" + className.toLowerCase() + ".id}" + "/update}\">update</a></td>";
+		tdParameters += "<td><a th:href=\"@{/"+ className.toLowerCase() + "s/{id}/update}(id = " + "${" + className.toLowerCase() + ".id}" + ")}\">update</a></td>";
 		return tdParameters;
 	}
 
