@@ -67,7 +67,7 @@ public abstract class ReadScaffoldInfo {
 		if(f.exists()) { 
 			return true;
 		} else {
-			System.out.println("Error: before execute spring setupscaffold command");
+			System.out.println("Error: before execute spring setup:scaffold command");
 			return false;
 		}
 	}

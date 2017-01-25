@@ -22,8 +22,8 @@ public class SetupScaffoldCommand extends OptionParsingCommand {
 	@Override
 	public Collection<HelpExample> getExamples() {
 		List<HelpExample> list = new ArrayList<HelpExample>();
-		list.add(new HelpExample("setup scaffold", "spring setupscaffold"));
-		list.add(new HelpExample("setup scaffold with parameters", "spring setupscaffold -p com.example -u root -p root"));
+		list.add(new HelpExample("setup scaffold", "spring setup:scaffold"));
+		list.add(new HelpExample("setup scaffold with parameters", "spring setup:scaffold -p com.example -u root -p root"));
 		return list;
 	}
 	
