@@ -1,10 +1,12 @@
-package br.com.generate;
+package br.com.generate.thymeleaf;
+
+import br.com.generate.ReadScaffoldInfo;
 
 
 /**
  * @author NetoDevel
  */
-public abstract class GenerateTemplateEngine extends ReadScaffoldInfo {
+public abstract class AbstractThymeleafGenerate extends ReadScaffoldInfo {
 
 	public String generateThParameters(String parameters) {
 		String [] params = parameters.split(" ");

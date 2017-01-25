@@ -18,7 +18,7 @@ import br.com.generate.kotlin.command.ControllerGenerateKotlin;
 import br.com.generate.kotlin.command.ModelGenerateKotlin;
 import br.com.generate.kotlin.command.RepositoryGenerateKotlin;
 import br.com.generate.kotlin.command.ServiceGenerateKotlin;
-import br.com.generate.template_engine.thymeleaf.ThymeleafGenerate;
+import br.com.generate.thymeleaf.ThymeleafGenerate;
 
 /**
  * @author NetoDevel

@@ -1,4 +1,4 @@
-package br.com.generate.template_engine.thymeleaf;
+package br.com.generate.thymeleaf;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,9 +6,7 @@ import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
-import br.com.generate.GenerateTemplateEngine;
-
-public class ThymeleafGenerate extends GenerateTemplateEngine {
+public class ThymeleafGenerate extends AbstractThymeleafGenerate {
 
 	public ThymeleafGenerate(String className, String parameters) throws IOException {
 		generateIndexHtml(className, parameters);
