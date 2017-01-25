@@ -48,24 +48,19 @@ public class ScaffoldHandler extends OptionHandler {
 		String parametersClass = (String) options.valueOf("p");
 		String language = (String) options.valueOf("l");
 		
-		SupportTypes supportTypes = new SupportTypes();
 		
 		if (language == null) {
-			generateJava(nameClass.trim(), parametersClass.trim(), supportTypes);
+			generateJava(nameClass.trim(), parametersClass.trim());
 		} else if (language.trim().equals("java")) {
-			generateJava(nameClass.trim(), parametersClass.trim(), supportTypes);
+			generateJava(nameClass.trim(), parametersClass.trim());
 		} else if (language.trim().equals("kotlin")) {
-			if (supportTypes.validate(parametersClass.trim())) {
-				generateScaffoldKotlin(nameClass.trim(), parametersClass.trim());
-			}
+			generateScaffoldKotlin(nameClass.trim(), parametersClass.trim());
 		}
 		return ExitStatus.OK;
 	}
 
-	private void generateJava(String nameClass, String parametersClass, SupportTypes supportTypes) throws IOException {
-		if (supportTypes.validate(parametersClass)) {
-			generateScaffoldJava(nameClass, parametersClass);
-		}
+	private void generateJava(String nameClass, String parametersClass) throws IOException {
+		generateScaffoldJava(nameClass, parametersClass);
 	}
 
 	private void generateScaffoldKotlin(String nameClass, String parametersClass) {

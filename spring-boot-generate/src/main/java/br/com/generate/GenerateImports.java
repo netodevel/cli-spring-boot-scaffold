@@ -33,6 +33,7 @@ public class GenerateImports {
 				new GenerateImports("java.lang.Char", "Char"),
 				new GenerateImports("java.lang.Boolean", "Boolean"),
 				new GenerateImports("java.lang.Object", "Object"),
+				new GenerateImports("java.util.Date", "Date"),
 				new GenerateImports("java.math.BigDecimal", "BigDecimal"));
 	}
 	

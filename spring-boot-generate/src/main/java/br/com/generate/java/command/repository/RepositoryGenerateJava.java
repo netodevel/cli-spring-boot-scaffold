@@ -2,13 +2,14 @@ package br.com.generate.java.command.repository;
 
 import java.io.IOException;
 
+import br.com.generate.Layers;
 import br.com.generate.ReadTemplateFile;
 
 public class RepositoryGenerateJava extends ReadTemplateFile {
 
 	@Override
 	public String getLayer() {
-		return "repository";
+		return Layers.REPOSITORY;
 	}
 
 	@Override

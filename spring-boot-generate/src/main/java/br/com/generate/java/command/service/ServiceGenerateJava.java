@@ -1,12 +1,15 @@
 package br.com.generate.java.command.service;
 
+import java.io.IOException;
+
+import br.com.generate.Layers;
 import br.com.generate.ReadTemplateFile;
 
 public class ServiceGenerateJava extends ReadTemplateFile {
 
 	@Override
 	public String getLayer() {
-		return "service";
+		return Layers.SERVICE;
 	}
 
 	@Override
@@ -19,5 +22,9 @@ public class ServiceGenerateJava extends ReadTemplateFile {
 
 	}
 
+	public static void main(String[] args) throws IOException {
+		new ServiceGenerateJava().generate("User", null, "template-service.txt");
+	}
+	
 }
 

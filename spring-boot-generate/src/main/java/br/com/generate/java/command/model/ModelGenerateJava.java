@@ -1,5 +1,8 @@
 package br.com.generate.java.command.model;
 
+import java.io.IOException;
+
+import br.com.generate.Layers;
 import br.com.generate.ReadTemplateFile;
 
 /**
@@ -9,7 +12,7 @@ public class ModelGenerateJava extends ReadTemplateFile {
 	
 	@Override
 	public String getLayer() {
-		return "model";
+		return Layers.MODEL;
 	}
 
 	@Override
@@ -40,4 +43,8 @@ public class ModelGenerateJava extends ReadTemplateFile {
 		return finalParameters;
 	}
 
+	public static void main(String[] args) throws IOException {
+		new ModelGenerateJava().generate("User", "name:String", "template-model.txt");
+	}
+	
 }

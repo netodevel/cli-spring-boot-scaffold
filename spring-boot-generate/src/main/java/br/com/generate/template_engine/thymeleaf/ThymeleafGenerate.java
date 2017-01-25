@@ -10,8 +10,6 @@ import br.com.generate.GenerateTemplateEngine;
 
 public class ThymeleafGenerate extends GenerateTemplateEngine {
 
-	ClassLoader loader = ThymeleafGenerate.class.getClassLoader();
-	
 	public ThymeleafGenerate(String className, String parameters) throws IOException {
 		generateIndexHtml(className, parameters);
 		generateFormHtml(className, parameters);

@@ -2,13 +2,14 @@ package br.com.generate.java.command.controller;
 
 import java.io.IOException;
 
+import br.com.generate.Layers;
 import br.com.generate.ReadTemplateFile;
 
 public class ControllerGenerateJava extends ReadTemplateFile {
 
 	@Override
 	public String getLayer() {
-		return "controller";
+		return Layers.CONTROLLER;
 	}
 
 	@Override
@@ -22,7 +23,7 @@ public class ControllerGenerateJava extends ReadTemplateFile {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		new ControllerGenerateJava().generate("User", "", "template-controller.txt");
+		new ControllerGenerateJava().generate("User", null, "template-controller.txt");
 	}
 
 }

@@ -9,7 +9,7 @@ public abstract class ReadTemplateFile extends AbstractGenerate {
 
 	protected abstract String operationGenerate(String javaStrings, String nameClass, String parameters);
 
-	private ValidatorGenerate validatorGenerate = new ValidatorGenerate();
+	private GenerateValidator validatorGenerate = new GenerateValidator();
 	
 	@Override
 	public void generate(String nameClass, String parameters, String fileNameTemplate) throws IOException {
