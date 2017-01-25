@@ -18,7 +18,7 @@ public class ThymeleafGenerate extends GenerateTemplateEngine {
 	}
 	
 	public void generateIndexHtml(String className, String parameters) throws IOException {
-		String htmlString = IOUtils.toString(ClassLoader.class.getResourceAsStream("/templates/template-index.html"), null);
+		String htmlString = IOUtils.toString(getClass().getResourceAsStream("/templates/template-index.html"), null);
 		String template = "layout";
 		String classNameParam = className;
 		String paramClassName = className.toLowerCase();
@@ -42,7 +42,7 @@ public class ThymeleafGenerate extends GenerateTemplateEngine {
 	}
 
 	public void generateFormHtml(String className, String parameters) throws IOException {
-		String htmlString =IOUtils.toString(ClassLoader.class.getResourceAsStream("/templates/template-form.html"), null);
+		String htmlString =IOUtils.toString(getClass().getResourceAsStream("/templates/template-form.html"), null);
 		
 		String template = "layout";
 		String paramClassName = className.toLowerCase();
