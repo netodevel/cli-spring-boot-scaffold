@@ -23,7 +23,7 @@ public class ControllerGenerateJava extends ReadTemplateFile {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		new ControllerGenerateJava().generate("User", null, "template-controller.txt");
+		new ControllerGenerateJava().generate("Aluno", null, "template-controller.txt");
 	}
 
 }

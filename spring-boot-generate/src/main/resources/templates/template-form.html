@@ -12,14 +12,16 @@
 </head>
 <body>
 	<div layout:fragment="content">
-		<h1>New ${className}</h1>
+		<h1 th:if="${paramClassName.id == null}">New ${className}</h1>
+		<h1 th:if="${paramClassName.id != null}">Edit ${className}</h1>
 		<hr />
-		<form th:action="@{url_path}" th:method="post"
+		<form th:action="@{url_path}" th:method="@{${paramClassName.id == null} ? 'post' : 'put'}"
 			th:object="${paramClassName}">
-			<input type="hidden" th:field="*{id}" /> ${input_parameters}
-
-			<button type="submit" class="btn btn-success">Salvar</button>
-			<a th:href="@{url_path}" class="btn btn-default">Cancelar</a>
+			<input type="hidden" th:field="*{id}" /> 
+			
+${input_parameters}
+			<button type="submit" class="btn btn-success">Save</button>
+			<a th:href="@{url_path}" class="btn btn-default">Back</a>
 		</form>
 	</div>
 </body>

@@ -12,6 +12,7 @@ public class ThymeleafGenerate extends AbstractThymeleafGenerate {
 		generateTemplateLayout();
 		generateIndexHtml(className, parameters);
 		generateFormHtml(className, parameters);
+		generateShowHtml(className, parameters);
 	}
 
 	public void generateTemplateLayout() throws IOException {
@@ -64,6 +65,27 @@ public class ThymeleafGenerate extends AbstractThymeleafGenerate {
 		FileUtils.writeStringToFile(newHtmlFile, htmlString);
 		System.out.println("create /src/main/resources/templates/" + className.toLowerCase() + "/form.html");
 	}
+	
+	public void generateShowHtml(String className, String parameters) throws IOException {
+		String htmlString =IOUtils.toString(getClass().getResourceAsStream("/templates/template-show.html"), null);
+		
+		String template = "layout";
+		String paramClassName = className.toLowerCase();
+		String pathUrl = "/" + className.toLowerCase() + "s";
+		String showAttributes = generateShowParameters(paramClassName, parameters);
+		
+		htmlString = htmlString.replace("${template}", template);
+		htmlString = htmlString.replace("${className}", className);
+		htmlString = htmlString.replace("paramClassName", paramClassName);
+		htmlString = htmlString.replace("/path_url", pathUrl);
+		htmlString = htmlString.replace("${showAttributes}", showAttributes);
+		
+		File newHtmlFile = new File(getUserDir() + "/src/main/resources/templates/" + className.toLowerCase() + "/show.html");
+		
+		FileUtils.writeStringToFile(newHtmlFile, htmlString);
+		System.out.println("create /src/main/resources/templates/" + className.toLowerCase() + "/show.html");
+	}
+	
 	
 	public static void main(String[] args) throws IOException {
 		new ThymeleafGenerate("User", "name:String email:String");

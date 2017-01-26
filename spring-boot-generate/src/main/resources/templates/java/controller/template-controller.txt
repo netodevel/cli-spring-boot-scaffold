@@ -38,6 +38,15 @@ public class ${className}Controller {
 		model.addAttribute("list${className}", all);
 		return "${paramClassName}/index";
 	}
+	
+	@GetMapping("/{id}")
+	public String show(Model model, @PathVariable("id") Integer id) {
+		if (id != null) {
+			${className} ${paramClassName} = ${paramClassName}Service.findOne(id);
+			model.addAttribute("${paramClassName}", ${paramClassName});
+		}
+		return "${paramClassName}/show";
+	}
 
 	@GetMapping(value = "/new")
 	public String create(Model model, @ModelAttribute ${className} entity) {
@@ -47,17 +56,18 @@ public class ${className}Controller {
 	
 	@PostMapping
 	public String create(@Valid @ModelAttribute ${className} entity, BindingResult result, RedirectAttributes redirectAttributes) {
+		${className} ${paramClassName} = null;
 		try {
-			${paramClassName}Service.save(entity);
+			${paramClassName} = ${paramClassName}Service.save(entity);
 			redirectAttributes.addFlashAttribute("success", MSG_SUCESS_INSERT);
 		} catch (Exception e) {
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
 			e.printStackTrace();
 		}
-		return "redirect:/${url_path}/new";
+		return "redirect:/${url_path}/" + ${paramClassName}.getId();
 	}
 	
-	@GetMapping("/{id}/update")
+	@GetMapping("/{id}/edit")
 	public String update(Model model, @PathVariable("id") Integer id) {
 		try {
 			if (id != null) {
@@ -72,14 +82,15 @@ public class ${className}Controller {
 	
 	@PutMapping
 	public String update(@Valid @ModelAttribute ${className} entity, BindingResult result, RedirectAttributes redirectAttributes) {
+		${className} ${paramClassName} = null;
 		try {
-			${paramClassName}Service.save(entity);
+			${paramClassName} = ${paramClassName}Service.save(entity);
 			redirectAttributes.addFlashAttribute("success", MSG_SUCESS_UPDATE);
 		} catch (Exception e) {
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
 			e.printStackTrace();
 		}
-		return "redirect:/${url_path}/new";
+		return "redirect:/${url_path}/" + ${paramClassName}.getId();
 	}
 	
 	@DeleteMapping("/{id}")
