@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Show User</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1>Show User</h1>
+		<hr />
+		<div class="form-group"> 
+			<label for="name">Name: </label>  
+			<span th:text="${user.name}"></span> 
+		</div> 
+		<div class="form-group"> 
+			<label for="email">Email: </label>  
+			<span th:text="${user.email}"></span> 
+		</div> 
+
+		<a th:href="@{/users/{id}/edit(id = ${user.id})}">Edit this record</a> <br/>
+		<a href="#">Delete this record</a> <br/>
+		<a th:href="@{/users}">Back to list Alunos</a> <br/>
+	</div>
+</body>
+</html>
