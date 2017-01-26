@@ -9,7 +9,9 @@ import org.apache.commons.io.IOUtils;
 public class ThymeleafGenerate extends AbstractThymeleafGenerate {
 
 	public ThymeleafGenerate(String className, String parameters) throws IOException {
-		generateTemplateLayout();
+		if (validateLayoutHtml()) {
+			generateTemplateLayout();
+		}
 		generateIndexHtml(className, parameters);
 		generateFormHtml(className, parameters);
 		generateShowHtml(className, parameters);
@@ -86,10 +88,17 @@ public class ThymeleafGenerate extends AbstractThymeleafGenerate {
 		System.out.println("create /src/main/resources/templates/" + className.toLowerCase() + "/show.html");
 	}
 	
+	public boolean validateLayoutHtml() throws IOException {
+		String pathFile = "/src/main/resources/templates/layout.html";
+		File f = new File(getUserDir() + pathFile);
+		if(f.exists()) { 
+			return false;
+		} 
+		return true;
+	}
 	
 	public static void main(String[] args) throws IOException {
 		new ThymeleafGenerate("User", "name:String email:String");
 	}
-	
 	
 }

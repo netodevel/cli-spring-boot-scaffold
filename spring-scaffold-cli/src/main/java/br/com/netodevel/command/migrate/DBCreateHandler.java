@@ -15,17 +15,13 @@ import br.com.generate.migrate.CreateDatabase;
  * @since 0.0.1
  */
 public class DBCreateHandler extends OptionHandler {
-
-	@SuppressWarnings("unused")
-	private OptionSpec<String> nameDatabase;
 	
 	@SuppressWarnings("unused")
 	private OptionSpec<String> typeDataBase;
 	
 	@Override
 	protected void options() {
-		this.nameDatabase = option(Arrays.asList("nameDatabase", "n"), "name of database to create").withRequiredArg();
-		this.typeDataBase = option(Arrays.asList("typeDatabase", "p"), "type of database to create").withOptionalArg();
+		this.typeDataBase = option(Arrays.asList("typeDatabase", "p"), "type of database to create").withRequiredArg();
 	}
 	
 	@Override

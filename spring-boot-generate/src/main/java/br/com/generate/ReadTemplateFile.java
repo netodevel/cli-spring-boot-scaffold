@@ -12,12 +12,14 @@ public abstract class ReadTemplateFile extends AbstractGenerate {
 	private GenerateValidator validatorGenerate = new GenerateValidator();
 	
 	@Override
-	public void generate(String nameClass, String parameters, String fileNameTemplate) throws IOException {
+	public boolean generate(String nameClass, String parameters, String fileNameTemplate) throws IOException {
 		if (validatorGenerate.validate(nameClass, parameters, getLayer())) {
 			String javaStrings = readTemplateFile(fileNameTemplate);
 			String newStrings = operationGenerate(javaStrings, nameClass, parameters);
 			outPutFile(newStrings, nameClass);
+			return true;
 		}
+		return false;
 	}
 
 }

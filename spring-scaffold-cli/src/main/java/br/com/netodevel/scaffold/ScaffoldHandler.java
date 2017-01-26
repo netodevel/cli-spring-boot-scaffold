@@ -68,11 +68,12 @@ public class ScaffoldHandler extends OptionHandler {
 	}
 	
 	private void generateScaffoldJava(String nameClass, String parametersClass) throws IOException {
-		new ModelGenerateJava().generate(nameClass, parametersClass, "template-model.txt");
-		new RepositoryGenerateJava().generate(nameClass, null, "template-repository.txt");
-		new ServiceGenerateJava().generate(nameClass, null, "template-service.txt");
-		new ControllerGenerateJava().generate(nameClass, null, "template-controller.txt");
-		new ThymeleafGenerate(nameClass, parametersClass);
+		if (new ModelGenerateJava().generate(nameClass, parametersClass, "template-model.txt")) {
+			new RepositoryGenerateJava().generate(nameClass, null, "template-repository.txt");
+			new ServiceGenerateJava().generate(nameClass, null, "template-service.txt");
+			new ControllerGenerateJava().generate(nameClass, null, "template-controller.txt");
+			new ThymeleafGenerate(nameClass, parametersClass);
+		} 
 	}
 	
 }

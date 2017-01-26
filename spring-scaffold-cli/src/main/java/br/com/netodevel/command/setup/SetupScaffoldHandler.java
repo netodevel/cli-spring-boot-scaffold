@@ -32,7 +32,7 @@ public class SetupScaffoldHandler extends OptionHandler {
 	@Override
 	protected void options() {
 		this.namePackage = option(Arrays.asList("namePackage", "n"), "name of package to create scaffolds").withOptionalArg();
-		this.dataBase = option(Arrays.asList("dataBaseName", "db"), "name of database").withOptionalArg();
+		this.dataBase = option(Arrays.asList("dataBaseName", "d"), "name of database").withOptionalArg();
 		this.userDatabase = option(Arrays.asList("userDatabase", "u"), "username database for migrates").withOptionalArg();
 		this.passwordDatabase = option(Arrays.asList("passwordDatabase", "p"), "password database for migrates").withOptionalArg();
 	}
@@ -40,11 +40,18 @@ public class SetupScaffoldHandler extends OptionHandler {
 	@Override
 	protected ExitStatus run(OptionSet options) throws Exception {
 		String namePackage = (String) options.valueOf("n");
-		String nameDataBase = (String) options.valueOf("db");
+		String nameDataBase = (String) options.valueOf("d");
 		String userNameDatabase = (String) options.valueOf("u");
 		String passwordDatabase = (String) options.valueOf("p");
+		
+		namePackage = namePackage != null ? namePackage.trim() : namePackage;
+		nameDataBase = nameDataBase != null ? nameDataBase.trim() : nameDataBase;
+		userNameDatabase = userNameDatabase != null ? userNameDatabase.trim() : userNameDatabase;
+		passwordDatabase = passwordDatabase != null ? passwordDatabase.trim() : passwordDatabase;
+		
 		new ScaffoldInfoGenerate(namePackage, nameDataBase, userNameDatabase, passwordDatabase);
-		new ApplicationPropertiesGenerate().generate();
+		new ApplicationPropertiesGenerate();
+		
 		return ExitStatus.OK;
 	}
 	

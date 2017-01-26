@@ -19,7 +19,12 @@ public class GenerateValidator extends ReadScaffoldInfo {
 	}
 	
 	public boolean validateFileExists(String nameClass, String layer) {
-		String pathFile = "/" + getPathPackage() + layer + "/" + nameClass + StringUtils.capitalize(layer) + ".java";
+		String pathFile = "";
+		if (layer.equals(Layers.MODEL)) {
+			pathFile = "/" + getPathPackage() + layer + "/" + nameClass + ".java";
+		} else {
+			pathFile = "/" + getPathPackage() + layer + "/" + nameClass + StringUtils.capitalize(layer) + ".java";
+		}
 		File f = new File(getUserDir() + pathFile);
 		if(f.exists()) { 
 			System.out.println("Error: file " + nameClass + StringUtils.capitalize(layer) + ".java" + " already exists.");
