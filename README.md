@@ -5,11 +5,9 @@
  [![bagde](https://codeship.com/projects/e4a1d8b0-8b71-0134-1c87-26c6b97868f1/status?branch=master)](https://codeship.com/projects/184622)
 
 #About
-Generate api scaffold with spring boot rest, creating a api rest with and spring boot in an easy and productive way.
+Generate scaffold with spring boot.
 
 Scaffold for java/kotlin web, a clean generate with simple classes.
-
-
         
 #Alert
 In development. Help us! Make a fork!
@@ -34,25 +32,34 @@ And install the Spring Scaffold plugin
 
 #Usage
 
-    $ spring init my-project
+    $ spring init --dependencies=web,data-jpa,thymeleaf,mysql my-project
     $ cd my-project
-    $ spring setupscaffold -n com.example -u root -p root  
-    $ spring scaffold -n User -p name:String email:String
+    $ spring setup:scaffold
+    $ spring scaffold -n "User" -p "name:String email:String"
+    $ spring db:create -p "mysql"
+    $ mvn spring-boot:run
 
 #Structure
 
-    __br
-       __com
-           __scaffold
-                    MainApplication.java
-                    __domain
-                          User.java
-                    __repository
-                          UserRepository.java
-                    __service
-                          UserService.java
-                    __controller
-                          UserController.java
+    __com
+        __example
+              MainApplication.java
+              __model
+                  User.java
+              __repository
+                  UserRepository.java
+              __service
+                  UserService.java
+              __controller
+                  UserController.java
+     __src/main/resources
+            __templates
+                 __user
+                     form.html
+                     index.html
+                     show.html
+            scaffold.info
+            application.properties
 
 
 | HTTP Status   | Endpoints     | Function       |
@@ -68,13 +75,13 @@ And install the Spring Scaffold plugin
 
 |Commands   |Parameters                                 |Examples
 | ------------- |:-------------:                         | -------------:  
-| spring model  | -n className -p parameters -l language | spring model -n User -p name:String -l (java or kotlin)
-| spring repository  | -n className  -l language         | spring repository -n User -l (java or kotlin)
-| spring service  | -n className  -l language            | spring service -n User -l (java or kotlin)
-| spring controller  | -n className  -l language         | spring controller -n User -l (java or kotlin)
-| spring scaffold  | -n className -p parameters -l language | spring scaffold -n User -p name:String -l (java or kotlin)
-| spring setupscaffold| -n namePackage -u username database -p password database| spring setupscaffold -n com.example -u root -p root
-| spring dbcreate  | -n dataBaseName -p typeDataBase | spring dbcreate -n mydatabase -p (mysql or postgresql)
+| spring model  | -n -p -l | spring model -n User -p name:String -l (java or kotlin)
+| spring repository  | -n -l | spring repository -n User -l (java or kotlin)
+| spring service  | -n -l| spring service -n User -l (java or kotlin)
+| spring controller  | -n -l | spring controller -n User -l (java or kotlin)
+| spring scaffold  | -n -p -l |spring scaffold -n "User" -p "name:String mail:String" -l (java or kotlin)|
+| spring setup:scaffold| -n -db -u -p | spring scaffold -n "com.example" -db "dbname" -u "root" -p "root"
+| spring db:create  | -p  | spring dbcreate -p "mysql"
 
 
 #License
