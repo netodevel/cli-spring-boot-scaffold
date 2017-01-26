@@ -37,6 +37,7 @@ And install the Spring Scaffold plugin
     $ spring setup:scaffold
     $ spring scaffold -n "User" -p "name:String email:String"
     $ spring db:create -p "mysql"
+    $ mvn spring-boot:run
 
 #Structure
 
