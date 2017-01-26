@@ -8,6 +8,7 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
+import br.com.generate.application.properties.ApplicationPropertiesGenerate;
 import br.com.generate.scaffoldinfo.command.ScaffoldInfoGenerate;
 
 /**
@@ -18,6 +19,9 @@ public class SetupScaffoldHandler extends OptionHandler {
 
 	@SuppressWarnings("unused")
 	private OptionSpec<String> namePackage;
+
+	@SuppressWarnings("unused")
+	private OptionSpec<String> dataBase;
 	
 	@SuppressWarnings("unused")
 	private OptionSpec<String> userDatabase;
@@ -28,6 +32,7 @@ public class SetupScaffoldHandler extends OptionHandler {
 	@Override
 	protected void options() {
 		this.namePackage = option(Arrays.asList("namePackage", "n"), "name of package to create scaffolds").withOptionalArg();
+		this.dataBase = option(Arrays.asList("dataBaseName", "db"), "name of database").withOptionalArg();
 		this.userDatabase = option(Arrays.asList("userDatabase", "u"), "username database for migrates").withOptionalArg();
 		this.passwordDatabase = option(Arrays.asList("passwordDatabase", "p"), "password database for migrates").withOptionalArg();
 	}
@@ -35,9 +40,11 @@ public class SetupScaffoldHandler extends OptionHandler {
 	@Override
 	protected ExitStatus run(OptionSet options) throws Exception {
 		String namePackage = (String) options.valueOf("n");
+		String nameDataBase = (String) options.valueOf("db");
 		String userNameDatabase = (String) options.valueOf("u");
 		String passwordDatabase = (String) options.valueOf("p");
-		new ScaffoldInfoGenerate(namePackage, userNameDatabase, passwordDatabase);
+		new ScaffoldInfoGenerate(namePackage, nameDataBase, userNameDatabase, passwordDatabase);
+		new ApplicationPropertiesGenerate().generate();
 		return ExitStatus.OK;
 	}
 	

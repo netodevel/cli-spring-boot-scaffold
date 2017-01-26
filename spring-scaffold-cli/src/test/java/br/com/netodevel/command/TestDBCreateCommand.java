@@ -14,7 +14,7 @@ public class TestDBCreateCommand {
 	@Test
 	public void testRunControllerCommand() {
 		try {
-			new DBCreateCommand("db:create", "create database", new DBCreateHandler()).run("-n doispontos", "-p mysql");
+			new DBCreateCommand("db:create", "create database", new DBCreateHandler()).run("-p mysql");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

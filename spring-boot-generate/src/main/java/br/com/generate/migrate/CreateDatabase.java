@@ -16,7 +16,7 @@ public class CreateDatabase extends ReadScaffoldInfo {
 	private static String JDBC_MYSQL = "com.mysql.jdbc.Driver";
 	private static String JDBC_POSTGRESQL = "org.postgresql.Driver";
 
-	public void createDatabase(String dataBaseName, String typeDatabase) throws SQLException, ClassNotFoundException, IOException {
+	public void createDatabase(String typeDatabase) throws SQLException, ClassNotFoundException, IOException {
 		if (typeDatabase.equals("mysql")) {
 			Class.forName(JDBC_MYSQL);
 		} else if (typeDatabase.equals("postgresql")) {
@@ -24,10 +24,10 @@ public class CreateDatabase extends ReadScaffoldInfo {
 		}
 		Connection conn = (Connection) DriverManager.getConnection("jdbc:" + typeDatabase + "://localhost/?user=" + getUserDatabase()  + "&password=" + getPassWordDatabase());
 		Statement s = conn.createStatement();
-		int result = s.executeUpdate("CREATE DATABASE " + dataBaseName);
+		int result = s.executeUpdate("CREATE DATABASE " + getNameDatabase());
 		
 		if (result == 1) {
-			System.out.println("database " + dataBaseName + " created");
+			System.out.println("database " + getNameDatabase() + " created");
 		} else {
 			System.out.println("error create database");
 		}

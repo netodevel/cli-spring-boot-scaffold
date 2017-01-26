@@ -55,7 +55,20 @@ public abstract class ReadScaffoldInfo {
 		while (row != null) {
 			row = readArq.readLine();
 			String [] values = row.split(":");
-			if (values[0].equals("user-database")) {
+			if (values[0].equals("username")) {
+				return values[1];
+			}
+		}
+		return null;
+	}
+	
+	public String getNameDatabase() throws IOException {
+		BufferedReader readArq = new BufferedReader(getArq());
+		String row = readArq.readLine();
+		while (row != null) {
+			row = readArq.readLine();
+			String [] values = row.split(":");
+			if (values[0].equals("dataBaseName")) {
 				return values[1];
 			}
 		}
@@ -78,7 +91,7 @@ public abstract class ReadScaffoldInfo {
 		while (row != null) {
 			row = readArq.readLine();
 			String [] values = row.split(":");
-			if (values[0].equals("password-database")) {
+			if (values[0].equals("password")) {
 				return values[1];
 			}
 		}

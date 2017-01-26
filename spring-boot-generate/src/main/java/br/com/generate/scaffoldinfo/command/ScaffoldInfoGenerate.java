@@ -27,9 +27,11 @@ public class ScaffoldInfoGenerate extends ReadScaffoldInfo implements IBaseScaff
             writer = new PrintWriter(file, "UTF-8");
             imports(writer, params);
             String namePackage = params[0] != null ? params[0] : "com.example";
-            String userDataBase = params[1] != null ? params[1] : "root";
-            String passWordDatabase = params[1] != null ? params[1] : "root";
+            String dataBaseName = params[1] != null ? params[1] : "mydb";
+            String userDataBase = params[2] != null ? params[2] : "root";
+            String passWordDatabase = params[3] != null ? params[3] : "root";
             writer.println("package:" + namePackage);
+            writer.println("dataBaseName:" + dataBaseName);
             writer.println("username:" + userDataBase);
             writer.println("password:" + passWordDatabase);
             writer.close();
