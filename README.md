@@ -78,9 +78,9 @@ And install the Spring Scaffold plugin
 | spring repository  | -n -l | spring repository -n User -l (java or kotlin)
 | spring service  | -n -l| spring service -n User -l (java or kotlin)
 | spring controller  | -n -l | spring controller -n User -l (java or kotlin)
-| spring scaffold  | -n -p -l |spring scaffold -n "User" -p "name:String mail:String" -l (java or kotlin) Optional|
+| spring scaffold  | -n -p -l |spring scaffold -n "User" -p "name:String mail:String" -l (java or kotlin)|
 | spring setup:scaffold| -n -db -u -p | spring scaffold -n "com.example" -db "dbname" -u "root" -p "root"
-| spring db:create  | -p typeDataBase | spring dbcreate -p "mysql"
+| spring db:create  | -p  | spring dbcreate -p "mysql"
 
 
 #License
