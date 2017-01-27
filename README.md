@@ -38,6 +38,10 @@ And install the Spring Scaffold plugin
     $ spring scaffold -n "User" -p "name:String email:String"
     $ spring db:create -p "mysql"
     $ mvn spring-boot:run
+    
+#Demo 
+  * [Video](https://www.youtube.com/watch?v=i6a2RudkELw&t=1s)
+  * [Sample](https://github.com/NetoDevel/cli-spring-boot-scaffold/tree/master/sample)
 
 #Structure
 
