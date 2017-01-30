@@ -10,6 +10,8 @@ import org.springframework.util.StringUtils;
  */
 public class ModelGenerateUtils {
 	
+	private final static String TAB = "	";
+	
 	private String importVariable;
 	
 	private String nameVariable;
@@ -64,14 +66,14 @@ public class ModelGenerateUtils {
 			String type = nameAndType[1];
 			
 			//SETTER
-			gettersAndSetters += "public void set" + StringUtils.capitalize(name) + "(" + type + " " + name + ") {" ;
+			gettersAndSetters += TAB + "public void set" + StringUtils.capitalize(name) + "(" + type + " " + name + ") {" ;
 			gettersAndSetters += "this." + name + " = " + name + ";";
 			gettersAndSetters += "}";
 			
 			gettersAndSetters += "\n";
 			
 			//GETTER
-			gettersAndSetters += "public " + type + " get" + StringUtils.capitalize(name) + "() {" ;
+			gettersAndSetters += TAB + "public " + type + " get" + StringUtils.capitalize(name) + "() {" ;
 			gettersAndSetters += "return " + name + ";";
 			gettersAndSetters += "}";
 			
