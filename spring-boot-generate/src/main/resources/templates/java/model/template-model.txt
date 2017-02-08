@@ -16,14 +16,9 @@ public class ${className} implements Serializable {
 	
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	${parameters}
-	${getters}
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
+${parameters}
+${getters}
+	public Integer getId() { return id; }
+	public void setId(Integer id) { this.id = id; }
 	
 }
