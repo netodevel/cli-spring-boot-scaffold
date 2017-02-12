@@ -5,7 +5,7 @@ import java.io.IOException;
 import br.com.generate.Layers;
 import br.com.generate.ReadTemplateFile;
 
-public class ServiceGenerateJava extends ReadTemplateFile {
+public class ServiceGenerator extends ReadTemplateFile {
 
 	@Override
 	public String getLayer() {
@@ -23,7 +23,7 @@ public class ServiceGenerateJava extends ReadTemplateFile {
 	}
 
 	public static void main(String[] args) throws IOException {
-		new ServiceGenerateJava().generate("User", null, "template-service.txt");
+		new ServiceGenerator().generate("User", null, "template-service.txt");
 	}
 	
 }

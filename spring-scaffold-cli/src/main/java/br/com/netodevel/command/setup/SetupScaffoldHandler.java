@@ -8,8 +8,8 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.application.properties.ApplicationPropertiesGenerate;
-import br.com.generate.scaffoldinfo.command.ScaffoldInfoGenerate;
+import br.com.generate.application.properties.ApplicationPropertiesGenerator;
+import br.com.generate.setup.command.SetupGenerator;
 
 /**
  * @author NetoDevel
@@ -49,8 +49,8 @@ public class SetupScaffoldHandler extends OptionHandler {
 		userNameDatabase = userNameDatabase != null ? userNameDatabase.trim() : userNameDatabase;
 		passwordDatabase = passwordDatabase != null ? passwordDatabase.trim() : passwordDatabase;
 		
-		new ScaffoldInfoGenerate(namePackage, nameDataBase, userNameDatabase, passwordDatabase);
-		new ApplicationPropertiesGenerate();
+		new SetupGenerator(namePackage, nameDataBase, userNameDatabase, passwordDatabase);
+		new ApplicationPropertiesGenerator();
 		
 		return ExitStatus.OK;
 	}

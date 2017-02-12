@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.generate.Layers;
-import br.com.generate.java.command.service.ServiceGenerateJava;
+import br.com.generate.java.command.service.ServiceGenerator;
 import br.com.netodevel.generate.utils.FileGeneratorTestUtils;
 
 public class ServiceGenerateTest {
@@ -21,7 +21,7 @@ public class ServiceGenerateTest {
 
 	@Before
 	public void setUp() throws IOException {
-		new ServiceGenerateJava().generate("User", null, "template-service.txt");
+		new ServiceGenerator().generate("User", null, "template-service.txt");
 		serviceGeneratorFile = new File("src/main/java/br/com/example/service/UserService.java");
 		convertServiceToText = FileGeneratorTestUtils.convertJavaToText(serviceGeneratorFile, Layers.SERVICE, "UserServiceTest.txt");
 	}
@@ -36,7 +36,7 @@ public class ServiceGenerateTest {
 	public void testValidateFileExists() throws IOException {
 		java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
 		System.setOut(new java.io.PrintStream(out));
-		new ServiceGenerateJava().generate("User", null, "template-service.txt");
+		new ServiceGenerator().generate("User", null, "template-service.txt");
 		String outPutExpected = "Error: file UserService.java already exists.";
 		assertEquals("should be true", outPutExpected.trim(), out.toString().trim());
 	}

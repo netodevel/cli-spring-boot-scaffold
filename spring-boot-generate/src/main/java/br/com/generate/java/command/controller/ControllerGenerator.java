@@ -5,7 +5,7 @@ import java.io.IOException;
 import br.com.generate.Layers;
 import br.com.generate.ReadTemplateFile;
 
-public class ControllerGenerateJava extends ReadTemplateFile {
+public class ControllerGenerator extends ReadTemplateFile {
 
 	@Override
 	public String getLayer() {
@@ -23,7 +23,7 @@ public class ControllerGenerateJava extends ReadTemplateFile {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		new ControllerGenerateJava().generate("Aluno", null, "template-controller.txt");
+		new ControllerGenerator().generate("User", null, "template-controller.txt");
 	}
 
 }

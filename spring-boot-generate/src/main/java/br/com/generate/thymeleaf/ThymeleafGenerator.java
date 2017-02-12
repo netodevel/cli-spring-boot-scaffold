@@ -6,9 +6,9 @@ import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
-public class ThymeleafGenerate extends AbstractThymeleafGenerate {
+public class ThymeleafGenerator extends AbstractThymeleafGenerate {
 
-	public ThymeleafGenerate(String className, String parameters) throws IOException {
+	public ThymeleafGenerator(String className, String parameters) throws IOException {
 		if (validateLayoutHtml()) {
 			generateTemplateLayout();
 		}
@@ -98,7 +98,7 @@ public class ThymeleafGenerate extends AbstractThymeleafGenerate {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		new ThymeleafGenerate("User", "name:String email:String");
+		new ThymeleafGenerator("User", "name:String email:String");
 	}
 	
 }

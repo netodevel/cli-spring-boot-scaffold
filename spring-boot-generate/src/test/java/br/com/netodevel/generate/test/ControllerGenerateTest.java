@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.generate.Layers;
-import br.com.generate.java.command.controller.ControllerGenerateJava;
+import br.com.generate.java.command.controller.ControllerGenerator;
 import br.com.netodevel.generate.utils.FileGeneratorTestUtils;
 
 public class ControllerGenerateTest {
@@ -21,7 +21,7 @@ public class ControllerGenerateTest {
 
 	@Before
 	public void setUp() throws IOException {
-		new ControllerGenerateJava().generate("User", null, "template-controller.txt");
+		new ControllerGenerator().generate("User", null, "template-controller.txt");
 		controllerGeneratorFile = new File("src/main/java/br/com/example/controller/UserController.java");
 		convertControllerToText = FileGeneratorTestUtils.convertJavaToText(controllerGeneratorFile, Layers.CONTROLLER, "UserControllerTest.txt");
 	}
@@ -36,7 +36,7 @@ public class ControllerGenerateTest {
 	public void testValidateFileExists() throws IOException {
 		java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
 		System.setOut(new java.io.PrintStream(out));
-		new ControllerGenerateJava().generate("User", null, "template-controller.txt");
+		new ControllerGenerator().generate("User", null, "template-controller.txt");
 		String outPutExpected = "Error: file UserController.java already exists.";
 		assertEquals("should be true", outPutExpected.trim(), out.toString().trim());
 	}

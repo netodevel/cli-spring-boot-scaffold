@@ -9,7 +9,7 @@ import br.com.util.ModelGenerateUtils;
 /**
  * @author NetoDevel
  */
-public class ModelGenerateJava extends ReadTemplateFile {
+public class ModelGenerator extends ReadTemplateFile {
 	
 	@Override
 	public String getLayer() {
@@ -47,7 +47,7 @@ public class ModelGenerateJava extends ReadTemplateFile {
 	}
 
 	public static void main(String[] args) throws IOException  {
-		new ModelGenerateJava().generate("User", "name:String mail:String age:Integer dataCreated:Date", "template-model.txt");
+		new ModelGenerator().generate("User", "name:String mail:String age:Integer dataCreated:Date", "template-model.txt");
 	}
 	
 }

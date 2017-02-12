@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.generate.Layers;
-import br.com.generate.java.command.repository.RepositoryGenerateJava;
+import br.com.generate.java.command.repository.RepositoryGenerator;
 import br.com.netodevel.generate.utils.FileGeneratorTestUtils;
 
 public class RepositoryGenerateTest {
@@ -21,7 +21,7 @@ public class RepositoryGenerateTest {
 
 	@Before
 	public void setUp() throws IOException {
-		new RepositoryGenerateJava().generate("User", null, "template-repository.txt");
+		new RepositoryGenerator().generate("User", null, "template-repository.txt");
 		repositoryGeneratorFile = new File("src/main/java/br/com/example/repository/UserRepository.java");
 		convertRepositoryToText = FileGeneratorTestUtils.convertJavaToText(repositoryGeneratorFile, Layers.REPOSITORY, "UserRepositoryTest.txt");
 	}
@@ -36,7 +36,7 @@ public class RepositoryGenerateTest {
 	public void testValidateFileExists() throws IOException {
 		java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
 		System.setOut(new java.io.PrintStream(out));
-		new RepositoryGenerateJava().generate("User", null, "template-repository.txt");
+		new RepositoryGenerator().generate("User", null, "template-repository.txt");
 		String outPutExpected = "Error: file UserRepository.java already exists.";
 		assertEquals("should be true", outPutExpected.trim(), out.toString().trim());
 

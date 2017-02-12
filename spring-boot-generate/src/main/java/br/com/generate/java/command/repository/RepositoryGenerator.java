@@ -5,7 +5,7 @@ import java.io.IOException;
 import br.com.generate.Layers;
 import br.com.generate.ReadTemplateFile;
 
-public class RepositoryGenerateJava extends ReadTemplateFile {
+public class RepositoryGenerator extends ReadTemplateFile {
 
 	@Override
 	public String getLayer() {
@@ -21,7 +21,7 @@ public class RepositoryGenerateJava extends ReadTemplateFile {
 
 	
 	public static void main(String[] args) throws IOException {
-		new RepositoryGenerateJava().generate("User", null, "template-repository.txt");
+		new RepositoryGenerator().generate("User", null, "template-repository.txt");
 	}
 	
 }

@@ -9,8 +9,7 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.command.repository.RepositoryGenerateJava;
-import br.com.generate.kotlin.command.RepositoryGenerateKotlin;
+import br.com.generate.java.command.repository.RepositoryGenerator;
 
 /**
  * @author NetoDevel
@@ -21,34 +20,20 @@ public class RepositoryHandler extends OptionHandler {
 	@SuppressWarnings("unused")
 	private OptionSpec<String> nameEntity;
 	
-	@SuppressWarnings("unused")
-	private OptionSpec<String> language;
-	
 	@Override
 	protected void options() {
 		this.nameEntity = option(Arrays.asList("nameEntity", "n"), "Name of entity to generate repository").withRequiredArg();
-		this.language = option(Arrays.asList("language", "l"), "language generate java or kotlin").withOptionalArg();
 	}
 	
 	@Override
 	protected ExitStatus run(OptionSet options) throws Exception {
 		String nameClass = (String) options.valueOf("n");
-		String language = (String) options.valueOf("l");
-		if (language == null) {
-			generateRepositoryJava(nameClass.trim());
-		} else if (language.trim().equals("java")) {
-			generateRepositoryJava(nameClass.trim());
-		} else if (language.trim().equals("kotlin")) {
-			generateRepositoryKotlin(nameClass.trim());
-		}
+		generateRepositoryJava(nameClass.trim());
 		return ExitStatus.OK;
-	}
-
-	private void generateRepositoryKotlin(String nameClass) {
-		new RepositoryGenerateKotlin(nameClass);
 	}
 	
 	private void generateRepositoryJava(String nameClass) throws IOException {
-		new RepositoryGenerateJava().generate(nameClass, null, "template-repository.txt");
+		new RepositoryGenerator().generate(nameClass, null, "template-repository.txt");
 	}
+	
 }

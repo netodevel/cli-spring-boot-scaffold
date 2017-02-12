@@ -8,9 +8,9 @@ import org.apache.commons.io.IOUtils;
 
 import br.com.generate.ReadScaffoldInfo;
 
-public class ApplicationPropertiesGenerate extends ReadScaffoldInfo {
+public class ApplicationPropertiesGenerator extends ReadScaffoldInfo {
 
-	public ApplicationPropertiesGenerate() throws IOException {
+	public ApplicationPropertiesGenerator() throws IOException {
 		if (validate()) {
 			generate();
 		}

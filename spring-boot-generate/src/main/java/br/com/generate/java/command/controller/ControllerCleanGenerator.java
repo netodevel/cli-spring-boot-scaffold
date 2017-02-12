@@ -7,9 +7,9 @@ import org.apache.commons.io.FileUtils;
 
 import br.com.generate.ReadScaffoldInfo;
 
-public class ControllerCleanGenerateJava extends ReadScaffoldInfo {
+public class ControllerCleanGenerator extends ReadScaffoldInfo {
 	
-	public ControllerCleanGenerateJava(String className) throws IOException {
+	public ControllerCleanGenerator(String className) throws IOException {
 		generate(className);
 	}	
 	

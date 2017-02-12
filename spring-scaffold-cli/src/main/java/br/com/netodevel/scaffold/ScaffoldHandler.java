@@ -9,15 +9,11 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.command.controller.ControllerGenerateJava;
-import br.com.generate.java.command.model.ModelGenerateJava;
-import br.com.generate.java.command.repository.RepositoryGenerateJava;
-import br.com.generate.java.command.service.ServiceGenerateJava;
-import br.com.generate.kotlin.command.ControllerGenerateKotlin;
-import br.com.generate.kotlin.command.ModelGenerateKotlin;
-import br.com.generate.kotlin.command.RepositoryGenerateKotlin;
-import br.com.generate.kotlin.command.ServiceGenerateKotlin;
-import br.com.generate.thymeleaf.ThymeleafGenerate;
+import br.com.generate.java.command.controller.ControllerGenerator;
+import br.com.generate.java.command.model.ModelGenerator;
+import br.com.generate.java.command.repository.RepositoryGenerator;
+import br.com.generate.java.command.service.ServiceGenerator;
+import br.com.generate.thymeleaf.ThymeleafGenerator;
 
 /**
  * @author NetoDevel
@@ -45,34 +41,20 @@ public class ScaffoldHandler extends OptionHandler {
 	protected ExitStatus run(OptionSet options) throws Exception {
 		String nameClass = (String) options.valueOf("n");
 		String parametersClass = (String) options.valueOf("p");
-		String language = (String) options.valueOf("l");
-		if (language == null) {
-			generateJava(nameClass.trim(), parametersClass);
-		} else if (language.trim().equals("java")) {
-			generateJava(nameClass.trim(), parametersClass);
-		} else if (language.trim().equals("kotlin")) {
-			generateScaffoldKotlin(nameClass.trim(), parametersClass);
-		}
+		generateJava(nameClass.trim(), parametersClass);
 		return ExitStatus.OK;
 	}
 
 	private void generateJava(String nameClass, String parametersClass) throws IOException {
 		generateScaffoldJava(nameClass, parametersClass);
 	}
-
-	private void generateScaffoldKotlin(String nameClass, String parametersClass) {
-		new ModelGenerateKotlin(nameClass, parametersClass);
-		new RepositoryGenerateKotlin(nameClass);
-		new ServiceGenerateKotlin(nameClass);
-		new ControllerGenerateKotlin(nameClass);
-	}
 	
 	private void generateScaffoldJava(String nameClass, String parametersClass) throws IOException {
-		if (new ModelGenerateJava().generate(nameClass, parametersClass, "template-model.txt")) {
-			new RepositoryGenerateJava().generate(nameClass, null, "template-repository.txt");
-			new ServiceGenerateJava().generate(nameClass, null, "template-service.txt");
-			new ControllerGenerateJava().generate(nameClass, null, "template-controller.txt");
-			new ThymeleafGenerate(nameClass, parametersClass);
+		if (new ModelGenerator().generate(nameClass, parametersClass, "template-model.txt")) {
+			new RepositoryGenerator().generate(nameClass, null, "template-repository.txt");
+			new ServiceGenerator().generate(nameClass, null, "template-service.txt");
+			new ControllerGenerator().generate(nameClass, null, "template-controller.txt");
+			new ThymeleafGenerator(nameClass, parametersClass);
 		} 
 	}
 	
