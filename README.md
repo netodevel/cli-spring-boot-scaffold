@@ -7,14 +7,16 @@
 #About
 Generate scaffold with spring boot.
 
-Scaffold for java/kotlin web, a clean generate with simple classes.
+Generate CRUD basic with spring boot.
+
+Scaffold for java web, a clean generate with simple classes.
         
 #Alert
 In development. Help us! Make a fork!
 
 #Requeriments
          
-* java
+* Java
 * Spring Boot CLI (1.4.1 or higher):
 
 #Install
@@ -79,11 +81,11 @@ And install the Spring Scaffold plugin
 
 |Commands   |Parameters                                 |Examples
 | ------------- |:-------------:                         | -------------:  
-| spring model  | -n -p -l | spring model -n User -p name:String -l (java or kotlin)
-| spring repository  | -n -l | spring repository -n User -l (java or kotlin)
-| spring service  | -n -l| spring service -n User -l (java or kotlin)
-| spring controller  | -n -l | spring controller -n User -l (java or kotlin)
-| spring scaffold  | -n -p -l |spring scaffold -n "User" -p "name:String mail:String" -l (java or kotlin)|
+| spring model  | -n -p | spring model -n "User" -p "name:String" 
+| spring repository  | -n | spring repository -n User
+| spring service  | -n | spring service -n User 
+| spring controller  | -n | spring controller -n User
+| spring scaffold  | -n -p |spring scaffold -n "User" -p "name:String mail:String" |
 | spring setup:scaffold| -n -db -u -p | spring scaffold -n "com.example" -db "dbname" -u "root" -p "root"
 | spring db:create  | -p  | spring dbcreate -p "mysql"
 
