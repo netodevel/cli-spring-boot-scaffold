@@ -9,7 +9,7 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.command.repository.RepositoryGenerator;
+import br.com.generate.java.command.repository.RepositoryCleanGenerator;
 
 /**
  * @author NetoDevel
@@ -33,7 +33,7 @@ public class RepositoryHandler extends OptionHandler {
 	}
 	
 	private void generateRepositoryJava(String nameClass) throws IOException {
-		new RepositoryGenerator().generate(nameClass, null, "template-repository.txt");
+		new RepositoryCleanGenerator().generate(nameClass, null, "template-clean-repository.txt");
 	}
 	
 }

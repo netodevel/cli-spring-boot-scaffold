@@ -9,7 +9,7 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.command.controller.ControllerGenerator;
+import br.com.generate.java.command.controller.ControllerCleanGenerator;
 
 /**
  * @author NetoDevel
@@ -33,7 +33,7 @@ public class ControllerHandler extends OptionHandler {
 	}
 	
 	private void generateControllerJava(String nameClass) throws IOException {
-		new ControllerGenerator().generate(nameClass, "", "template-controller.txt");
+		new ControllerCleanGenerator("User");
 	}
 	
 }

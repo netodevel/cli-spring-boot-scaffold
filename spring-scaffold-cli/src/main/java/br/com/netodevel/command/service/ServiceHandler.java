@@ -9,7 +9,7 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.command.service.ServiceGenerator;
+import br.com.generate.java.command.service.ServiceCleanGenerator;
 
 /**
  * @author NetoDevel
@@ -33,7 +33,7 @@ public class ServiceHandler extends OptionHandler {
 	}
 	
 	private void generateServiceJava(String nameClass) throws IOException {
-		new ServiceGenerator().generate(nameClass, null, "template-service.txt");
+		new ServiceCleanGenerator().generate(nameClass, null, "template-clean-service.txt");
 	}
 	
 }
