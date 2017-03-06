@@ -94,7 +94,7 @@ And install the Spring Scaffold plugin
 
     The MIT License (MIT)
 
-    Copyright (c) 2016 José Vieira 
+    Copyright (c) SED
 
     Permission is hereby granted, free of charge, to any person obtaining a 
     copy of this software and associated documentation files (the "Software"), 
@@ -118,4 +118,6 @@ And install the Spring Scaffold plugin
  * [Ivan Marreta](https://github.com/ivanmarreta)
  * [Bruno Barros](https://github.com/brunobarros)
        
+###Create By
 
+ [SED](http://www.sedengenharia.com.br/)
