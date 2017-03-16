@@ -4,22 +4,22 @@
 [![Join the chat at https://gitter.im/spring-boot-scaffold-kotlin/Lobby](https://badges.gitter.im/spring-boot-scaffold-kotlin/Lobby.svg)](https://gitter.im/spring-boot-scaffold-kotlin/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
  [![bagde](https://codeship.com/projects/e4a1d8b0-8b71-0134-1c87-26c6b97868f1/status?branch=master)](https://codeship.com/projects/184622)
 
-#About
+# About
 Generate scaffold with spring boot.
 
 Generate CRUD basic with spring boot.
 
 Scaffold for java web, a clean generate with simple classes.
         
-#Alert
+# Alert
 In development. Help us! Make a fork!
 
-#Requeriments
+# Requeriments
          
 * Java
 * Spring Boot CLI (1.4.1 or higher):
 
-#Install
+# Install
  
     $ spring version
     Spring CLI v1.4.1.RELEASE
@@ -32,7 +32,7 @@ And install the Spring Scaffold plugin
     $ spring install br.com.netodevel:spring-scaffold-cli:0.0.1-SNAPSHOT
 
 
-#Usage
+# Usage
 
     $ spring init --dependencies=web,data-jpa,thymeleaf,mysql my-project
     $ cd my-project
@@ -41,11 +41,11 @@ And install the Spring Scaffold plugin
     $ spring db:create -p "mysql"
     $ mvn spring-boot:run
     
-#Demo 
+# Demo 
   * [Video](https://www.youtube.com/watch?v=i6a2RudkELw&t=1s)
   * [Sample](https://github.com/NetoDevel/cli-spring-boot-scaffold/tree/master/sample)
 
-#Structure
+# Structure
 
     __com
         __example
@@ -77,7 +77,7 @@ And install the Spring Scaffold plugin
 | DELETE        | /users/{id}    | delete user    |
 
 
-#Documentation
+# Documentation
 
 |Commands   |Parameters                                 |Examples
 | ------------- |:-------------:                         | -------------:  
@@ -90,7 +90,7 @@ And install the Spring Scaffold plugin
 | spring db:create  | -p  | spring dbcreate -p "mysql"
 
 
-#License
+# License
 
     The MIT License (MIT)
 
@@ -112,12 +112,12 @@ And install the Spring Scaffold plugin
     FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-###Acknowledgment
+### Acknowledgment
          
  * [Bruno Lima](https://github.com/brunodles)
  * [Ivan Marreta](https://github.com/ivanmarreta)
  * [Bruno Barros](https://github.com/brunobarros)
        
-###Create By
+### Create By
 
  [SED](http://www.sedengenharia.com.br/)
