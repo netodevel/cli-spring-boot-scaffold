@@ -10,9 +10,37 @@ Generate scaffold with spring boot.
 Generate CRUD basic with spring boot.
 
 Scaffold for java web, a clean generate with simple classes.
-        
+
+# Demo 
+  * [Video](https://www.youtube.com/watch?v=i6a2RudkELw&t=1s)
+  * [Sample](https://github.com/NetoDevel/cli-spring-boot-scaffold/tree/master/sample)
+  
 # Alert
-In development. Help us! Make a fork!
+In development. Help us! Make a fork
+
+# Workflow 
+Workflow generate similar to Rails
+
+### create project
+    spring init --dependencies=web,data-jpa,thymeleaf,mysql my-project
+
+### create scaffolds
+    spring scaffold -n "User" -p "name:String email:String"
+
+### create scaffolds for api (Todo)
+    spring scaffold -n "User" -p "name:String email:String" --api
+
+### create scaffolds reactive (Todo)(version > Spring 5)
+    spring scaffold -n "User" -p "name:String email:String" --
+
+### create databases
+    spring db:create -p "mysql"
+
+### migrations (Todo)
+    spring db:migration
+
+### monitoring (Todo)
+    spring create:monitoring
 
 # Requeriments
          
@@ -40,11 +68,7 @@ And install the Spring Scaffold plugin
     $ spring scaffold -n "User" -p "name:String email:String"
     $ spring db:create -p "mysql"
     $ mvn spring-boot:run
-    
-# Demo 
-  * [Video](https://www.youtube.com/watch?v=i6a2RudkELw&t=1s)
-  * [Sample](https://github.com/NetoDevel/cli-spring-boot-scaffold/tree/master/sample)
-
+   
 # Structure
 
     __com
@@ -86,7 +110,7 @@ And install the Spring Scaffold plugin
 | spring service  | -n | spring service -n User 
 | spring controller  | -n | spring controller -n User
 | spring scaffold  | -n -p |spring scaffold -n "User" -p "name:String mail:String" |
-| spring setup:scaffold| -n -db -u -p | spring scaffold -n "com.example" -db "dbname" -u "root" -p "root"
+| spring setup:scaffold| -n -db -u -p | spring  setup:scaffold -n "com.example" -db "dbname" -u "root" -p "root"
 | spring db:create  | -p  | spring dbcreate -p "mysql"
 
 
