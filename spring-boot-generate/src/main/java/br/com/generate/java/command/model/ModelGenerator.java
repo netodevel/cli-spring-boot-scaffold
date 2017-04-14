@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import br.com.generate.Layers;
 import br.com.generate.ReadTemplateFile;
+import br.com.generate.migrate.Migrations;
 import br.com.util.ModelGenerateUtils;
 
 /**
@@ -48,6 +49,12 @@ public class ModelGenerator extends ReadTemplateFile {
 
 	public static void main(String[] args) throws IOException  {
 		new ModelGenerator().generate("User", "name:String mail:String age:Integer dataCreated:Date", "template-model.txt");
+		Migrations migrations = new Migrations();
+		try {
+			migrations.create("User", "name:String mail:String age:Integer dataCreated:Date");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 }
