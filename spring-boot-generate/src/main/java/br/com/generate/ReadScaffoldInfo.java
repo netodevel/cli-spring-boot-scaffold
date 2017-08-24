@@ -26,7 +26,11 @@ public abstract class ReadScaffoldInfo {
 			currentLocation = Paths.get(".").toAbsolutePath().toString();
 		} else if (SystemUtils.IS_OS_WINDOWS) {
 			currentLocation = System.getProperty("user.dir");
-		}
+		} else if (SystemUtils.IS_OS_MAC_OSX) {
+			currentLocation = Paths.get(".").toAbsolutePath().toString();
+		} else if (SystemUtils.IS_OS_MAC) {
+			currentLocation = Paths.get(".").toAbsolutePath().toString();
+		} 
 		return currentLocation;
 	}
 	
