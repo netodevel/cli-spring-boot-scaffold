@@ -4,6 +4,11 @@
 [![Join the chat at https://gitter.im/spring-boot-scaffold-kotlin/Lobby](https://badges.gitter.im/spring-boot-scaffold-kotlin/Lobby.svg)](https://gitter.im/spring-boot-scaffold-kotlin/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
  [![bagde](https://codeship.com/projects/e4a1d8b0-8b71-0134-1c87-26c6b97868f1/status?branch=master)](https://codeship.com/projects/184622)
 
+# Overview
+<p align="center">
+  <img src="etc/spring-scaffold.png" alt="" />
+</p>
+
 # About
 Generate scaffold with spring boot.
 
@@ -18,40 +23,18 @@ Scaffold for java web, a clean generate with simple classes.
 # Alert
 In development. Help us! Make a fork
 
-# Workflow 
-Workflow generate similar to Rails
-
-### create project
-    spring init --dependencies=web,data-jpa,thymeleaf,mysql my-project
-
-### create scaffolds
-    spring scaffold -n "User" -p "name:String email:String"
-
-### create scaffolds for api (Todo)
-    spring scaffold -n "User" -p "name:String email:String" --api
-
-### create scaffolds reactive (Todo)(version > Spring 5)
-    spring scaffold -n "User" -p "name:String email:String" --
-
-### create databases
-    spring db:create -p "mysql"
-
-### migrations (Todo)
-    spring db:migration
-
-### monitoring (Todo)
-    spring create:monitoring
-
 # Requeriments
          
 * Java
 * Spring Boot CLI (1.4.1 or higher):
 
 # Install
+   [Installing Spring Boot CLI](https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started-installing-spring-boot.html)
  
+   ``` 
     $ spring version
     Spring CLI v1.4.1.RELEASE
-
+   ```
 And install the Spring Scaffold plugin
 
     $ git clone https://github.com/NetoDevel/cli-spring-boot-scaffold.git
@@ -111,7 +94,7 @@ And install the Spring Scaffold plugin
 | spring controller  | -n | spring controller -n User
 | spring scaffold  | -n -p |spring scaffold -n "User" -p "name:String mail:String" |
 | spring setup:scaffold| -n -db -u -p | spring  setup:scaffold -n "com.example" -db "dbname" -u "root" -p "root"
-| spring db:create  | -p  | spring dbcreate -p "mysql"
+| spring db:create  | -p  | spring db:create -p "mysql"
 
 
 # License
