@@ -27,7 +27,7 @@ public class RepositoryCleanGeneratorTest {
 	}
 
 	@Test
-	public void testGenerateService() throws IOException {
+	public void testGenerateRespositoryClean() throws IOException {
 		boolean validateFileEquals = FileUtils.contentEquals(convertRepositoryCleanToText, new File("src/test/resources/templates/java/repository/UserCleanRepository.txt"));
 		assertEquals("should be true", true, validateFileEquals);
 	}
