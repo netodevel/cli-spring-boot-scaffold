@@ -3,13 +3,13 @@ package br.com.netodevel.command.controller;
 import java.io.IOException;
 import java.util.Arrays;
 
-import joptsimple.OptionSet;
-import joptsimple.OptionSpec;
-
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
 import br.com.generate.java.command.controller.ControllerCleanGenerator;
+import br.com.generate.thymeleaf.ThymeleafCleanGenerator;
+import joptsimple.OptionSet;
+import joptsimple.OptionSpec;
 
 /**
  * @author NetoDevel
@@ -33,7 +33,8 @@ public class ControllerHandler extends OptionHandler {
 	}
 	
 	private void generateControllerJava(String nameClass) throws IOException {
-		new ControllerCleanGenerator("User");
+		new ControllerCleanGenerator().generate(nameClass, null, "template-clean-controller.txt");
+		new ThymeleafCleanGenerator().index(nameClass, null);
 	}
 	
 }

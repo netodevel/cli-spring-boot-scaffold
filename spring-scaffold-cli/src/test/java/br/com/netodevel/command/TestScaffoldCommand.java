@@ -14,7 +14,7 @@ public class TestScaffoldCommand {
 	@Test
 	public void testRunScaffoldCommand() {
 		try {
-			new ScaffoldCommand("scaffold", "generate scaffold", new ScaffoldHandler()).run("-n UserModel", "-pname:String email:String idade:Integer dateCreated:Date");
+			new ScaffoldCommand("scaffold", "generate scaffold", new ScaffoldHandler()).run("-n UserModel", "-pname:String email:String idade:Integer dateCreated:Date admin:Boolean");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
