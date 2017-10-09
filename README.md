@@ -22,7 +22,8 @@ Scaffold for java web, a clean generate with simple classes.
   
 # Alert
 In development. Help us! Make a fork
-refactoring in 
+
+Refactoring in 
 https://github.com/NetoDevel/generate-core
 
 
