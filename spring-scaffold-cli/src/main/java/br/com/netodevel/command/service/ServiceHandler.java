@@ -10,6 +10,9 @@ import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
 import br.com.generate.java.command.service.ServiceCleanGenerator;
+import br.com.netodevel.core.source.GeneratorOptions;
+import br.com.netodevel.generators.java.controller.GeneratorCleanController;
+import br.com.netodevel.generators.java.service.GeneratorCleanService;
 
 /**
  * @author NetoDevel
@@ -33,7 +36,8 @@ public class ServiceHandler extends OptionHandler {
 	}
 	
 	private void generateServiceJava(String nameClass) throws IOException {
-		new ServiceCleanGenerator().generate(nameClass, null, "template-clean-service.txt");
+		GeneratorOptions options = new GeneratorOptions().setNameModel(nameClass);
+		new GeneratorCleanService(options).generate();
 	}
 	
 }

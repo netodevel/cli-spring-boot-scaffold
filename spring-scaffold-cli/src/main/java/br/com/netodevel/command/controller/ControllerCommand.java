@@ -26,8 +26,7 @@ public class ControllerCommand extends OptionParsingCommand {
 	@Override
 	public Collection<HelpExample> getExamples() {
 		List<HelpExample> list = new ArrayList<HelpExample>();
-		list.add(new HelpExample("create controller kotlin", "controller -n User -l kotlin"));
-		list.add(new HelpExample("create controller java", "controller -n User -l java"));
+		list.add(new HelpExample("create controller java", "controller -n User"));
 		return list;
 	}
 }

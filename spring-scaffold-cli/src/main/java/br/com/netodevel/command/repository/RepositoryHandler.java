@@ -3,13 +3,14 @@ package br.com.netodevel.command.repository;
 import java.io.IOException;
 import java.util.Arrays;
 
-import joptsimple.OptionSet;
-import joptsimple.OptionSpec;
-
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.command.repository.RepositoryCleanGenerator;
+import br.com.netodevel.core.source.GeneratorOptions;
+import br.com.netodevel.generators.java.controller.GeneratorCleanController;
+import br.com.netodevel.generators.java.repository.GeneratorCleanRepository;
+import joptsimple.OptionSet;
+import joptsimple.OptionSpec;
 
 /**
  * @author NetoDevel
@@ -33,7 +34,8 @@ public class RepositoryHandler extends OptionHandler {
 	}
 	
 	private void generateRepositoryJava(String nameClass) throws IOException {
-		new RepositoryCleanGenerator().generate(nameClass, null, "template-clean-repository.txt");
+		GeneratorOptions options = new GeneratorOptions().setNameModel(nameClass);
+		new GeneratorCleanRepository(options).generate();
 	}
 	
 }

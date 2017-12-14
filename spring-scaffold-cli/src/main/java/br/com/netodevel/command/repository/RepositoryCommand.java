@@ -26,7 +26,6 @@ public class RepositoryCommand extends OptionParsingCommand {
 	@Override
 	public Collection<HelpExample> getExamples() {
 		List<HelpExample> list = new ArrayList<HelpExample>();
-		list.add(new HelpExample("create repository kotlin", "repository -n User -l kotlin"));
 		list.add(new HelpExample("create repository java", "repository -n User -l java"));
 		return list;
 	}

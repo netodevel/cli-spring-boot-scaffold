@@ -28,7 +28,6 @@ public class ModelCommand extends OptionParsingCommand {
 	public Collection<HelpExample> getExamples() {
 		List<HelpExample> list = new ArrayList<HelpExample>();
 		list.add(new HelpExample("create entities java", "model -n User -p name:String"));
-		list.add(new HelpExample("create entities kotlin", "model -n User -p name:String -l kotlin"));
 		return list;
 	}
 	

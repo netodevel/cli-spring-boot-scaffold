@@ -14,7 +14,7 @@ public class TestRepositoryCommand {
 	@Test
 	public void testRunRepositoryCommand() {
 		try {
-			new RepositoryCommand("repository", "generate repositories kotlin", new RepositoryHandler()).run("-n User");
+			new RepositoryCommand("repository", "generate repositories", new RepositoryHandler()).run("-nUser");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

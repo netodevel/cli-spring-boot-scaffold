@@ -6,8 +6,10 @@ import java.util.Arrays;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.command.controller.ControllerCleanGenerator;
-import br.com.generate.thymeleaf.ThymeleafCleanGenerator;
+import br.com.netodevel.core.source.GeneratorOptions;
+import br.com.netodevel.core.view.GeneratorViewOptions;
+import br.com.netodevel.generators.java.controller.GeneratorCleanController;
+import br.com.netodevel.generators.views.thymeleaf.GeneratorThymeleafCleanIndex;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 
@@ -33,8 +35,19 @@ public class ControllerHandler extends OptionHandler {
 	}
 	
 	private void generateControllerJava(String nameClass) throws IOException {
-		new ControllerCleanGenerator().generate(nameClass, null, "template-clean-controller.txt");
-		new ThymeleafCleanGenerator().index(nameClass, null);
+		/**
+		 * source
+		 */
+		GeneratorOptions options = new GeneratorOptions().setNameModel(nameClass);
+		new GeneratorCleanController(options).generate();
+
+		/**
+		 * view
+		 */
+		GeneratorViewOptions optionsView = new GeneratorViewOptions()
+				.setNameModel(nameClass)
+				.setLayout("layout");
+		new GeneratorThymeleafCleanIndex(optionsView).generate("index.html");
 	}
 	
 }

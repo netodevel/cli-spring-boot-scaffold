@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="${template}">
+<head>
+ 	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1>List ${className}</h1>
+		<hr />
+		<a th:href="@{url_path/new}">New ${className}</a><br/><br/>
+		
+		<table class="table">
+			<thead>
+				<tr>
+${th_attributes}
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="paramClassName : ${eachParam}">
+${td_attributes}
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

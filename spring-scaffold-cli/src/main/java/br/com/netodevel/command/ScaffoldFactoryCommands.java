@@ -14,12 +14,12 @@ import br.com.netodevel.command.model.ModelCommand;
 import br.com.netodevel.command.model.ModelHandler;
 import br.com.netodevel.command.repository.RepositoryCommand;
 import br.com.netodevel.command.repository.RepositoryHandler;
+import br.com.netodevel.command.scaffold.ScaffoldCommand;
+import br.com.netodevel.command.scaffold.ScaffoldHandler;
 import br.com.netodevel.command.service.ServiceCommand;
 import br.com.netodevel.command.service.ServiceHandler;
 import br.com.netodevel.command.setup.SetupScaffoldCommand;
 import br.com.netodevel.command.setup.SetupScaffoldHandler;
-import br.com.netodevel.scaffold.ScaffoldCommand;
-import br.com.netodevel.scaffold.ScaffoldHandler;
 
 /**
  * all commands scaffold

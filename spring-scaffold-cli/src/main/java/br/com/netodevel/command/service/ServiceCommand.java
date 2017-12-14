@@ -26,7 +26,6 @@ public class ServiceCommand extends OptionParsingCommand {
 	@Override
 	public Collection<HelpExample> getExamples() {
 		List<HelpExample> list = new ArrayList<HelpExample>();
-		list.add(new HelpExample("create service kotlin", "service -n User -l kotlin"));
 		list.add(new HelpExample("create service java", "service -n User -l java"));
 		return list;
 	}

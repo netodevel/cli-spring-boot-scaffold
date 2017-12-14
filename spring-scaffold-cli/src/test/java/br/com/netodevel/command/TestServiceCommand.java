@@ -14,7 +14,7 @@ public class TestServiceCommand {
 	@Test
 	public void testRunServiceCommand() {
 		try {
-			new ServiceCommand("service", "generate services kotlin", new ServiceHandler()).run("-n User");
+			new ServiceCommand("service", "generate services", new ServiceHandler()).run("-nUser");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

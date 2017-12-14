@@ -2,8 +2,8 @@ package br.com.netodevel.command;
 
 import org.junit.Test;
 
-import br.com.netodevel.scaffold.ScaffoldCommand;
-import br.com.netodevel.scaffold.ScaffoldHandler;
+import br.com.netodevel.command.scaffold.ScaffoldCommand;
+import br.com.netodevel.command.scaffold.ScaffoldHandler;
 
 /**
  * @author NetoDevel
@@ -14,7 +14,7 @@ public class TestScaffoldCommand {
 	@Test
 	public void testRunScaffoldCommand() {
 		try {
-			new ScaffoldCommand("scaffold", "generate scaffold", new ScaffoldHandler()).run("-n UserModel", "-pname:String email:String idade:Integer dateCreated:Date admin:Boolean");
+			new ScaffoldCommand("scaffold", "generate scaffold", new ScaffoldHandler()).run("-nUser", "-pname:String email:String idade:Integer dateCreated:Date admin:Boolean");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -10,6 +10,8 @@ import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
 import br.com.generate.java.command.model.ModelGenerator;
+import br.com.netodevel.core.source.GeneratorOptions;
+import br.com.netodevel.generators.java.model.GeneratorModel;
 
 /**
  * 
@@ -27,7 +29,7 @@ public class ModelHandler extends OptionHandler {
 	@Override
 	protected void options() {
 		this.nameEntity = option(Arrays.asList("nameEntity", "n"), "Name of entity to generate").withRequiredArg();
-		this.parametersEntity = option(Arrays.asList("parameterEntity", "p"), "Parameter of entity to generate").withRequiredArg();
+		this.parametersEntity = option(Arrays.asList("parameterEntity", "p"), "Attributes of the entity to generate").withRequiredArg();
 	}
 	
 	@Override
@@ -39,7 +41,10 @@ public class ModelHandler extends OptionHandler {
 	}
 	
 	private void generateModelJava(String nameClass, String parameters) throws IOException {
-		new ModelGenerator().generate(nameClass, parameters, "template-model.txt");
+		GeneratorOptions options = new GeneratorOptions()
+				.setNameModel(nameClass)
+				.setParameters(parameters);
+		new GeneratorModel(options).generate();		
 	}
 	
 }

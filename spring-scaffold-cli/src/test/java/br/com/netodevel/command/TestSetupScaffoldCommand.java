@@ -14,7 +14,7 @@ public class TestSetupScaffoldCommand {
 	@Test
 	public void testRunControllerCommand() {
 		try {
-			new SetupScaffoldCommand("setup:scaffold", "setup scaffold", new SetupScaffoldHandler()).run("-d meubancodedados", "-u root", "-p root");
+			new SetupScaffoldCommand("setup:scaffold", "setup scaffold", new SetupScaffoldHandler()).run("");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

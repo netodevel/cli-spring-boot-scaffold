@@ -1,3 +1,5 @@
-package:br.com.example
+package:com.example
+orm:jpa
+dataBaseName:mysql
 user-database:root
-password-database:root
+password-database:

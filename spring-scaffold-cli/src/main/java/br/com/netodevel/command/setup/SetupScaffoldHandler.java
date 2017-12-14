@@ -10,6 +10,9 @@ import org.springframework.boot.cli.command.status.ExitStatus;
 
 import br.com.generate.application.properties.ApplicationPropertiesGenerator;
 import br.com.generate.setup.command.SetupGenerator;
+import br.com.netodevel.core.resources.GeneratorResourceOptions;
+import br.com.netodevel.generators.resources.GeneratorApplicationProperties;
+import br.com.netodevel.generators.resources.GeneratorScaffoldInfo;
 
 /**
  * @author NetoDevel
@@ -44,13 +47,17 @@ public class SetupScaffoldHandler extends OptionHandler {
 		String userNameDatabase = (String) options.valueOf("u");
 		String passwordDatabase = (String) options.valueOf("p");
 		
-		namePackage = namePackage != null ? namePackage.trim() : namePackage;
-		nameDataBase = nameDataBase != null ? nameDataBase.trim() : nameDataBase;
-		userNameDatabase = userNameDatabase != null ? userNameDatabase.trim() : userNameDatabase;
-		passwordDatabase = passwordDatabase != null ? passwordDatabase.trim() : passwordDatabase;
+		GeneratorResourceOptions optionsResource = new GeneratorResourceOptions()
+				.setDatabase("mysql")
+				.setDatabaseName(nameDataBase)
+				.setPackageName(namePackage)
+				.setUserDatabase(userNameDatabase)
+				.setOrm("jpa")
+				.setServer("tomcat")
+				.setPasswordDatabase(passwordDatabase);
 		
-		new SetupGenerator(namePackage, nameDataBase, userNameDatabase, passwordDatabase);
-		new ApplicationPropertiesGenerator();
+		new GeneratorScaffoldInfo(optionsResource).generate("scaffold.info");
+		new GeneratorApplicationProperties(optionsResource).generate("application.properties");
 		
 		return ExitStatus.OK;
 	}

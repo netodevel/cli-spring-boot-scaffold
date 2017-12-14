@@ -16,7 +16,7 @@ public class TestModelCommand {
 	@Test
 	public void testRunModelCommandKotlin() {
 		try {
-			new ModelCommand("model", "generate entitys", new ModelHandler()).run("-n UserModel", "-p name:String", "-l java");
+			new ModelCommand("model", "generate entitys", new ModelHandler()).run("-nNewCore", "-pname:String");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
