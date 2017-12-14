@@ -1,0 +1,37 @@
+package ${package};
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
+import ${package_model}.${className};
+import ${package_repository}.${className}Repository;
+import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
+
+@Service
+@Transactional(readOnly = true)
+public class ${className}Service {
+
+	@Autowired
+	private ${className}Repository ${paramClassName}Repository;
+
+	public List<${className}> findAll() {
+		return ${paramClassName}Repository.findAll();
+	}
+
+	public ${className} findOne(Integer id) {
+		return ${paramClassName}Repository.findOne(id);
+	}
+	
+	@Transactional(readOnly = false)
+	public ${className} save(${className} entity) {
+		return ${paramClassName}Repository.save(entity);
+	}
+
+	@Transactional(readOnly = false)
+	public void delete(${className} entity) {
+		${paramClassName}Repository.delete(entity);
+	}
+
+}
+	

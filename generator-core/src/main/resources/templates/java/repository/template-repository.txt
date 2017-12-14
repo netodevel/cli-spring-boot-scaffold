@@ -1,0 +1,9 @@
+package ${package};
+import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import ${package_model}.${className};
+
+@Repository
+public interface ${className}Repository extends JpaRepository<${className}, Integer> {
+	
+}

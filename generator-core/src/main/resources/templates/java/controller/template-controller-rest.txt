@@ -1,0 +1,70 @@
+package ${package};
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import ${package_model}.${className};
+import ${package_service}.${className}Service;
+
+@RestController
+public class ${className}Controller {
+	
+	@Autowired
+	private ${className}Service ${paramClassName}Service;
+	
+	@GetMapping("/v1/${paramClassName}s")
+	public ResponseEntity<List<${className}>> index() {
+		try {
+			return new ResponseEntity<List<${className}>>(${paramClassName}Service.findAll(), HttpStatus.OK);
+		} catch (ServiceException e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@GetMapping("/v1/${paramClassName}s/{id}")
+	public ResponseEntity<${className}> show(@PathVariable("id") Long id) {
+		try {
+			return new ResponseEntity<${className}>((${className}) ${paramClassName}Service.findOne(id), HttpStatus.OK);
+		} catch (ServiceException e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@PostMapping("/v1/${paramClassName}s")
+	public ResponseEntity<${className}> create(@RequestBody ${className} ${paramClassName}) {
+		try {
+			return new ResponseEntity<${className}>((${className}) ${paramClassName}Service.save(${paramClassName}), HttpStatus.CREATED);
+		} catch (ServiceException e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@PutMapping("/v1/${paramClassName}s")
+	public ResponseEntity<${className}> update(@RequestBody ${className} ${paramClassName}) {
+		try {
+			return new ResponseEntity<${className}>((${className}) ${paramClassName}Service.save(${paramClassName}), HttpStatus.CREATED);
+		} catch (ServiceException e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@DeleteMapping("/v1/${paramClassName}s/{id}")
+	public void delete(@PathVariable("id") Long id) {
+		try {
+			${paramClassName}Service.delete(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+}

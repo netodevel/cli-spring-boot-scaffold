@@ -1,0 +1,5 @@
+package:${package}
+orm:${orm}
+dataBaseName:${database_name}
+user-database:${user_database}
+password-database:${password_database}

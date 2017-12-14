@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="${template}">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Show ${className}</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1>Show ${className}</h1>
+		<hr />
+${showAttributes}
+		<a th:href="@{/path_url/{id}/edit(id = ${paramClassName.id})}">Edit this record</a> <br/>
+		<a href="#">Delete this record</a> <br/>
+		<a th:href="@{/path_url}">Back to list ${className}</a> <br/>
+	</div>
+</body>
+</html>

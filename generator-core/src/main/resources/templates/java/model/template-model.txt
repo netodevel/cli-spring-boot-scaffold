@@ -1,0 +1,29 @@
+package ${package};
+import javax.persistence.Entity;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.io.Serializable;
+${imports}
+
+@Entity
+@Table(name = "${name_table}")
+public class ${className} implements Serializable {
+
+	 private static final long serialVersionUID = 1L;
+	
+	 @Id @GeneratedValue(strategy = GenerationType.AUTO)
+	 private Integer id;
+
+${parameters}
+	 public void setId(Integer id) { 
+	 	this.id = id; 
+ 	 }
+	 
+	 public Integer getId() { 
+	 	return id; 
+ 	 }
+${getters}
+}

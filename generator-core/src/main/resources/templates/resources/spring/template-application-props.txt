@@ -1,0 +1,8 @@
+# DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+spring.datasource.url = jdbc:${database}://localhost/${database_name}
+spring.datasource.username=${user_database}
+spring.datasource.password=${password_database}
+
+${server_config}
+
+${jpa_config}

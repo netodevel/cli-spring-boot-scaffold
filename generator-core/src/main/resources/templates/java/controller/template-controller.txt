@@ -1,0 +1,111 @@
+package ${package};
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.hibernate.service.spi.ServiceException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import ${package_model}.${className};
+import ${package_service}.${className}Service;
+
+@Controller
+@RequestMapping("/${paramClassName}s")
+public class ${className}Controller {
+
+	private static final String MSG_SUCESS_INSERT = "${className} inserted successfully.";
+	private static final String MSG_SUCESS_UPDATE = "${className} successfully changed.";
+	private static final String MSG_SUCESS_DELETE = "Deleted ${className} successfully.";
+	private static final String MSG_ERROR = "Error.";
+
+	@Autowired
+	private ${className}Service ${paramClassName}Service;
+
+	@GetMapping
+	public String index(Model model) {
+		List<${className}> all = ${paramClassName}Service.findAll();
+		model.addAttribute("list${className}", all);
+		return "${paramClassName}/index";
+	}
+	
+	@GetMapping("/{id}")
+	public String show(Model model, @PathVariable("id") Integer id) {
+		if (id != null) {
+			${className} ${paramClassName} = ${paramClassName}Service.findOne(id);
+			model.addAttribute("${paramClassName}", ${paramClassName});
+		}
+		return "${paramClassName}/show";
+	}
+
+	@GetMapping(value = "/new")
+	public String create(Model model, @ModelAttribute ${className} entity) {
+		model.addAttribute("${paramClassName}", entity);
+		return "${paramClassName}/form";
+	}
+	
+	@PostMapping
+	public String create(@Valid @ModelAttribute ${className} entity, BindingResult result, RedirectAttributes redirectAttributes) {
+		${className} ${paramClassName} = null;
+		try {
+			${paramClassName} = ${paramClassName}Service.save(entity);
+			redirectAttributes.addFlashAttribute("success", MSG_SUCESS_INSERT);
+		} catch (Exception e) {
+			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
+			e.printStackTrace();
+		}
+		return "redirect:/${url_path}/" + ${paramClassName}.getId();
+	}
+	
+	@GetMapping("/{id}/edit")
+	public String update(Model model, @PathVariable("id") Integer id) {
+		try {
+			if (id != null) {
+				${className} entity = ${paramClassName}Service.findOne(id);
+				model.addAttribute("${paramClassName}", entity);
+			}
+		} catch (Exception e) {
+			throw new ServiceException(e.getMessage());
+		}
+		return "${paramClassName}/form";
+	}
+	
+	@PutMapping
+	public String update(@Valid @ModelAttribute ${className} entity, BindingResult result, RedirectAttributes redirectAttributes) {
+		${className} ${paramClassName} = null;
+		try {
+			${paramClassName} = ${paramClassName}Service.save(entity);
+			redirectAttributes.addFlashAttribute("success", MSG_SUCESS_UPDATE);
+		} catch (Exception e) {
+			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
+			e.printStackTrace();
+		}
+		return "redirect:/${url_path}/" + ${paramClassName}.getId();
+	}
+	
+	@DeleteMapping("/{id}")
+	public String delete(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
+		try {
+			if (id != null) {
+				${className} entity = ${paramClassName}Service.findOne(id);
+				${paramClassName}Service.delete(entity);
+				redirectAttributes.addFlashAttribute("success", MSG_SUCESS_DELETE);
+			}
+		} catch (Exception e) {
+			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
+			throw new ServiceException(e.getMessage());
+		}
+		return "redirect:/${url_path}/index";
+	}
+
+}
