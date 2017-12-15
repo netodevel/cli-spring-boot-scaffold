@@ -9,6 +9,8 @@ import org.apache.commons.io.IOUtils;
 
 import br.com.netodevel.core.GeneratorConstants;
 import br.com.netodevel.core.ReadScaffoldInfo;
+import br.com.netodevel.helpers.FileHelper;
+import br.com.netodevel.helpers.ValidatorHelper;
 
 /**
  * @author NetoDevel
@@ -22,10 +24,8 @@ public abstract class AbstractGeneratorResource extends ReadScaffoldInfo impleme
 	
 	public void createNewResource(String javaStrings, String fileOutPutName) throws IOException {
 		fileOutPutName = nameResourceToGenerate(fileOutPutName);
-
 		File newJavaFile = new File(fileOutPutName);
-		FileUtils.writeStringToFile(newJavaFile, javaStrings);
-		System.out.println("created");
+		FileHelper.createNewFileFromGenerator(newJavaFile, javaStrings, fileOutPutName);
 	}
 
 	private String nameResourceToGenerate(String fileOutPutName) {

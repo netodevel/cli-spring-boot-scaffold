@@ -10,6 +10,8 @@ import org.apache.commons.lang.StringUtils;
 
 import br.com.netodevel.core.GeneratorConstants;
 import br.com.netodevel.core.ReadScaffoldInfo;
+import br.com.netodevel.helpers.FileHelper;
+import br.com.netodevel.helpers.ValidatorHelper;
 
 /**
  * @author NetoDevel
@@ -30,10 +32,8 @@ public abstract class AbstractGenerator extends ReadScaffoldInfo implements Gene
 
 	public void createNewFile(String javaStrings, String fileOutPutName) throws IOException {
 		fileOutPutName = nameFileToGenerate(fileOutPutName);
-
 		File newJavaFile = new File(fileOutPutName);
-		FileUtils.writeStringToFile(newJavaFile, javaStrings);
-		System.out.println("created");
+		FileHelper.createNewFileFromGenerator(newJavaFile, javaStrings, fileOutPutName);
 	}
 	
 	private String nameFileToGenerate(String fileOutPutName) {
