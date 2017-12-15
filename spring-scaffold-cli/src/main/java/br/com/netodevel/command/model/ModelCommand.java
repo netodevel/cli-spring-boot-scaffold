@@ -20,14 +20,13 @@ public class ModelCommand extends OptionParsingCommand {
 	}
 	
 	public String getUsageHelp() {
-		// TODO Auto-generated method stub
-		return "[name-entity] [attributes] [language]";
+		return "model -n \"NAME\" -p \"field:type field:type\"";
 	}
 
 	@Override
 	public Collection<HelpExample> getExamples() {
 		List<HelpExample> list = new ArrayList<HelpExample>();
-		list.add(new HelpExample("create entities java", "model -n User -p name:String"));
+		list.add(new HelpExample("create model java", "model -n User -p name:String"));
 		return list;
 	}
 	

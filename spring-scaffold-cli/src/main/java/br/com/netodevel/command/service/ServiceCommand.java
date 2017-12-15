@@ -20,7 +20,7 @@ public class ServiceCommand extends OptionParsingCommand {
 
 	@Override
 	public String getUsageHelp() {
-		return "[name-model]";
+		return "service -n \"NAME\" ";
 	}
 	
 	@Override

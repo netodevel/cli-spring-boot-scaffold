@@ -16,14 +16,14 @@ public class SetupScaffoldCommand extends OptionParsingCommand {
 
 	@Override
 	public String getUsageHelp() {
-		return "[namepackage][user-database][password-database]";
+		return "setup:scaffold -n \"com.example\" -u \"root\" -p \"root\" ";
 	}
 	
 	@Override
 	public Collection<HelpExample> getExamples() {
 		List<HelpExample> list = new ArrayList<HelpExample>();
 		list.add(new HelpExample("setup scaffold", "spring setup:scaffold"));
-		list.add(new HelpExample("setup scaffold with parameters", "spring setup:scaffold -p com.example -u root -p root"));
+		list.add(new HelpExample("setup scaffold with parameters", "spring setup:scaffold -n com.example -u root -p root"));
 		return list;
 	}
 	

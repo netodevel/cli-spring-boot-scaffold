@@ -16,7 +16,7 @@
 		<tag>HEAD</tag>
 	</scm>
 	<modules>
-		<module>spring-boot-generate</module>
+		<module>generator-core</module>
 		<module>spring-scaffold-cli</module>
 	</modules>
 	<profiles>
