@@ -24,8 +24,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>br.com</groupId>
-			<artifactId>spring-boot-generate</artifactId>
+			<groupId>br.com.netodevel.core</groupId>
+			<artifactId>generate-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
