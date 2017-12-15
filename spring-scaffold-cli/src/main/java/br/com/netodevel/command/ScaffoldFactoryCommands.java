@@ -34,7 +34,7 @@ public class ScaffoldFactoryCommands implements CommandFactory {
 			new RepositoryCommand("repository", "generate repositories", new RepositoryHandler()),
 			new ServiceCommand("service", "generate services", new ServiceHandler()),
 			new ControllerCommand("controller", "generate controllers", new ControllerHandler()),
-			new ScaffoldCommand("scaffold", "generate api scaffold", new ScaffoldHandler()),
+			new ScaffoldCommand("scaffold", "generate scaffold", new ScaffoldHandler()),
 			new DBCreateCommand("db:create", "create database", new DBCreateHandler()),
 			new SetupScaffoldCommand("setup:scaffold", "setup scaffold", new SetupScaffoldHandler()));
 	}

@@ -36,8 +36,8 @@ public class GeneratorModel extends GeneratorSource {
 	
 	public static void main(String[] args) {
 		GeneratorOptions options = new GeneratorOptions()
-				.setNameModel("User")
-				.setParameters("name:String idade:Integer date:Date");
+				.setNameModel("Admin")
+				.setParameters("name:String email:String");
 		
 		
 		new GeneratorModel(options).generate();		

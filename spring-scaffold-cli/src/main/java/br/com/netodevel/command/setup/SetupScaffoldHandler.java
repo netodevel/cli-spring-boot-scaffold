@@ -2,17 +2,14 @@ package br.com.netodevel.command.setup;
 
 import java.util.Arrays;
 
-import joptsimple.OptionSet;
-import joptsimple.OptionSpec;
-
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.application.properties.ApplicationPropertiesGenerator;
-import br.com.generate.setup.command.SetupGenerator;
 import br.com.netodevel.core.resources.GeneratorResourceOptions;
 import br.com.netodevel.generators.resources.GeneratorApplicationProperties;
 import br.com.netodevel.generators.resources.GeneratorScaffoldInfo;
+import joptsimple.OptionSet;
+import joptsimple.OptionSpec;
 
 /**
  * @author NetoDevel

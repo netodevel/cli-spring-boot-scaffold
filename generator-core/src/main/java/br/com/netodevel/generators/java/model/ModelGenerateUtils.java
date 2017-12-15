@@ -90,7 +90,7 @@ public class ModelGenerateUtils {
 	}
 
 	private static String buildColumn(String name) {
-		String code = "\t @column(name=\"" + name + "\")\n";
+		String code = "\t @Column(name=\"" + name + "\")\n";
 		return code;
 	}
 	

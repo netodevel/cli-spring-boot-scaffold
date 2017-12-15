@@ -10,7 +10,7 @@ ${imports}
 
 @Entity
 @Table(name = "${name_table}")
-public class ${className} implements Serializable {
+public class ${className}Model implements Serializable {
 
 	 private static final long serialVersionUID = 1L;
 	

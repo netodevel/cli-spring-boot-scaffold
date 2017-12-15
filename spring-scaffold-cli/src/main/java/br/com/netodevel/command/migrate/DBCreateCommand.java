@@ -18,7 +18,7 @@ public class DBCreateCommand extends OptionParsingCommand {
 	public String getUsageHelp() {
 		return "[namedatabase][typedatabase]";
 	}
-	
+
 	@Override
 	public Collection<HelpExample> getExamples() {
 		List<HelpExample> list = new ArrayList<HelpExample>();
@@ -26,5 +26,5 @@ public class DBCreateCommand extends OptionParsingCommand {
 		list.add(new HelpExample("create database postgresql", "spring db:create -n mydatabase -p postgresql"));
 		return list;
 	}
-	
+
 }

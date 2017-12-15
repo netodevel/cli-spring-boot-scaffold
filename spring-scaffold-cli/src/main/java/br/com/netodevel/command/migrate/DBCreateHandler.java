@@ -2,13 +2,12 @@ package br.com.netodevel.command.migrate;
 
 import java.util.Arrays;
 
-import joptsimple.OptionSet;
-import joptsimple.OptionSpec;
-
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.migrate.CreateDatabase;
+import br.com.netodevel.migrate.CreateDatabase;
+import joptsimple.OptionSet;
+import joptsimple.OptionSpec;
 
 /**
  * @author NetoDevel

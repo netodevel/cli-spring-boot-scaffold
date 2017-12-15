@@ -3,16 +3,13 @@ package br.com.netodevel.command.service;
 import java.io.IOException;
 import java.util.Arrays;
 
-import joptsimple.OptionSet;
-import joptsimple.OptionSpec;
-
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.command.service.ServiceCleanGenerator;
 import br.com.netodevel.core.source.GeneratorOptions;
-import br.com.netodevel.generators.java.controller.GeneratorCleanController;
 import br.com.netodevel.generators.java.service.GeneratorCleanService;
+import joptsimple.OptionSet;
+import joptsimple.OptionSpec;
 
 /**
  * @author NetoDevel
