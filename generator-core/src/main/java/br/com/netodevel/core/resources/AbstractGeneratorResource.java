@@ -4,13 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
 import br.com.netodevel.core.GeneratorConstants;
 import br.com.netodevel.core.ReadScaffoldInfo;
 import br.com.netodevel.helpers.FileHelper;
-import br.com.netodevel.helpers.ValidatorHelper;
 
 /**
  * @author NetoDevel
