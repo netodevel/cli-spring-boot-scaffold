@@ -9,6 +9,7 @@ public abstract class GeneratorSource extends AbstractGenerator {
 	
 	private String javaStrings;
 	private GeneratorOptions generateOptions;
+	private Object valueObject;
 	
 	public GeneratorSource(){
 	}
@@ -45,6 +46,14 @@ public abstract class GeneratorSource extends AbstractGenerator {
 			e.printStackTrace();
 		}
 		return this;
+	}
+
+	public Object getObject() {
+		return valueObject;
+	}
+
+	public void setValueObject(Object object) {
+		this.valueObject = object;
 	}
 
 }
