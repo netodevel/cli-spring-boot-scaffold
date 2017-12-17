@@ -16,7 +16,7 @@ public class SetupScaffoldCommand extends OptionParsingCommand {
 
 	@Override
 	public String getUsageHelp() {
-		return "setup:scaffold -n \"com.example\" -u \"root\" -p \"root\" ";
+		return "-n \"com.example\" -u \"root\" -p \"root\" ";
 	}
 	
 	@Override

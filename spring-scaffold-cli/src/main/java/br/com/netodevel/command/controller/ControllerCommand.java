@@ -20,7 +20,7 @@ public class ControllerCommand extends OptionParsingCommand {
 
 	@Override
 	public String getUsageHelp() {
-		return "controller -n \"NAME\" ";
+		return "-n \"NAME\" ";
 	}
 	
 	@Override

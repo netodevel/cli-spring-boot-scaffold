@@ -20,7 +20,7 @@ public class RepositoryCommand extends OptionParsingCommand {
 	
 	@Override
 	public String getUsageHelp() {
-		return "respository -n \"NAME\" ";
+		return "-n \"NAME\" ";
 	}
 	
 	@Override

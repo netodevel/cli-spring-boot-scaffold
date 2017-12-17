@@ -20,7 +20,7 @@ public class ScaffoldCommand extends OptionParsingCommand{
 
 	@Override
 	public String getUsageHelp() {
-		return "scaffold -n \"NAME\" -p \"field:type field:type\"";
+		return "-n \"NAME\" -p \"field:type field:type\"";
 	}
 	
 	@Override

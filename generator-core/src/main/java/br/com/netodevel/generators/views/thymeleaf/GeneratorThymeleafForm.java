@@ -34,7 +34,7 @@ public class GeneratorThymeleafForm extends GeneratorView {
 		return javaStrings.replace("${template}", generatorViewOptions.getLayout())
 				.replace("${className}", generatorViewOptions.getNameModel())
 				.replace("paramClassName", generatorViewOptions.getNameModel().toLowerCase())
-				.replace("${url_path}", GeneratorConstants.SEPARATOR_DIR + generatorViewOptions.getNameModel().toLowerCase() + "s")
+				.replace("url_path", GeneratorConstants.SEPARATOR_DIR + generatorViewOptions.getNameModel().toLowerCase() + "s")
 				.replace("${input_parameters}", AbstractThymeleafGenerate.generateInputParameters(generatorViewOptions.getParameters()));
 	}
 	

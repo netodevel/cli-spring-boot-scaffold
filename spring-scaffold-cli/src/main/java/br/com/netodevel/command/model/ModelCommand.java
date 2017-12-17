@@ -20,7 +20,7 @@ public class ModelCommand extends OptionParsingCommand {
 	}
 	
 	public String getUsageHelp() {
-		return "model -n \"NAME\" -p \"field:type field:type\"";
+		return "-n \"NAME\" -p \"field:type field:type\"";
 	}
 
 	@Override
