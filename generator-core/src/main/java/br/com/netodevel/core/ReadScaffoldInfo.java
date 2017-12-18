@@ -14,7 +14,7 @@ import org.apache.commons.lang.SystemUtils;
  */
 public class ReadScaffoldInfo {
 	
-	private static final String SRC_MAIN_RESOURCES = "src/main/resources/";
+	private static final String SRC_MAIN_RESOURCES = "src/main/resources";
 
 	public FileReader getArq() throws FileNotFoundException{
 		return new FileReader(getUserDir() + "/src/main/resources/scaffold.info");

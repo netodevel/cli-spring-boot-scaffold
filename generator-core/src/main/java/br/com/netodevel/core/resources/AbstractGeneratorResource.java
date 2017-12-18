@@ -16,7 +16,7 @@ import br.com.netodevel.helpers.FileHelper;
 public abstract class AbstractGeneratorResource extends ReadScaffoldInfo implements GeneratorResourceBase {
 	
 	public String loadTemplateFileResources(String fileName) throws IOException {
-		InputStream in = getClass().getResourceAsStream("/templates/resources/" + layer() + GeneratorConstants.SEPARATOR_DIR + fileName);
+		InputStream in = getClass().getResourceAsStream("/generators/resources/" + layer() + GeneratorConstants.SEPARATOR_DIR + fileName);
 		return IOUtils.toString(in, "UTF-8"); 
 	}
 	

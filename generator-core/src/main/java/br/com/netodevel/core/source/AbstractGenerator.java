@@ -23,7 +23,7 @@ public abstract class AbstractGenerator extends ReadScaffoldInfo implements Gene
 	}
 	
 	public String loadTemplateFile(String fileName) throws IOException {
-		InputStream in = getClass().getResourceAsStream("/templates/" + language() + GeneratorConstants.SEPARATOR_DIR + layer() + GeneratorConstants.SEPARATOR_DIR + fileName);
+		InputStream in = getClass().getResourceAsStream("/generators/" + language() + GeneratorConstants.SEPARATOR_DIR + layer() + GeneratorConstants.SEPARATOR_DIR + fileName);
 		String theString = IOUtils.toString(in, "UTF-8"); 
 		return theString;
 	}
