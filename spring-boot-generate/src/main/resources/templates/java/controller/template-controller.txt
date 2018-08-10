@@ -42,7 +42,7 @@ public class ${className}Controller {
 	@GetMapping("/{id}")
 	public String show(Model model, @PathVariable("id") Integer id) {
 		if (id != null) {
-			${className} ${paramClassName} = ${paramClassName}Service.findOne(id);
+			${className} ${paramClassName} = ${paramClassName}Service.findById(id);
 			model.addAttribute("${paramClassName}", ${paramClassName});
 		}
 		return "${paramClassName}/show";
@@ -71,7 +71,7 @@ public class ${className}Controller {
 	public String update(Model model, @PathVariable("id") Integer id) {
 		try {
 			if (id != null) {
-				${className} entity = ${paramClassName}Service.findOne(id);
+				${className} entity = ${paramClassName}Service.findById(id);
 				model.addAttribute("${paramClassName}", entity);
 			}
 		} catch (Exception e) {
@@ -97,7 +97,7 @@ public class ${className}Controller {
 	public String delete(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
 		try {
 			if (id != null) {
-				${className} entity = ${paramClassName}Service.findOne(id);
+				${className} entity = ${paramClassName}Service.findById(id);
 				${paramClassName}Service.delete(entity);
 				redirectAttributes.addFlashAttribute("success", MSG_SUCESS_DELETE);
 			}

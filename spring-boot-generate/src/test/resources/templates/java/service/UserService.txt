@@ -19,8 +19,8 @@ public class UserService {
 		return userRepository.findAll();
 	}
 
-	public User findOne(Integer id) {
-		return userRepository.findOne(id);
+	public User findById(Integer id) {
+		return userRepository.findById(id);
 	}
 	
 	@Transactional(readOnly = false)

@@ -42,7 +42,7 @@ public class UserController {
 	@GetMapping("/{id}")
 	public String show(Model model, @PathVariable("id") Integer id) {
 		if (id != null) {
-			User user = userService.findOne(id);
+			User user = userService.findById(id);
 			model.addAttribute("user", user);
 		}
 		return "user/show";
@@ -71,7 +71,7 @@ public class UserController {
 	public String update(Model model, @PathVariable("id") Integer id) {
 		try {
 			if (id != null) {
-				User entity = userService.findOne(id);
+				User entity = userService.findById(id);
 				model.addAttribute("user", entity);
 			}
 		} catch (Exception e) {
@@ -97,7 +97,7 @@ public class UserController {
 	public String delete(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
 		try {
 			if (id != null) {
-				User entity = userService.findOne(id);
+				User entity = userService.findById(id);
 				userService.delete(entity);
 				redirectAttributes.addFlashAttribute("success", MSG_SUCESS_DELETE);
 			}

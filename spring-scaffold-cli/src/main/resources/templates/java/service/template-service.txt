@@ -19,8 +19,8 @@ public class ${className}Service {
 		return ${paramClassName}Repository.findAll();
 	}
 
-	public ${className} findOne(Integer id) {
-		return ${paramClassName}Repository.findOne(id);
+	public ${className} findById(Integer id) {
+		return ${paramClassName}Repository.findById(id);
 	}
 	
 	@Transactional(readOnly = false)
