@@ -1,12 +1,14 @@
 package ${package};
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import ${package_model}.${className};
 import ${package_repository}.${className}Repository;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -19,7 +21,7 @@ public class ${className}Service {
 		return ${paramClassName}Repository.findAll();
 	}
 
-	public ${className} findById(Integer id) {
+	public Optional<${className}> findById(Integer id) {
 		return ${paramClassName}Repository.findById(id);
 	}
 	

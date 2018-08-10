@@ -1,12 +1,14 @@
-package br.com.example.service;
+package com.example.service;
+
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
-import br.com.example.model.User;
-import br.com.example.repository.UserRepository;
+import com.example.model.User;
+import com.example.repository.UserRepository;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.List;
 
 @Service
 @Transactional(readOnly = true)

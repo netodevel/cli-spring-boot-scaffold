@@ -1,4 +1,4 @@
-package ${package};
+package com.example.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,94 +18,94 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import ${package_model}.${className};
-import ${package_service}.${className}Service;
+import com.example.model.User;
+import com.example.service.UserService;
 
 @Controller
-@RequestMapping("/${paramClassName}s")
-public class ${className}Controller {
+@RequestMapping("/users")
+public class UserController {
 
-	private static final String MSG_SUCESS_INSERT = "${className} inserted successfully.";
-	private static final String MSG_SUCESS_UPDATE = "${className} successfully changed.";
-	private static final String MSG_SUCESS_DELETE = "Deleted ${className} successfully.";
+	private static final String MSG_SUCESS_INSERT = "User inserted successfully.";
+	private static final String MSG_SUCESS_UPDATE = "User successfully changed.";
+	private static final String MSG_SUCESS_DELETE = "Deleted User successfully.";
 	private static final String MSG_ERROR = "Error.";
 
 	@Autowired
-	private ${className}Service ${paramClassName}Service;
+	private UserService userService;
 
 	@GetMapping
 	public String index(Model model) {
-		List<${className}> all = ${paramClassName}Service.findAll();
-		model.addAttribute("list${className}", all);
-		return "${paramClassName}/index";
+		List<User> all = userService.findAll();
+		model.addAttribute("listUser", all);
+		return "user/index";
 	}
 	
 	@GetMapping("/{id}")
 	public String show(Model model, @PathVariable("id") Integer id) {
 		if (id != null) {
-			Optional<${className}> ${paramClassName} = ${paramClassName}Service.findById(id);
+			Optional<User> user = userService.findById(id);
 
-                        if (${paramClassName}.isPresent())
-                            model.addAttribute("${paramClassName}", ${paramClassName}.get());
+                        if (user.isPresent())
+                            model.addAttribute("user", user.get());
 		}
-		return "${paramClassName}/show";
+		return "user/show";
 	}
 
 	@GetMapping(value = "/new")
-	public String create(Model model, @ModelAttribute ${className} entity) {
-		model.addAttribute("${paramClassName}", entity);
-		return "${paramClassName}/form";
+	public String create(Model model, @ModelAttribute User entity) {
+		model.addAttribute("user", entity);
+		return "user/form";
 	}
 	
 	@PostMapping
-	public String create(@Valid @ModelAttribute ${className} entity, BindingResult result, RedirectAttributes redirectAttributes) {
-		${className} ${paramClassName} = null;
+	public String create(@Valid @ModelAttribute User entity, BindingResult result, RedirectAttributes redirectAttributes) {
+		User user = null;
 		try {
-			${paramClassName} = ${paramClassName}Service.save(entity);
+			user = userService.save(entity);
 			redirectAttributes.addFlashAttribute("success", MSG_SUCESS_INSERT);
 		} catch (Exception e) {
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
 			e.printStackTrace();
 		}
-		return "redirect:/${url_path}/" + ${paramClassName}.getId();
+		return "redirect:/users/" + user.getId();
 	}
 	
 	@GetMapping("/{id}/edit")
 	public String update(Model model, @PathVariable("id") Integer id) {
 		try {
 			if (id != null) {
-				Optional<${className}> entity = ${paramClassName}Service.findById(id);
+				Optional<User> entity = userService.findById(id);
 
                                 if (entity.isPresent())
-                                    model.addAttribute("${paramClassName}", entity.get());
+                                    model.addAttribute("user", entity.get());
 			}
 		} catch (Exception e) {
 			throw new ServiceException(e.getMessage());
 		}
-		return "${paramClassName}/form";
+		return "user/form";
 	}
 	
 	@PutMapping
-	public String update(@Valid @ModelAttribute ${className} entity, BindingResult result, RedirectAttributes redirectAttributes) {
-		${className} ${paramClassName} = null;
+	public String update(@Valid @ModelAttribute User entity, BindingResult result, RedirectAttributes redirectAttributes) {
+		User user = null;
 		try {
-			${paramClassName} = ${paramClassName}Service.save(entity);
+			user = userService.save(entity);
 			redirectAttributes.addFlashAttribute("success", MSG_SUCESS_UPDATE);
 		} catch (Exception e) {
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
 			e.printStackTrace();
 		}
-		return "redirect:/${url_path}/" + ${paramClassName}.getId();
+		return "redirect:/users/" + user.getId();
 	}
 	
 	@DeleteMapping("/{id}")
 	public String delete(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
 		try {
 			if (id != null) {
-				Optional<${className}> entity = ${paramClassName}Service.findById(id);
+				Optional<User> entity = userService.findById(id);
 
                                 if (entity.isPresent()) {    
-                                    ${paramClassName}Service.delete(entity.get());
+                                    userService.delete(entity.get());
                                     redirectAttributes.addFlashAttribute("success", MSG_SUCESS_DELETE);
                                 } else {
                                     redirectAttributes.addFlashAttribute("error", MSG_ERROR);
@@ -115,7 +115,7 @@ public class ${className}Controller {
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
 			throw new ServiceException(e.getMessage());
 		}
-		return "redirect:/${url_path}/index";
+		return "redirect:/users/index";
 	}
 
 }
