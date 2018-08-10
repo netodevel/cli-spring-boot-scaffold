@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layout">
+<head>
+ 	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<h1>List UserModel</h1>
+		<hr />
+		<a th:href="@{/usermodels/new}">New UserModel</a><br/><br/>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th> 
+					<th>Email</th> 
+					<th>Idade</th> 
+					<th>DateCreated</th> 
+					<th>Admin</th> 
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="usermodel : ${listUserModel}">
+					<td th:text="${usermodel.name}"></td> 
+					<td th:text="${usermodel.email}"></td> 
+					<td th:text="${usermodel.idade}"></td> 
+					<td th:text="${usermodel.dateCreated}"></td> 
+					<td th:text="${usermodel.admin}"></td> 
+					<td>
+							<a th:href="@{/usermodels/{id}(id = ${usermodel.id})}">Show</a> 
+					 		<a th:href="@{/usermodels/{id}/edit(id = ${usermodel.id})}">Edit</a> 
+							<a href="#">Destroy</a> 
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

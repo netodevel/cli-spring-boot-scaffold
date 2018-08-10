@@ -44,9 +44,9 @@ public class ${className}Controller {
 	public String show(Model model, @PathVariable("id") Integer id) {
 		if (id != null) {
 			Optional<${className}> ${paramClassName} = ${paramClassName}Service.findById(id);
-
-                        if (${paramClassName}.isPresent())
-                            model.addAttribute("${paramClassName}", ${paramClassName}.get());
+			
+			if (${paramClassName}.isPresent())
+				model.addAttribute("${paramClassName}", ${paramClassName}.get());
 		}
 		return "${paramClassName}/show";
 	}
@@ -75,9 +75,9 @@ public class ${className}Controller {
 		try {
 			if (id != null) {
 				Optional<${className}> entity = ${paramClassName}Service.findById(id);
-
-                                if (entity.isPresent())
-                                    model.addAttribute("${paramClassName}", entity.get());
+				
+				if (entity.isPresent())
+					model.addAttribute("${paramClassName}", entity.get());
 			}
 		} catch (Exception e) {
 			throw new ServiceException(e.getMessage());
@@ -103,13 +103,13 @@ public class ${className}Controller {
 		try {
 			if (id != null) {
 				Optional<${className}> entity = ${paramClassName}Service.findById(id);
-
-                                if (entity.isPresent()) {    
-                                    ${paramClassName}Service.delete(entity.get());
-                                    redirectAttributes.addFlashAttribute("success", MSG_SUCESS_DELETE);
-                                } else {
-                                    redirectAttributes.addFlashAttribute("error", MSG_ERROR);
-                                }
+				
+				if (entity.isPresent()) {
+					${paramClassName}Service.delete(entity.get());
+					redirectAttributes.addFlashAttribute("success", MSG_SUCESS_DELETE);
+				} else {
+					redirectAttributes.addFlashAttribute("error", MSG_ERROR);
+				}
 			}
 		} catch (Exception e) {
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);

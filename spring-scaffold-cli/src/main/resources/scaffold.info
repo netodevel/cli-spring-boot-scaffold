@@ -1,3 +1,4 @@
-package:br.com.example
-user-database:root
-password-database:root
+package:com.example
+dataBaseName:meubancodedados
+username:root
+password:root
