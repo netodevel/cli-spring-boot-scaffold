@@ -44,9 +44,9 @@ public class UserController {
 	public String show(Model model, @PathVariable("id") Integer id) {
 		if (id != null) {
 			Optional<User> user = userService.findById(id);
-
-                        if (user.isPresent())
-                            model.addAttribute("user", user.get());
+			
+			if (user.isPresent())
+				model.addAttribute("user", user.get());
 		}
 		return "user/show";
 	}
@@ -75,9 +75,9 @@ public class UserController {
 		try {
 			if (id != null) {
 				Optional<User> entity = userService.findById(id);
-
-                                if (entity.isPresent())
-                                    model.addAttribute("user", entity.get());
+				
+				if (entity.isPresent())
+					model.addAttribute("user", entity.get());
 			}
 		} catch (Exception e) {
 			throw new ServiceException(e.getMessage());
@@ -103,13 +103,13 @@ public class UserController {
 		try {
 			if (id != null) {
 				Optional<User> entity = userService.findById(id);
-
-                                if (entity.isPresent()) {    
-                                    userService.delete(entity.get());
-                                    redirectAttributes.addFlashAttribute("success", MSG_SUCESS_DELETE);
-                                } else {
-                                    redirectAttributes.addFlashAttribute("error", MSG_ERROR);
-                                }
+				
+				if (entity.isPresent()) {
+					userService.delete(entity.get());
+					redirectAttributes.addFlashAttribute("success", MSG_SUCESS_DELETE);
+				} else {
+					redirectAttributes.addFlashAttribute("error", MSG_ERROR);
+				}
 			}
 		} catch (Exception e) {
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
