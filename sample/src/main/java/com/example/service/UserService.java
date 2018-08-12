@@ -1,12 +1,14 @@
 package com.example.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import com.example.model.User;
 import com.example.repository.UserRepository;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -19,8 +21,8 @@ public class UserService {
 		return userRepository.findAll();
 	}
 
-	public User findOne(Integer id) {
-		return userRepository.findOne(id);
+	public Optional<User> findById(Integer id) {
+		return userRepository.findById(id);
 	}
 	
 	@Transactional(readOnly = false)
