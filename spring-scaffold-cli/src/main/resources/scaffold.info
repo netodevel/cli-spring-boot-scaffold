@@ -1,4 +1,4 @@
 package:br.com.example
 user-database:root
 password-database:root
-springVersion:2.x
+springVersion:1.x
