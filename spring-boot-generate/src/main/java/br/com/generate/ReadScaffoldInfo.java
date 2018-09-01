@@ -102,4 +102,17 @@ public abstract class ReadScaffoldInfo {
 		return null;
 	}
 	
+	public String getSpringVersion() throws IOException {
+		BufferedReader readArq = new BufferedReader(getArq());
+		String row = readArq.readLine();
+		while (row != null) {
+			row = readArq.readLine();
+			String [] values = row.split(":");
+			if (values[0].equals("springVersion")) {
+				return values[1];
+			}
+		}
+		return null;
+	}
+	
 }
