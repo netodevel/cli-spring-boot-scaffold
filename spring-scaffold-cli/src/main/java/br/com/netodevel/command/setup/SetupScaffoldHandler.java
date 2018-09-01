@@ -28,6 +28,9 @@ public class SetupScaffoldHandler extends OptionHandler {
 	
 	@SuppressWarnings("unused")
 	private OptionSpec<String> passwordDatabase;
+
+	@SuppressWarnings("unused")
+	private OptionSpec<String> springVersion;
 	
 	@Override
 	protected void options() {
@@ -35,6 +38,7 @@ public class SetupScaffoldHandler extends OptionHandler {
 		this.dataBase = option(Arrays.asList("dataBaseName", "d"), "name of database").withOptionalArg();
 		this.userDatabase = option(Arrays.asList("userDatabase", "u"), "username database for migrates").withOptionalArg();
 		this.passwordDatabase = option(Arrays.asList("passwordDatabase", "p"), "password database for migrates").withOptionalArg();
+		this.springVersion = option(Arrays.asList("springVersion", "s"), "spring version: 1.x or 2.x").withOptionalArg();
 	}
 	
 	@Override
@@ -43,13 +47,15 @@ public class SetupScaffoldHandler extends OptionHandler {
 		String nameDataBase = (String) options.valueOf("d");
 		String userNameDatabase = (String) options.valueOf("u");
 		String passwordDatabase = (String) options.valueOf("p");
+		String springVersion = (String) options.valueOf("s");
 		
 		namePackage = namePackage != null ? namePackage.trim() : namePackage;
 		nameDataBase = nameDataBase != null ? nameDataBase.trim() : nameDataBase;
 		userNameDatabase = userNameDatabase != null ? userNameDatabase.trim() : userNameDatabase;
 		passwordDatabase = passwordDatabase != null ? passwordDatabase.trim() : passwordDatabase;
+		springVersion = springVersion != null ? springVersion.trim() : springVersion;
 		
-		new SetupGenerator(namePackage, nameDataBase, userNameDatabase, passwordDatabase);
+		new SetupGenerator(namePackage, nameDataBase, userNameDatabase, passwordDatabase, springVersion);
 		new ApplicationPropertiesGenerator();
 		
 		return ExitStatus.OK;
