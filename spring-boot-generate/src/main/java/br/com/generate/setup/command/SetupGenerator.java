@@ -27,10 +27,12 @@ public class SetupGenerator extends ReadScaffoldInfo {
 			String dataBaseName = params[1] != null ? params[1] : "mydb";
 			String userDataBase = params[2] != null ? params[2] : "root";
 			String passWordDatabase = params[3] != null ? params[3] : "root";
+			String springVersion = params[4] != null ? params[4] : "1.x";
 			writer.println("package:" + namePackage);
 			writer.println("dataBaseName:" + dataBaseName);
 			writer.println("username:" + userDataBase);
 			writer.println("password:" + passWordDatabase);
+			writer.println("springVersion:" + springVersion);
 			writer.close();
 			System.out.println("create /src/main/resources/scaffold.info");
 		} catch (FileNotFoundException e) {

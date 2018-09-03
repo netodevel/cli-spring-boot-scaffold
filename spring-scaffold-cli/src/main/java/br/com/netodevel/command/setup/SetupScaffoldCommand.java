@@ -16,7 +16,7 @@ public class SetupScaffoldCommand extends OptionParsingCommand {
 
 	@Override
 	public String getUsageHelp() {
-		return "[namepackage][user-database][password-database]";
+		return "[namepackage][user-database][password-database][spring-version]";
 	}
 	
 	@Override
