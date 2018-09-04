@@ -49,7 +49,7 @@ And install the Spring Scaffold plugin
 
 # Usage
 
-    $ spring init --dependencies=web,data-jpa,thymeleaf,mysql my-project
+    $ spring init --dependencies=web,data-jpa,thymeleaf,mysql --package-name=com.example my-project
     $ cd my-project
     $ spring setup:scaffold
     $ spring scaffold -n "User" -p "name:String email:String"
