@@ -3,9 +3,9 @@ package br.com.generate.java.command.repository;
 import java.io.IOException;
 
 import br.com.generate.Layers;
-import br.com.generate.ReadTemplateFile;
+import br.com.generate.GeneratorSource;
 
-public class RepositoryCleanGenerator extends ReadTemplateFile {
+public class RepositoryCleanGenerator extends GeneratorSource {
 
 	@Override
 	public String getLayer() {

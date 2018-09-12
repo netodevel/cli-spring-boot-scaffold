@@ -5,13 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-import br.com.generate.ReadScaffoldInfo;
+import br.com.generate.PropertiesReader;
 
 /**
  * @author NetoDevel
  * @since 0.0.1
  */
-public class SetupGenerator extends ReadScaffoldInfo {
+public class SetupGenerator extends PropertiesReader {
 
 	public SetupGenerator(String...params) {
 		generate(params);

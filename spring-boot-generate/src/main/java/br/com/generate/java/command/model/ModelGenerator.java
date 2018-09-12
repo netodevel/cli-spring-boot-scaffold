@@ -3,14 +3,14 @@ package br.com.generate.java.command.model;
 import java.io.IOException;
 
 import br.com.generate.Layers;
-import br.com.generate.ReadTemplateFile;
+import br.com.generate.GeneratorSource;
 import br.com.generate.migrate.Migrations;
 import br.com.util.ModelGenerateUtils;
 
 /**
  * @author NetoDevel
  */
-public class ModelGenerator extends ReadTemplateFile {
+public class ModelGenerator extends GeneratorSource {
 	
 	@Override
 	public String getLayer() {

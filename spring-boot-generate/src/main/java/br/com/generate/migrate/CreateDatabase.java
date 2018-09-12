@@ -6,12 +6,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import br.com.generate.ReadScaffoldInfo;
+import br.com.generate.PropertiesReader;
 
 /**
  * @author NetoDevel
  */
-public class CreateDatabase extends ReadScaffoldInfo {
+public class CreateDatabase extends PropertiesReader {
 	
 	private static String JDBC_MYSQL = "com.mysql.jdbc.Driver";
 	private static String JDBC_POSTGRESQL = "org.postgresql.Driver";

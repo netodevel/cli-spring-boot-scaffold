@@ -6,9 +6,9 @@ import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
-import br.com.generate.ReadScaffoldInfo;
+import br.com.generate.PropertiesReader;
 
-public class ApplicationPropertiesGenerator extends ReadScaffoldInfo {
+public class ApplicationPropertiesGenerator extends PropertiesReader {
 
 	public ApplicationPropertiesGenerator() throws IOException {
 		if (validate()) {

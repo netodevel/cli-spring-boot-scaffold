@@ -8,15 +8,17 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.springframework.util.StringUtils;
 
+// Matar AbstractGenerate
+public abstract class AbstractGenerate extends PropertiesReader implements Generator {
 
-public abstract class AbstractGenerate extends ReadScaffoldInfo implements IGenerate {
-
+	// TemplateReader param : pathTemplate
 	public String readTemplateFile(String fileNameTemplate) throws IOException {
 		InputStream in = getClass().getResourceAsStream("/templates/java/" + getLayer() + "/" + fileNameTemplate);
 		String theString = IOUtils.toString(in, "UTF-8"); 
 		return theString;
 	}
 
+	// FileWriter : FileOutput (Strategy)
 	public void outPutFile(String javaStrings, String fileOutPutName) throws IOException {
 		String nameFileOutPut;
 		if (getLayer().equals(Layers.MODEL)) {

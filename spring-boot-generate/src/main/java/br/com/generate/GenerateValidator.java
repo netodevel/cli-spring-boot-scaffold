@@ -7,7 +7,7 @@ import org.springframework.util.StringUtils;
 /**
  * @author Jose
  */
-public class GenerateValidator extends ReadScaffoldInfo {
+public class GenerateValidator extends PropertiesReader {
 
 	private SupportTypes supportTypes = new SupportTypes();
 	
