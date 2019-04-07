@@ -1,0 +1,3 @@
+br\com\netodevel\commons\exception\CommonsException.class
+br\com\netodevel\commons\io\FileHelper.class
+br\com\netodevel\commons\validator\TextHelper.class

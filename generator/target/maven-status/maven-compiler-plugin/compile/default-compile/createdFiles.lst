@@ -1,0 +1,4 @@
+br\com\netodevel\generator\GeneratorModel.class
+br\com\netodevel\generator\GeneratorContract.class
+br\com\netodevel\generator\Generator.class
+br\com\netodevel\generator\GenerateValidator.class
