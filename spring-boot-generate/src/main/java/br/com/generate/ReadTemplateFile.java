@@ -7,7 +7,7 @@ import java.io.IOException;
  */
 public abstract class ReadTemplateFile extends AbstractGenerate {
 
-	protected abstract String operationGenerate(String javaStrings, String nameClass, String parameters);
+	public abstract String operationGenerate(String javaStrings, String nameClass, String parameters);
 
 	private GenerateValidator validatorGenerate = new GenerateValidator();
 	

@@ -13,7 +13,7 @@ public class ServiceCleanGenerator extends ReadTemplateFile {
 	}
 
 	@Override
-	protected String operationGenerate(String javaStrings, String nameClass, String parameters) {
+	public String operationGenerate(String javaStrings, String nameClass, String parameters) {
 		return javaStrings.replace("${package}", getPackage() + ".service")
 				.replace("${className}", nameClass);
 	}

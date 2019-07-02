@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.apache.commons.io.FileDeleteStrategy;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
@@ -21,9 +22,9 @@ public class FileGeneratorTestUtils {
 	
 	public static void deleteFileAndDirectory(File... files) throws IOException {
 		for (File file : files) {
-			file.delete();
+			FileDeleteStrategy.FORCE.delete(file);
 		}
-		FileUtils.deleteDirectory(new File("src/main/java/br/com/example"));
+//		FileUtils.forceDelete(new File("src/main/java/br/com/example"));
 	}
 	
 }

@@ -13,7 +13,7 @@ public class ControllerGenerator extends ReadTemplateFile {
 	}
 
 	@Override
-	protected String operationGenerate(String javaStrings, String nameClass, String parameters) {
+	public String operationGenerate(String javaStrings, String nameClass, String parameters) {
 		return javaStrings.replace("${package}", getPackage() + ".controller")
 				.replace("${package_model}", getPackage() + ".model")
 				.replace("${package_service}", getPackage() + ".service")
