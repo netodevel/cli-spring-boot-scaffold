@@ -1,16 +1,13 @@
-package br.com.generate.java.command.model;
-
-import java.io.IOException;
+package br.com.generate.source.model;
 
 import br.com.generate.Layers;
-import br.com.generate.ReadTemplateFile;
-import br.com.generate.migrate.Migrations;
-import br.com.util.ModelGenerateUtils;
+import br.com.generate.helpers.FileHelper;
+import br.com.generate.helpers.ModelGenerateHelper;
 
 /**
  * @author NetoDevel
  */
-public class ModelGenerator extends ReadTemplateFile {
+public class ModelGenerator extends FileHelper {
 	
 	@Override
 	public String getLayer() {
@@ -20,11 +17,11 @@ public class ModelGenerator extends ReadTemplateFile {
 	@Override
 	public String operationGenerate(String javaStrings, String nameClass, String parameters) {
 		return javaStrings.replace("${package}", getPackage() + ".model")
-				.replace("${imports}", ModelGenerateUtils.generateImports(parameters))
+				.replace("${imports}", ModelGenerateHelper.generateImports(parameters))
 				.replace("${className}", nameClass)
 				.replace("${name_table}", nameClass.toLowerCase() + "s")
 				.replace("${parameters}", generateParams(parameters))
-				.replace("${getters}", ModelGenerateUtils.generateGettersAndSetters(parameters));
+				.replace("${getters}", ModelGenerateHelper.generateGettersAndSetters(parameters));
 	}
 	
 	public String generateParams(String params) {
@@ -47,14 +44,4 @@ public class ModelGenerator extends ReadTemplateFile {
 		return finalParameters;
 	}
 
-	public static void main(String[] args) throws IOException  {
-		new ModelGenerator().generate("User", "name:String mail:String age:Integer dataCreated:Date", "template-model.txt");
-		Migrations migrations = new Migrations();
-		try {
-			migrations.create("User", "name:String mail:String age:Integer dataCreated:Date");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
 }

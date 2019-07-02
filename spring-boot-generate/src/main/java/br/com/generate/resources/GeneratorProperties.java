@@ -1,4 +1,4 @@
-package br.com.generate.application.properties;
+package br.com.generate.resources;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,11 +6,11 @@ import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
-import br.com.generate.ReadScaffoldInfo;
+import br.com.generate.helpers.ScaffoldInfoHelper;
 
-public class ApplicationPropertiesGenerator extends ReadScaffoldInfo {
+public class GeneratorProperties extends ScaffoldInfoHelper {
 
-	public ApplicationPropertiesGenerator() throws IOException {
+	public GeneratorProperties() throws IOException {
 		if (validate()) {
 			generate();
 		}

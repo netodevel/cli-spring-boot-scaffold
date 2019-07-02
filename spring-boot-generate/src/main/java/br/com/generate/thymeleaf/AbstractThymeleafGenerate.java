@@ -2,13 +2,13 @@ package br.com.generate.thymeleaf;
 
 import org.springframework.util.StringUtils;
 
-import br.com.generate.ReadScaffoldInfo;
+import br.com.generate.helpers.ScaffoldInfoHelper;
 
 
 /**
  * @author NetoDevel
  */
-public abstract class AbstractThymeleafGenerate extends ReadScaffoldInfo {
+public abstract class AbstractThymeleafGenerate extends ScaffoldInfoHelper {
 	
 	private static final String TABS_INDEX = "					";
 	private static final String TABS_FORM = "				";

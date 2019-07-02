@@ -1,4 +1,6 @@
-package br.com.generate;
+package br.com.generate.validators;
+
+import br.com.generate.Layers;
 
 import java.util.Arrays;
 import java.util.List;
@@ -7,7 +9,7 @@ import java.util.List;
 /**
  * @author NetoDevel
  */
-public class SupportTypes {
+public class TypeValidator {
 
 	public List<String> typesSupported = Arrays.asList("String", "Double", "Float", "Long", "Integer", "Short", "Byte", "Char", "Boolean", "Object", "BigDecimal", "Date");
 	

@@ -1,17 +1,17 @@
-package br.com.generate.setup.command;
+package br.com.generate.setup;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-import br.com.generate.ReadScaffoldInfo;
+import br.com.generate.helpers.ScaffoldInfoHelper;
 
 /**
  * @author NetoDevel
  * @since 0.0.1
  */
-public class SetupGenerator extends ReadScaffoldInfo {
+public class SetupGenerator extends ScaffoldInfoHelper {
 
 	public SetupGenerator(String...params) {
 		generate(params);
