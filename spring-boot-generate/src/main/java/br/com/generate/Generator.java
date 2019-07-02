@@ -4,12 +4,13 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
+import br.com.generate.helpers.ScaffoldInfoHelper;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.springframework.util.StringUtils;
 
 
-public abstract class AbstractGenerate extends ReadScaffoldInfo implements IGenerate {
+public abstract class Generator extends ScaffoldInfoHelper implements GeneratorBoundary {
 
 	public String readTemplateFile(String fileNameTemplate) throws IOException {
 		InputStream in = getClass().getResourceAsStream("/templates/java/" + getLayer() + "/" + fileNameTemplate);

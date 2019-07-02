@@ -1,18 +1,20 @@
-package br.com.generate;
+package br.com.generate.validators;
 
 import java.io.File;
 
+import br.com.generate.Layers;
+import br.com.generate.helpers.ScaffoldInfoHelper;
 import org.springframework.util.StringUtils;
 
 /**
  * @author Jose
  */
-public class GenerateValidator extends ReadScaffoldInfo {
+public class GenerateValidator extends ScaffoldInfoHelper {
 
-	private SupportTypes supportTypes = new SupportTypes();
+	private TypeValidator typeValidator = new TypeValidator();
 	
 	public boolean validate(String nameClass, String parameters, String layer) {
-		if (supportTypes.validate(parameters, layer) && getSetupDone() && !validateFileExists(nameClass, layer)) {
+		if (typeValidator.validate(parameters, layer) && getSetupDone() && !validateFileExists(nameClass, layer)) {
 			return true;
 		}
 		return false;

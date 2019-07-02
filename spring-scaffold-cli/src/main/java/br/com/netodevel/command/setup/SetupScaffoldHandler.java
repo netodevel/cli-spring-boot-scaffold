@@ -8,8 +8,8 @@ import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.application.properties.ApplicationPropertiesGenerator;
-import br.com.generate.setup.command.SetupGenerator;
+import br.com.generate.resources.GeneratorProperties;
+import br.com.generate.setup.SetupGenerator;
 
 /**
  * @author NetoDevel
@@ -56,7 +56,7 @@ public class SetupScaffoldHandler extends OptionHandler {
 		springVersion = springVersion != null ? springVersion.trim() : springVersion;
 		
 		new SetupGenerator(namePackage, nameDataBase, userNameDatabase, passwordDatabase, springVersion);
-		new ApplicationPropertiesGenerator();
+		new GeneratorProperties();
 		
 		return ExitStatus.OK;
 	}

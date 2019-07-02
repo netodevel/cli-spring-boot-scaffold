@@ -1,11 +1,14 @@
-package br.com.generate;
+package br.com.generate.helpers;
+
+import br.com.generate.Generator;
+import br.com.generate.validators.GenerateValidator;
 
 import java.io.IOException;
 
 /**
  * @author NetoDevel
  */
-public abstract class ReadTemplateFile extends AbstractGenerate {
+public abstract class FileHelper extends Generator {
 
 	public abstract String operationGenerate(String javaStrings, String nameClass, String parameters);
 

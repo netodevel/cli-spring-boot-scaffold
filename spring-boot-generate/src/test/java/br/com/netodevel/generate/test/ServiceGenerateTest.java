@@ -1,11 +1,10 @@
 package br.com.netodevel.generate.test;
 
 import br.com.generate.Layers;
-import br.com.generate.java.command.service.ServiceGenerator;
+import br.com.generate.source.service.ServiceGenerator;
 import br.com.netodevel.generate.utils.LoadTemplateHelper;
 import org.junit.Test;
 
-import java.io.File;
 import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;

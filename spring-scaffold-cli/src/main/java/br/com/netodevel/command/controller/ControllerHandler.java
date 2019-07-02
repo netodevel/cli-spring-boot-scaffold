@@ -6,7 +6,7 @@ import java.util.Arrays;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.command.controller.ControllerCleanGenerator;
+import br.com.generate.source.controller.ControllerCleanGenerator;
 import br.com.generate.thymeleaf.ThymeleafCleanGenerator;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;

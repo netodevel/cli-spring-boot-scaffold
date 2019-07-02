@@ -6,10 +6,10 @@ import java.util.Arrays;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import br.com.generate.java.command.controller.ControllerGenerator;
-import br.com.generate.java.command.model.ModelGenerator;
-import br.com.generate.java.command.repository.RepositoryGenerator;
-import br.com.generate.java.command.service.ServiceGenerator;
+import br.com.generate.source.controller.ControllerGenerator;
+import br.com.generate.source.model.ModelGenerator;
+import br.com.generate.source.repository.RepositoryGenerator;
+import br.com.generate.source.service.ServiceGenerator;
 import br.com.generate.thymeleaf.ThymeleafGenerator;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;

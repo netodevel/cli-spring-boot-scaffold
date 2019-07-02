@@ -1,4 +1,4 @@
-package br.com.generate;
+package br.com.generate.helpers;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,7 +13,7 @@ import org.apache.commons.lang.SystemUtils;
 /**
  * @author NetoDevel 
  */
-public abstract class ReadScaffoldInfo {
+public abstract class ScaffoldInfoHelper {
 	
 	public FileReader getArq() throws FileNotFoundException{
 		FileReader arq = new FileReader(getUserDir() + "/src/main/resources/scaffold.info");

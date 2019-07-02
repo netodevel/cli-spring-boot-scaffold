@@ -1,11 +1,11 @@
-package br.com.generate.java.command.controller;
+package br.com.generate.source.controller;
 
 import java.io.IOException;
 
 import br.com.generate.Layers;
-import br.com.generate.ReadTemplateFile;
+import br.com.generate.helpers.FileHelper;
 
-public class ControllerGenerator extends ReadTemplateFile {
+public class ControllerGenerator extends FileHelper {
 
 	@Override
 	public String getLayer() {

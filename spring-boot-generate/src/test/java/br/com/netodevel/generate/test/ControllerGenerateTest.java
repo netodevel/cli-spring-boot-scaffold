@@ -1,7 +1,7 @@
 package br.com.netodevel.generate.test;
 
 import br.com.generate.Layers;
-import br.com.generate.java.command.controller.ControllerGenerator;
+import br.com.generate.source.controller.ControllerGenerator;
 import br.com.netodevel.generate.utils.LoadTemplateHelper;
 import org.junit.Test;
 

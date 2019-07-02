@@ -1,4 +1,4 @@
-package br.com.util;
+package br.com.generate.helpers;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,7 +8,7 @@ import org.springframework.util.StringUtils;
 /**
  * @author NetoDevel
  */
-public class ModelGenerateUtils {
+public class ModelGenerateHelper {
 	
 	private final static String TAB = "	";
 	
@@ -16,29 +16,29 @@ public class ModelGenerateUtils {
 	
 	private String nameVariable;
 	
-	public ModelGenerateUtils(String importVariable, String nameVariable) {
+	public ModelGenerateHelper(String importVariable, String nameVariable) {
 		super();
 		this.setImportVariable(importVariable);
 		this.setNameVariable(nameVariable);
 	}
 	
-	public ModelGenerateUtils(){
+	public ModelGenerateHelper(){
 	}
 	
-	public static List<ModelGenerateUtils> listGenerateImports() {
+	public static List<ModelGenerateHelper> listGenerateImports() {
 		return Arrays.asList(
-				new ModelGenerateUtils("java.lang.String", "String"),
-				new ModelGenerateUtils("java.lang.Integer", "Integer"),
-				new ModelGenerateUtils("java.lang.Double", "Double"),
-				new ModelGenerateUtils("java.lang.Float", "Float"),
-				new ModelGenerateUtils("java.lang.Long", "Long"),
-				new ModelGenerateUtils("java.lang.Short", "Short"),
-				new ModelGenerateUtils("java.lang.Byte", "Byte"),
-				new ModelGenerateUtils("java.lang.Char", "Char"),
-				new ModelGenerateUtils("java.lang.Boolean", "Boolean"),
-				new ModelGenerateUtils("java.lang.Object", "Object"),
-				new ModelGenerateUtils("java.util.Date", "Date"),
-				new ModelGenerateUtils("java.math.BigDecimal", "BigDecimal"));
+				new ModelGenerateHelper("java.lang.String", "String"),
+				new ModelGenerateHelper("java.lang.Integer", "Integer"),
+				new ModelGenerateHelper("java.lang.Double", "Double"),
+				new ModelGenerateHelper("java.lang.Float", "Float"),
+				new ModelGenerateHelper("java.lang.Long", "Long"),
+				new ModelGenerateHelper("java.lang.Short", "Short"),
+				new ModelGenerateHelper("java.lang.Byte", "Byte"),
+				new ModelGenerateHelper("java.lang.Char", "Char"),
+				new ModelGenerateHelper("java.lang.Boolean", "Boolean"),
+				new ModelGenerateHelper("java.lang.Object", "Object"),
+				new ModelGenerateHelper("java.util.Date", "Date"),
+				new ModelGenerateHelper("java.math.BigDecimal", "BigDecimal"));
 	}
 	
 	public static String generateImports(String parameters) {

@@ -1,11 +1,11 @@
-package br.com.generate.java.command.service;
+package br.com.generate.source.service;
 
 import java.io.IOException;
 
 import br.com.generate.Layers;
-import br.com.generate.ReadTemplateFile;
+import br.com.generate.helpers.FileHelper;
 
-public class ServiceCleanGenerator extends ReadTemplateFile {
+public class ServiceCleanGenerator extends FileHelper {
 
 	@Override
 	public String getLayer() {
