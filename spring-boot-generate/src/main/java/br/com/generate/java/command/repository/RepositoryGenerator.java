@@ -13,7 +13,7 @@ public class RepositoryGenerator extends ReadTemplateFile {
 	}
 
 	@Override
-	protected String operationGenerate(String javaStrings, String nameClass, String parameters) {
+	public String operationGenerate(String javaStrings, String nameClass, String parameters) {
 		return javaStrings.replace("${package}", getPackage() + ".repository")
 				.replace("${package_model}", getPackage() + ".model")
 				.replace("${className}", nameClass);

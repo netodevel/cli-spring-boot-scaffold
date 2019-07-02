@@ -13,7 +13,7 @@ public class ServiceGenerator extends ReadTemplateFile {
 	}
 
 	@Override
-	protected String operationGenerate(String javaStrings, String nameClass, String parameters) {
+	public String operationGenerate(String javaStrings, String nameClass, String parameters) {
 		if ( getSpringVersion().equals("2.x") ) {
 			javaStrings = javaStrings.replace(".findOne(id)", ".findById(id).get()");
 		}
