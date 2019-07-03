@@ -54,10 +54,10 @@ public class SetupScaffoldHandler extends OptionHandler {
 		userNameDatabase = userNameDatabase != null ? userNameDatabase.trim() : userNameDatabase;
 		passwordDatabase = passwordDatabase != null ? passwordDatabase.trim() : passwordDatabase;
 		springVersion = springVersion != null ? springVersion.trim() : springVersion;
-		
+
 		new SetupGenerator(namePackage, nameDataBase, userNameDatabase, passwordDatabase, springVersion);
 		new GeneratorProperties();
-		
+
 		return ExitStatus.OK;
 	}
 	
