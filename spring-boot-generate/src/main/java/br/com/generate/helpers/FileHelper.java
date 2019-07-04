@@ -10,19 +10,28 @@ import java.io.IOException;
  */
 public abstract class FileHelper extends Generator {
 
-	public abstract String operationGenerate(String javaStrings, String nameClass, String parameters);
+    public abstract String operationGenerate(String javaStrings, String nameClass, String parameters);
 
-	private GenerateValidator validatorGenerate = new GenerateValidator();
-	
-	@Override
-	public boolean generate(String nameClass, String parameters, String fileNameTemplate) throws IOException {
-		if (validatorGenerate.validate(nameClass, parameters, getLayer())) {
-			String javaStrings = readTemplateFile(fileNameTemplate);
-			String newStrings = operationGenerate(javaStrings, nameClass, parameters);
-			outPutFile(newStrings, nameClass);
-			return true;
-		}
-		return false;
-	}
+    private GenerateValidator validatorGenerate = new GenerateValidator();
+
+    @Override
+    public boolean generate(String nameClass, String parameters, String fileNameTemplate) throws IOException {
+        if (validatorGenerate.validate(nameClass, parameters, getLayer())) {
+            String javaStrings = readTemplateFile(fileNameTemplate);
+            String newStrings = operationGenerate(javaStrings, nameClass, parameters);
+            outPutFile(newStrings, nameClass);
+            return true;
+        }
+        return false;
+    }
+
+    public void generateConfig(String filename, String pathTemplate) throws IOException {
+        if (validatorGenerate.validate(filename, null, getLayer())) {
+            String javaStrings = readConfigTemplate(pathTemplate);
+            String newStrings = operationGenerate(javaStrings, null, null);
+            outPutFile(newStrings, filename);
+        }
+
+    }
 
 }
