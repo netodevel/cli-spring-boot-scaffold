@@ -18,7 +18,8 @@
 	<modules>
 		<module>spring-boot-generate</module>
 		<module>spring-scaffold-cli</module>
-	</modules>
+        <module>templateEngine-core</module>
+    </modules>
 	<profiles>
 		<profile>
 			<id>spring</id>

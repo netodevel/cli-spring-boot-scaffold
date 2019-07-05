@@ -11,7 +11,7 @@ public class TemplateCommand extends OptionParsingCommand {
 
     @Override
     public String getUsageHelp() {
-        return "template [options] <template>";
+        return "[options] <template>";
     }
 
 }

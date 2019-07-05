@@ -35,7 +35,8 @@ public class TemplateHandler extends OptionHandler {
         if (templateNotExists(template)) return ExitStatus.ERROR;
         if (options.has(this.listTemplates)) output();
 
-        return executeTemplate(template);
+        if (options.has(this.template)) return executeTemplate(template);
+        return ExitStatus.ERROR;
     }
 
     private ExitStatus executeTemplate(String template) {
