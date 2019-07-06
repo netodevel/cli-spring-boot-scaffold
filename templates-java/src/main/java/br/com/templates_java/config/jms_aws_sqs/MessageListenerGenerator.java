@@ -14,4 +14,8 @@ public class MessageListenerGenerator extends Generator {
         return generate(generatorOptions);
     }
 
+    public void output(String pathPackage, String filename) {
+        System.out.println("created ".concat(pathPackage.concat(filename)));
+    }
+
 }

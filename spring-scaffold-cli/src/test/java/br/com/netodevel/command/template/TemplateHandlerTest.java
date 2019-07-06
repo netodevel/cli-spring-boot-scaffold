@@ -1,6 +1,5 @@
 package br.com.netodevel.command.template;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
@@ -9,7 +8,6 @@ import static org.junit.Assert.assertEquals;
 public class TemplateHandlerTest {
 
     @Test
-    @Ignore
     public void shouldReturnOk() throws Exception {
         TemplateHandler templateHandler = new TemplateHandler();
         ExitStatus exitStatus = templateHandler.run("-t", "jms-aws-sqs");

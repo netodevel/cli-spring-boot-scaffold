@@ -1,0 +1,4 @@
+package:br.com.example
+user-database:root
+password-database:root
+springVersion:1.x

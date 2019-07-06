@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,11 +20,10 @@ import java.util.List;
 public class TemplateHandler extends OptionHandler {
 
     private Logger log = LoggerFactory.getLogger(TemplateHandler.class);
+    private List<String> templates = Collections.singletonList("jms-aws-sqs");
 
     private OptionSpec<String> template;
     private OptionSpec<Void> listTemplates;
-
-    private List<String> templates = Collections.singletonList("jms-aws-sqs");
 
     @Override
     public void options() {
@@ -44,15 +44,19 @@ public class TemplateHandler extends OptionHandler {
 
     private ExitStatus executeTemplate(String template) {
         System.out.println("Generate config to: ".concat(template));
+        ScaffoldInfoHelper scaffoldInfo = new ScaffoldInfoHelper();
+
         if (template.equals("jms-aws-sqs")) {
             try {
                 GeneratorOptions generatorOptions = new GeneratorOptions();
-                generatorOptions.setDestination(new ScaffoldInfoHelper().getPathPackage());
+                generatorOptions.setDestination(scaffoldInfo.getPathPackage());
                 HashMap<String, String> keyValues = new HashMap<String, String>();
-                keyValues.put("${package}", new ScaffoldInfoHelper().getPackage());
+                keyValues.put("${package}", scaffoldInfo.getPackage());
                 generatorOptions.setKeyValue(keyValues);
 
-                new MessageListenerGenerator().runGenerate(generatorOptions);
+                MessageListenerGenerator messageListenerGenerator = new MessageListenerGenerator();
+                File fileGenerated = messageListenerGenerator.runGenerate(generatorOptions);
+                messageListenerGenerator.output(scaffoldInfo.getPathPackage(), fileGenerated.getName());
             } catch (IOException e) {
                 return ExitStatus.ERROR;
             }
