@@ -1,6 +1,8 @@
 package br.com.netodevel.command.template;
 
-import br.com.generate.config.jms_aws_sqs.MessageListenerGenerator;
+import br.com.generate.helpers.ScaffoldInfoHelper;
+import br.com.generator.core.GeneratorOptions;
+import br.com.templates_java.config.jms_aws_sqs.MessageListenerGenerator;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 import org.slf4j.Logger;
@@ -11,6 +13,7 @@ import org.springframework.boot.cli.command.status.ExitStatus;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 public class TemplateHandler extends OptionHandler {
@@ -23,7 +26,7 @@ public class TemplateHandler extends OptionHandler {
     private List<String> templates = Collections.singletonList("jms-aws-sqs");
 
     @Override
-    protected void options() {
+    public void options() {
         this.template = option(Arrays.asList("template", "t"), "name of template").withRequiredArg();
         this.listTemplates = option(Arrays.asList("list"), "list of available templates");
     }
@@ -43,7 +46,13 @@ public class TemplateHandler extends OptionHandler {
         System.out.println("Generate config to: ".concat(template));
         if (template.equals("jms-aws-sqs")) {
             try {
-                new MessageListenerGenerator().generateConfig("MessageListener", "jms_aws_sqs/template-message-listener.txt");
+                GeneratorOptions generatorOptions = new GeneratorOptions();
+                generatorOptions.setDestination(new ScaffoldInfoHelper().getPathPackage());
+                HashMap<String, String> keyValues = new HashMap<String, String>();
+                keyValues.put("${package}", new ScaffoldInfoHelper().getPackage());
+                generatorOptions.setKeyValue(keyValues);
+
+                new MessageListenerGenerator().runGenerate(generatorOptions);
             } catch (IOException e) {
                 return ExitStatus.ERROR;
             }

@@ -13,7 +13,7 @@ import org.apache.commons.lang.SystemUtils;
 /**
  * @author NetoDevel 
  */
-public abstract class ScaffoldInfoHelper {
+public class ScaffoldInfoHelper {
 	
 	public FileReader getArq() throws FileNotFoundException{
 		FileReader arq = new FileReader(getUserDir() + "/src/main/resources/scaffold.info");

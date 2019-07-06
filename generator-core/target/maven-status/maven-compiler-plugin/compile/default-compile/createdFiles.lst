@@ -1,0 +1,7 @@
+br\com\generator\core\GeneratorOptions.class
+br\com\generator\core\Generator.class
+br\com\generator\core\EngineContract.class
+br\com\generator\core\TemplateEngine.class
+br\com\generator\core\GeneratorExecutor.class
+br\com\generator\core\exceptions\TemplateEngineException.class
+br\com\generator\core\GeneratorContract.class

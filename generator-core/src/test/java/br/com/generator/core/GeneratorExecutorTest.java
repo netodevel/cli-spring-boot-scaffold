@@ -1,5 +1,6 @@
 package br.com.generator.core;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,7 +13,7 @@ import java.util.HashMap;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class GeneratorTest {
+public class GeneratorExecutorTest {
 
     @Rule
     public TemporaryFolder temporaryFolder = new TemporaryFolder();
@@ -26,7 +27,7 @@ public class GeneratorTest {
 
     @Test
     public void shouldReturnFileGenerator() throws IOException {
-        Generator generator = new Generator(new TemplateEngine());
+        GeneratorExecutor generatorExecutor = new GeneratorExecutor(new TemplateEngine());
         String templateFile = "/templates/test-template.txt";
 
         HashMap<String, String> keyValue = new HashMap<String, String>();
@@ -38,13 +39,13 @@ public class GeneratorTest {
         generatorOptions.setKeyValue(keyValue);
         generatorOptions.setName("my-file.txt");
 
-        File file = generator.generate(generatorOptions);
+        File file = generatorExecutor.generate(generatorOptions);
         assertTrue(file.exists());
     }
 
     @Test
     public void shouldReturnCustomValue() throws IOException {
-        Generator generator = new Generator(new TemplateEngine());
+        GeneratorExecutor generatorExecutor = new GeneratorExecutor(new TemplateEngine());
         String templateFile = "/templates/test-template.txt";
 
         HashMap<String, String> keyValue = new HashMap<String, String>();
@@ -56,8 +57,8 @@ public class GeneratorTest {
         generatorOptions.setKeyValue(keyValue);
         generatorOptions.setName("my-file.txt");
 
-        File file = generator.generate(generatorOptions);
-        String content = generator.loadTemplate(file.getAbsolutePath());
+        File file = generatorExecutor.generate(generatorOptions);
+        String content = FileUtils.readFileToString(file);
 
         assertEquals("custom value", content);
     }
