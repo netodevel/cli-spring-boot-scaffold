@@ -1,0 +1,13 @@
+package ${package};
+
+public class EntryPointMessage implements MessageListener {
+
+    private static final Logger log = LogManager.getLogger(EntryPointMessage.class);
+
+    @Override
+    @SqsListener(value = "${cloud.aws.sqs.queue-name}", deletionPolicy = SqsMessageDeletionPolicy.ON_SUCCESS)
+    public void queueListener(String String) {
+
+    }
+
+}

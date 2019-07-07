@@ -2,6 +2,8 @@ package br.com.netodevel.command.template;
 
 import br.com.generate.helpers.ScaffoldInfoHelper;
 import br.com.generator.core.GeneratorOptions;
+import br.com.templates_java.ComposeTemplate;
+import br.com.templates_java.config.jms_aws_sqs.EntryPointMessageGenerator;
 import br.com.templates_java.config.jms_aws_sqs.MessageListenerGenerator;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
@@ -10,12 +12,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+
+import static java.util.Arrays.asList;
 
 public class TemplateHandler extends OptionHandler {
 
@@ -25,10 +27,19 @@ public class TemplateHandler extends OptionHandler {
     private OptionSpec<String> template;
     private OptionSpec<Void> listTemplates;
 
+    private ScaffoldInfoHelper scaffoldInfo;
+
+    public TemplateHandler() {
+    }
+
+    public TemplateHandler(ScaffoldInfoHelper scaffoldInfoHelper) {
+        this.scaffoldInfo = scaffoldInfoHelper;
+    }
+
     @Override
     public void options() {
-        this.template = option(Arrays.asList("template", "t"), "name of template").withRequiredArg();
-        this.listTemplates = option(Arrays.asList("list"), "list of available templates");
+        this.template = option(asList("template", "t"), "name of template").withRequiredArg();
+        this.listTemplates = option(asList("list"), "list of available templates");
     }
 
     @Override
@@ -44,23 +55,26 @@ public class TemplateHandler extends OptionHandler {
 
     private ExitStatus executeTemplate(String template) {
         System.out.println("Generate config to: ".concat(template));
-        ScaffoldInfoHelper scaffoldInfo = new ScaffoldInfoHelper();
-
         if (template.equals("jms-aws-sqs")) {
-            try {
-                GeneratorOptions generatorOptions = new GeneratorOptions();
-                generatorOptions.setDestination(scaffoldInfo.getPathPackage());
-                HashMap<String, String> keyValues = new HashMap<String, String>();
-                keyValues.put("${package}", scaffoldInfo.getPackage());
-                generatorOptions.setKeyValue(keyValues);
-
-                MessageListenerGenerator messageListenerGenerator = new MessageListenerGenerator();
-                File fileGenerated = messageListenerGenerator.runGenerate(generatorOptions);
-                messageListenerGenerator.output(scaffoldInfo.getPathPackage(), fileGenerated.getName());
-            } catch (IOException e) {
-                return ExitStatus.ERROR;
-            }
+            return generateJmsAwsSQS();
         }
+        return ExitStatus.OK;
+    }
+
+    private ExitStatus generateJmsAwsSQS() {
+        try {
+            GeneratorOptions generatorOptions = new GeneratorOptions();
+            generatorOptions.setDestination(scaffoldInfo.getPathPackage().concat("consumer"));
+            HashMap<String, String> keyValues = new HashMap<String, String>();
+            keyValues.put("${package}", scaffoldInfo.getPackage().concat(".consumer"));
+            generatorOptions.setKeyValue(keyValues);
+
+            ComposeTemplate.runAll(scaffoldInfo.getPathPackage(),
+                    asList(new MessageListenerGenerator(generatorOptions), new EntryPointMessageGenerator(generatorOptions)));
+        } catch (IOException e) {
+            return ExitStatus.ERROR;
+        }
+
         return ExitStatus.OK;
     }
 
@@ -78,4 +92,5 @@ public class TemplateHandler extends OptionHandler {
         System.out.println("Templates available");
         System.out.println("* jms-aws-sqs");
     }
+
 }

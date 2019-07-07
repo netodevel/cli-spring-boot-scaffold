@@ -6,19 +6,20 @@ import br.com.generator.core.GeneratorOptions;
 import java.io.File;
 import java.io.IOException;
 
-public class MessageListenerGenerator extends Generator {
+public class EntryPointMessageGenerator extends Generator {
 
     private GeneratorOptions generatorOptions;
 
-    public MessageListenerGenerator(){}
+    public EntryPointMessageGenerator(){}
 
-    public MessageListenerGenerator(GeneratorOptions generatorOptions) {
+    public EntryPointMessageGenerator(GeneratorOptions generatorOptions) {
         this.generatorOptions = generatorOptions;
     }
 
+
     public File runGenerate(GeneratorOptions generatorOptions) throws IOException {
-        this.generatorOptions.setTemplatePath("/templates/config/template-message-listener.txt");
-        this.generatorOptions.setName("MessageListener.java");
+        this.generatorOptions.setTemplatePath("/templates/config/template-entrypoint-listener.txt");
+        this.generatorOptions.setName("EntryPointMessage.java");
         return generate(this.generatorOptions);
     }
 

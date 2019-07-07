@@ -1,5 +1,6 @@
 package br.com.templates_java.config.jms_aws_sqs;
 
+
 import br.com.generator.core.GeneratorOptions;
 import br.com.templates_java.helper.LoadTemplateTester;
 import org.apache.commons.io.FileUtils;
@@ -15,7 +16,7 @@ import java.util.HashMap;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 
-public class MessageListenerGeneratorTest {
+public class EntryPointMessageGeneratorTest {
 
     private LoadTemplateTester loadTemplateTester;
 
@@ -32,6 +33,7 @@ public class MessageListenerGeneratorTest {
 
     @Test
     public void shouldCreateFile() throws IOException {
+
         GeneratorOptions generatorOptions = new GeneratorOptions();
         generatorOptions.setDestination(temporaryPath.getAbsolutePath());
 
@@ -39,8 +41,9 @@ public class MessageListenerGeneratorTest {
         keyValue.put("${package}", "br.com.example");
         generatorOptions.setKeyValue(keyValue);
 
-        MessageListenerGenerator messageListenerGenerator = new MessageListenerGenerator(generatorOptions);
-        File file = messageListenerGenerator.runGenerate(generatorOptions);
+        EntryPointMessageGenerator entryPointMessageGenerator = new EntryPointMessageGenerator(generatorOptions);
+
+        File file = entryPointMessageGenerator.runGenerate(generatorOptions);
         assertTrue(file.exists());
     }
 
@@ -53,11 +56,11 @@ public class MessageListenerGeneratorTest {
         keyValue.put("${package}", "br.com.example");
         generatorOptions.setKeyValue(keyValue);
 
-        MessageListenerGenerator messageListenerGenerator = new MessageListenerGenerator(generatorOptions);
-        File file = messageListenerGenerator.runGenerate(generatorOptions);
+        EntryPointMessageGenerator entryPointMessageGenerator = new EntryPointMessageGenerator(generatorOptions);
+        File file = entryPointMessageGenerator.runGenerate(generatorOptions);
 
         String contentReturned = FileUtils.readFileToString(file);
-        String contentExpected = loadTemplateTester.loadTemplate("/templates/config/template-message-listener-test.txt");
+        String contentExpected = loadTemplateTester.loadTemplate("/templates/config/template-entrypoint-listener-test.txt");
 
         assertEquals(contentExpected, contentReturned);
     }
