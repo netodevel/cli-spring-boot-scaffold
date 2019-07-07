@@ -17,6 +17,10 @@ public abstract class Generator implements GeneratorContract {
         return generator.generate(generatorOptions);
     }
 
+    public File addDependency(GeneratorOptions generatorOptions) throws IOException {
+        return generator.addDependecies(generatorOptions);
+    }
+
     public void output(String pathPackage, String filename) {
         System.out.println("created ".concat(pathPackage.concat(filename)));
     }

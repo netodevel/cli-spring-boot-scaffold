@@ -22,6 +22,14 @@ public class ScaffoldInfoHelper {
 		FileReader arq = new FileReader(getUserDir() + "/src/main/resources/scaffold.info");
 		return arq;
 	}
+
+	public String getPomPath() {
+		return getUserDir().concat("\\pom.xml").replace("\\", "/");
+	}
+
+	public String getPomDest() {
+		return getUserDir().concat("\\pom.xml").replace("\\", "/");
+	}
 	
 	public String getUserDir() {
 		String currentLocation = null;

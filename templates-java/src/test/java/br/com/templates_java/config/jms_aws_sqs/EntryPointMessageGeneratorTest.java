@@ -33,7 +33,6 @@ public class EntryPointMessageGeneratorTest {
 
     @Test
     public void shouldCreateFile() throws IOException {
-
         GeneratorOptions generatorOptions = new GeneratorOptions();
         generatorOptions.setDestination(temporaryPath.getAbsolutePath());
 
@@ -43,7 +42,7 @@ public class EntryPointMessageGeneratorTest {
 
         EntryPointMessageGenerator entryPointMessageGenerator = new EntryPointMessageGenerator(generatorOptions);
 
-        File file = entryPointMessageGenerator.runGenerate(generatorOptions);
+        File file = entryPointMessageGenerator.runGenerate();
         assertTrue(file.exists());
     }
 
@@ -57,7 +56,7 @@ public class EntryPointMessageGeneratorTest {
         generatorOptions.setKeyValue(keyValue);
 
         EntryPointMessageGenerator entryPointMessageGenerator = new EntryPointMessageGenerator(generatorOptions);
-        File file = entryPointMessageGenerator.runGenerate(generatorOptions);
+        File file = entryPointMessageGenerator.runGenerate();
 
         String contentReturned = FileUtils.readFileToString(file);
         String contentExpected = loadTemplateTester.loadTemplate("/templates/config/template-entrypoint-listener-test.txt");

@@ -5,6 +5,7 @@ import br.com.generator.core.GeneratorOptions;
 import br.com.templates_java.ComposeTemplate;
 import br.com.templates_java.config.jms_aws_sqs.EntryPointMessageGenerator;
 import br.com.templates_java.config.jms_aws_sqs.MessageListenerGenerator;
+import br.com.templates_java.config.jms_aws_sqs.SQSDependencyGenerator;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 import org.slf4j.Logger;
@@ -21,7 +22,6 @@ import static java.util.Arrays.asList;
 
 public class TemplateHandler extends OptionHandler {
 
-    private Logger log = LoggerFactory.getLogger(TemplateHandler.class);
     private List<String> templates = Collections.singletonList("jms-aws-sqs");
 
     private OptionSpec<String> template;
@@ -69,12 +69,17 @@ public class TemplateHandler extends OptionHandler {
             keyValues.put("${package}", scaffoldInfo.getPackage().concat(".consumer"));
             generatorOptions.setKeyValue(keyValues);
 
+            GeneratorOptions sqsDependencyOptions = new GeneratorOptions();
+            sqsDependencyOptions.setTemplatePath(scaffoldInfo.getPomPath());
+            sqsDependencyOptions.setDestination(scaffoldInfo.getPomDest());
+
             ComposeTemplate.runAll(scaffoldInfo.getPathPackage(),
-                    asList(new MessageListenerGenerator(generatorOptions), new EntryPointMessageGenerator(generatorOptions)));
+                    asList(new MessageListenerGenerator(generatorOptions), new EntryPointMessageGenerator(generatorOptions),
+                            new SQSDependencyGenerator(sqsDependencyOptions)));
+
         } catch (IOException e) {
             return ExitStatus.ERROR;
         }
-
         return ExitStatus.OK;
     }
 

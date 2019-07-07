@@ -15,7 +15,7 @@ public class TemplateEngine implements EngineContract {
             Map.Entry<String, String> pair = (Map.Entry) it.next();
             if (contentTemplate.contains(pair.getKey()))
                 contentTemplate = contentTemplate.replace(pair.getKey(), pair.getValue());
-            it.remove();
+//            it.remove();
         }
 
         return contentTemplate;

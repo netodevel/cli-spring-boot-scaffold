@@ -5,5 +5,5 @@ import java.io.IOException;
 
 public interface GeneratorContract {
 
-    File runGenerate(GeneratorOptions generatorOptions) throws IOException;
+    File runGenerate() throws IOException;
 }
