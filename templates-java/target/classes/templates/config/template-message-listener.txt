@@ -1,5 +1,0 @@
-package ${package};
-
-public interface MessageListener {
-    void queueListener(String String);
-}
