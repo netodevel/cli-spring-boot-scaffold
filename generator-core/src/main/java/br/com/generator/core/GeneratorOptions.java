@@ -7,6 +7,7 @@ public class GeneratorOptions {
     private String destination;
     private String templatePath;
     private String name;
+    private String properties;
     private Map<String, String> keyValue;
 
     public String getDestination() {
@@ -39,5 +40,13 @@ public class GeneratorOptions {
 
     public void setKeyValue(Map<String, String> keyValue) {
         this.keyValue = keyValue;
+    }
+
+    public String getProperties() {
+        return properties;
+    }
+
+    public void setProperties(String properties) {
+        this.properties = properties;
     }
 }

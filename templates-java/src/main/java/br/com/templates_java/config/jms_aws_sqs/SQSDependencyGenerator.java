@@ -17,7 +17,7 @@ public class SQSDependencyGenerator extends Generator {
     }
 
     public File runGenerate() throws IOException {
-        String dependency = "" +
+        String dependency = "\n" +
                 "    <dependency>\n" +
                 "        <groupId>org.springframework.cloud</groupId>\n" +
                 "        <artifactId>spring-cloud-aws-messaging</artifactId>\n" +
@@ -38,4 +38,8 @@ public class SQSDependencyGenerator extends Generator {
         return addDependency(this.generatorOptions);
     }
 
+    @Override
+    public void output(String pathPackage, String filename) {
+        System.out.println("Add dependencies in ".concat(pathPackage.concat(filename)));
+    }
 }

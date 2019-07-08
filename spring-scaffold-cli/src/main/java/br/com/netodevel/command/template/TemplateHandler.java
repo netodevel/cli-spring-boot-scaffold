@@ -6,14 +6,14 @@ import br.com.templates_java.ComposeTemplate;
 import br.com.templates_java.config.jms_aws_sqs.EntryPointMessageGenerator;
 import br.com.templates_java.config.jms_aws_sqs.MessageListenerGenerator;
 import br.com.templates_java.config.jms_aws_sqs.SQSDependencyGenerator;
+import br.com.templates_java.config.jms_aws_sqs.SQSPropertiesGenerator;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.cli.command.options.OptionHandler;
 import org.springframework.boot.cli.command.status.ExitStatus;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -73,13 +73,19 @@ public class TemplateHandler extends OptionHandler {
             sqsDependencyOptions.setTemplatePath(scaffoldInfo.getPomPath());
             sqsDependencyOptions.setDestination(scaffoldInfo.getPomDest());
 
+            GeneratorOptions sqsPropertyOptions = new GeneratorOptions();
+            sqsPropertyOptions.setTemplatePath(scaffoldInfo.getApplicationProperties());
+            sqsPropertyOptions.setDestination(scaffoldInfo.getApplicationPropertiesDest());
+
             ComposeTemplate.runAll(scaffoldInfo.getPathPackage(),
                     asList(new MessageListenerGenerator(generatorOptions), new EntryPointMessageGenerator(generatorOptions),
-                            new SQSDependencyGenerator(sqsDependencyOptions)));
+                            new SQSDependencyGenerator(sqsDependencyOptions), new SQSPropertiesGenerator(sqsPropertyOptions)));
 
-        } catch (IOException e) {
+        } catch (IOException | URISyntaxException e) {
+            System.out.println("ERROR: ".concat(e.getMessage()));
             return ExitStatus.ERROR;
         }
+
         return ExitStatus.OK;
     }
 

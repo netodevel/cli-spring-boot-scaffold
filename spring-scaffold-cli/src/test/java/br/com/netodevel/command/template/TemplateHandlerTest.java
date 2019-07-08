@@ -32,8 +32,12 @@ public class TemplateHandlerTest {
 
         Mockito.when(scaffoldInfoHelper.getPackage()).thenReturn("com.example");
         Mockito.when(scaffoldInfoHelper.getPathPackage()).thenReturn(temporaryPath.getAbsolutePath().concat("\\com\\example\\"));
+
         Mockito.when(scaffoldInfoHelper.getPomPath()).thenReturn(getClass().getResource("/templates/template-fake-pom.xml").toURI().getPath());
         Mockito.when(scaffoldInfoHelper.getPomDest()).thenReturn(temporaryPath.getAbsolutePath().concat("/pom.xml"));
+
+        Mockito.when(scaffoldInfoHelper.getApplicationProperties()).thenReturn(getClass().getResource("/templates/fake-application.properties").toURI().getPath());
+        Mockito.when(scaffoldInfoHelper.getApplicationPropertiesDest()).thenReturn(temporaryPath.getAbsolutePath().concat("/application.properties"));
 
         TemplateHandler templateHandler = new TemplateHandler(scaffoldInfoHelper);
         ExitStatus exitStatus = templateHandler.run("-t", "jms-aws-sqs");

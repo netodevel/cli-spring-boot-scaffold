@@ -3,10 +3,7 @@ package br.com.generator.core;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 public class GeneratorExecutor {
 
@@ -19,9 +16,14 @@ public class GeneratorExecutor {
     public File generate(GeneratorOptions options) throws IOException {
         String contentTemplate = loadTemplate(options.getTemplatePath());
         String contentReplaced = templateEngine.replaceValues(contentTemplate, options.getKeyValue());
-
         File fileGenerated = new File(options.getDestination().concat("/").concat(options.getName()));
-        FileUtils.writeStringToFile(fileGenerated, contentReplaced);
+
+        if (fileGenerated.exists())
+            System.out.println("INFO ".concat(options.getDestination().concat("/").concat(options.getName())).concat(" already exists"));
+        if (!fileGenerated.exists()) {
+            FileUtils.writeStringToFile(fileGenerated, contentReplaced);
+            System.out.println("CREATED ".concat(options.getDestination().concat("/").concat(options.getName())));
+        }
 
         return fileGenerated;
     }
@@ -33,7 +35,23 @@ public class GeneratorExecutor {
         File fileGenerated = new File(options.getDestination());
         FileUtils.writeStringToFile(fileGenerated, contentReplaced);
 
+        System.out.println("Add dependencies in ".concat(options.getDestination()));
         return fileGenerated;
+    }
+
+    public File addProperties(GeneratorOptions options) throws IOException {
+        File loadFiled = new File(options.getTemplatePath());
+
+        FileWriter fileWritter = new FileWriter(loadFiled, true);
+        BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
+        bufferWritter.write(options.getProperties());
+        bufferWritter.close();
+        fileWritter.close();
+
+        System.out.println("Add properties in ".concat(options.getTemplatePath()));
+        System.out.println("\t".concat(options.getProperties()));
+
+        return loadFiled;
     }
 
     public String loadTemplate(String templatePath) throws IOException {
