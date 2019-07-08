@@ -58,14 +58,14 @@ And install the Spring Scaffold plugin
 
 Default is spring 1.x, edit scaffold.info to change to 2.x before run *spring scaffold*.
 
-# Template usage
+### Template usage
 
     $ spring template --list
 
       Templates available
       * jms-aws-sqs
 
-# Apply template
+### Apply template
     $ spring template -t jms-aws-sqs
 
     Generate config to: jms-aws-sqs
