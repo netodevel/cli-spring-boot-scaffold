@@ -21,6 +21,7 @@ public class SQSPropertiesGenerator extends Generator {
                 "cloud.aws.region.static=us-east-1\n" +
                 "cloud.aws.stack.auto=false\n" +
                 "cloud.aws.sqs.queue-name=my-queue.fifo");
+        this.generatorOptions.setName("application.properties");
         return addProperties(this.generatorOptions);
     }
 

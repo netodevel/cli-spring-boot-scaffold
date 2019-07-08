@@ -3,10 +3,7 @@ package br.com.netodevel.command.template;
 import br.com.generate.helpers.ScaffoldInfoHelper;
 import br.com.generator.core.GeneratorOptions;
 import br.com.templates_java.ComposeTemplate;
-import br.com.templates_java.config.jms_aws_sqs.EntryPointMessageGenerator;
-import br.com.templates_java.config.jms_aws_sqs.MessageListenerGenerator;
-import br.com.templates_java.config.jms_aws_sqs.SQSDependencyGenerator;
-import br.com.templates_java.config.jms_aws_sqs.SQSPropertiesGenerator;
+import br.com.templates_java.config.jms_aws_sqs.*;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
@@ -79,7 +76,8 @@ public class TemplateHandler extends OptionHandler {
 
             ComposeTemplate.runAll(scaffoldInfo.getPathPackage(),
                     asList(new MessageListenerGenerator(generatorOptions), new EntryPointMessageGenerator(generatorOptions),
-                            new SQSDependencyGenerator(sqsDependencyOptions), new SQSPropertiesGenerator(sqsPropertyOptions)));
+                            new ProducerMessageGenerator(generatorOptions), new SQSDependencyGenerator(sqsDependencyOptions),
+                            new SQSPropertiesGenerator(sqsPropertyOptions)));
 
         } catch (IOException | URISyntaxException e) {
             System.out.println("ERROR: ".concat(e.getMessage()));

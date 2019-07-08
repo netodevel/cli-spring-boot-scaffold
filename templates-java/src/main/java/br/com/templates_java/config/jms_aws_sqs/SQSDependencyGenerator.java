@@ -42,4 +42,5 @@ public class SQSDependencyGenerator extends Generator {
     public void output(String pathPackage, String filename) {
         System.out.println("Add dependencies in ".concat(pathPackage.concat(filename)));
     }
+
 }

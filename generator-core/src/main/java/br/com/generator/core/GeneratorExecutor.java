@@ -35,7 +35,7 @@ public class GeneratorExecutor {
         File fileGenerated = new File(options.getDestination());
         FileUtils.writeStringToFile(fileGenerated, contentReplaced);
 
-        System.out.println("Add dependencies in ".concat(options.getDestination()));
+        System.out.println("Add dependencies in ".concat(options.getName()));
         return fileGenerated;
     }
 
@@ -48,7 +48,7 @@ public class GeneratorExecutor {
         bufferWritter.close();
         fileWritter.close();
 
-        System.out.println("Add properties in ".concat(options.getTemplatePath()));
+        System.out.println("Add properties in ".concat(options.getName()));
         System.out.println("\t".concat(options.getProperties()));
 
         return loadFiled;

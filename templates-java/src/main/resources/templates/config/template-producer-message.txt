@@ -1,0 +1,39 @@
+package ${package};
+
+import com.amazonaws.services.sqs.AmazonSQSAsync;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.aws.messaging.core.QueueMessagingTemplate;
+import org.springframework.cloud.aws.messaging.core.SqsMessageHeaders;
+import org.springframework.stereotype.Component;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
+@Component
+public class ProducerMessage {
+
+    @Value("${cloud.aws.sqs.queue-name}")
+    private String queueName;
+
+    private QueueMessagingTemplate queueMessagingTemplate;
+
+    @Autowired
+    public ProducerMessage(AmazonSQSAsync amazonSqs) {
+        this.queueMessagingTemplate = new QueueMessagingTemplate(amazonSqs);
+    }
+
+    public void sendMessage() {
+        this.queueMessagingTemplate.convertAndSend(queueName, "YOUR_MESSAGE_OBJECT", getHeader());
+    }
+
+    private Map<String, Object> getHeader() {
+        Map<String, Object> headers = new HashMap<>();
+        headers.put(SqsMessageHeaders.SQS_GROUP_ID_HEADER, UUID.randomUUID().toString());
+        headers.put(SqsMessageHeaders.SQS_DEDUPLICATION_ID_HEADER, UUID.randomUUID().toString());
+        headers.put(SqsMessageHeaders.CONTENT_TYPE, "application/json");
+        return headers;
+    }
+
+}
