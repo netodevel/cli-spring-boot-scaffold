@@ -71,14 +71,16 @@ Default is spring 1.x, edit scaffold.info to change to 2.x before run *spring sc
     Generate config to: jms-aws-sqs
     CREATED src/main/java/com/example/cloudawsmessaging/consumer/MessageListener.java
     CREATED src/main/java/com/example/cloudawsmessaging/consumer/EntryPointMessage.java
-    Add dependencies in C:/Users/jose.da.silva.neto/Desktop/new-github/cloud-aws-messaging/pom.xml
-    Add properties in C:\Users\jose.da.silva.neto\Desktop\new-github\cloud-aws-messaging/src/main/resources/application.properties
+    CREATED src/main/java/com/example/cloudawsmessaging/consumer/ProducerMessage.java
+    Add dependencies in pom.xml
+    Add properties in application.properties
 
     cloud.aws.credentials.accessKey=xxxxxx
     cloud.aws.credentials.secretKey=xxxxxx
     cloud.aws.region.static=us-east-1
     cloud.aws.stack.auto=false
     cloud.aws.sqs.queue-name=my-queue.fifo
+
 
 # Structure
 
