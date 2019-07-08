@@ -1,4 +1,4 @@
-package br.com.netodevel.scaffold;
+package br.com.netodevel.command.scaffold;
 
 import java.util.ArrayList;
 import java.util.Collection;

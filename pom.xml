@@ -3,22 +3,20 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.netodevel</groupId>
 	<artifactId>spring-boot-cli</artifactId>
-	<version>0.0.1.BUILD-SNAPSHOT</version>
+	<version>0.0.2.BUILD-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
-	<name>Spring generate api scaffold kotlin</name>
-	<description>Spring generate api scaffold kotlin</description>
+	<name>cli-spring-boot-scaffold</name>
+	<description>Generate templates for rapid development</description>
 	<url>https://projects.spring.io/spring-cloud/</url>
-	<scm>
-		<url>https://github.com/NetoDevel/spring-boot-scaffold-kotlin/tree/master/spring-scaffold-cli</url>
-		<connection>scm:git:git://github.com/NetoDevel/spring-boot-scaffold-kotlin/tree/master/spring-scaffold-cli.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com/NetoDevel/spring-boot-scaffold-kotlin/tree/master/spring-scaffold-cli.git</developerConnection>
-		<tag>HEAD</tag>
-	</scm>
+
 	<modules>
 		<module>spring-boot-generate</module>
 		<module>spring-scaffold-cli</module>
+        <module>generator-core</module>
+		<module>templates-java</module>
 	</modules>
+
 	<profiles>
 		<profile>
 			<id>spring</id>
@@ -80,6 +78,7 @@
 		</profile>
 	</profiles>
 	<dependencyManagement>
+
 		<dependencies>
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
@@ -96,5 +95,6 @@
 				<scope>import</scope>
 			</dependency>
 		</dependencies>
+
 	</dependencyManagement>
 </project>

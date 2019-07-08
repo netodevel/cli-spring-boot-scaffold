@@ -53,10 +53,32 @@ And install the Spring Scaffold plugin
     $ cd my-project
     $ spring setup:scaffold
     $ spring scaffold -n "User" -p "name:String email:String"
-    $ spring db:create -p "mysql"
+    $ spring db:create -p "mysql" (REMOVED)
     $ mvn spring-boot:run
 
 Default is spring 1.x, edit scaffold.info to change to 2.x before run *spring scaffold*.
+
+### Template usage
+
+    $ spring template --list
+
+      Templates available
+      * jms-aws-sqs
+
+### Apply template
+    $ spring template -t jms-aws-sqs
+
+    Generate config to: jms-aws-sqs
+    CREATED src/main/java/com/example/cloudawsmessaging/consumer/MessageListener.java
+    CREATED src/main/java/com/example/cloudawsmessaging/consumer/EntryPointMessage.java
+    Add dependencies in C:/Users/jose.da.silva.neto/Desktop/new-github/cloud-aws-messaging/pom.xml
+    Add properties in C:\Users\jose.da.silva.neto\Desktop\new-github\cloud-aws-messaging/src/main/resources/application.properties
+
+    cloud.aws.credentials.accessKey=xxxxxx
+    cloud.aws.credentials.secretKey=xxxxxx
+    cloud.aws.region.static=us-east-1
+    cloud.aws.stack.auto=false
+    cloud.aws.sqs.queue-name=my-queue.fifo
 
 # Structure
 
@@ -100,7 +122,7 @@ Default is spring 1.x, edit scaffold.info to change to 2.x before run *spring sc
 | spring controller  | -n | spring controller -n User
 | spring scaffold  | -n -p |spring scaffold -n "User" -p "name:String mail:String" |
 | spring setup:scaffold| -n -db -u -p | spring  setup:scaffold -n "com.example" -db "dbname" -u "root" -p "root"
-| spring db:create  | -p  | spring db:create -p "mysql"
+| spring db:create  | -p  | spring db:create -p "mysql" (REMOVED)
 
 
 # License
