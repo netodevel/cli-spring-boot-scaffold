@@ -4,6 +4,7 @@ import br.com.generate.helpers.ScaffoldInfoHelper;
 import br.com.generator.core.GeneratorOptions;
 import br.com.templates_java.ComposeTemplate;
 import br.com.templates_java.config.jms_aws_sqs.*;
+import br.com.templates_java.config.openj9.OpenJ9DockerfileGenerator;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
@@ -11,7 +12,6 @@ import org.springframework.boot.cli.command.status.ExitStatus;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -54,6 +54,21 @@ public class TemplateHandler extends OptionHandler {
         System.out.println("Generate config to: ".concat(template));
         if (template.equals("jms-aws-sqs")) {
             return generateJmsAwsSQS();
+        }
+        if (template.equals("openj9")) {
+            return generateOpenJ9();
+        }
+        return ExitStatus.OK;
+    }
+
+    private ExitStatus generateOpenJ9() {
+        try {
+            GeneratorOptions generatorOptions = new GeneratorOptions();
+            generatorOptions.setDestination(scaffoldInfo.getUserDir().concat("/deploy"));
+            ComposeTemplate.runAll(scaffoldInfo.getPathPackage(), asList(new OpenJ9DockerfileGenerator(generatorOptions)));
+        } catch (Exception e) {
+            System.out.println("ERROR: ".concat(e.getMessage()));
+            return ExitStatus.ERROR;
         }
         return ExitStatus.OK;
     }

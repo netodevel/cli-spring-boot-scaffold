@@ -65,12 +65,12 @@ public class TemplateHandlerTest {
     @Test
     public void givenOpenJ9_shouldReturnOk() throws Exception {
         ScaffoldInfoHelper scaffoldInfoHelper = mock(ScaffoldInfoHelper.class);
+        Mockito.when(scaffoldInfoHelper.getUserDir()).thenReturn(temporaryPath.getAbsolutePath());
 
         TemplateHandler templateHandler = new TemplateHandler(scaffoldInfoHelper);
         ExitStatus exitStatus = templateHandler.run("-t", "openj9");
         assertEquals(ExitStatus.OK, exitStatus);
     }
-
 
     @Test
     public void givenOpenJ9_shouldCreateDockerfile() throws Exception {
