@@ -19,7 +19,7 @@ import static java.util.Arrays.asList;
 
 public class TemplateHandler extends OptionHandler {
 
-    private List<String> templates = Collections.singletonList("jms-aws-sqs");
+    private List<String> templates = asList("jms-aws-sqs", "openj9");
 
     private OptionSpec<String> template;
     private OptionSpec<Void> listTemplates;
@@ -100,6 +100,7 @@ public class TemplateHandler extends OptionHandler {
     private void output() {
         System.out.println("Templates available");
         System.out.println("* jms-aws-sqs");
+        System.out.println("* openj9");
     }
 
 }

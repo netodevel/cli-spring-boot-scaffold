@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 
 public class TemplateHandlerTest {
@@ -59,6 +60,28 @@ public class TemplateHandlerTest {
 
         TemplateHandler templateHandler = new TemplateHandler(scaffoldInfoHelper);
         templateHandler.run("--list");
+    }
+
+    @Test
+    public void givenOpenJ9_shouldReturnOk() throws Exception {
+        ScaffoldInfoHelper scaffoldInfoHelper = mock(ScaffoldInfoHelper.class);
+
+        TemplateHandler templateHandler = new TemplateHandler(scaffoldInfoHelper);
+        ExitStatus exitStatus = templateHandler.run("-t", "openj9");
+        assertEquals(ExitStatus.OK, exitStatus);
+    }
+
+
+    @Test
+    public void givenOpenJ9_shouldCreateDockerfile() throws Exception {
+        ScaffoldInfoHelper scaffoldInfoHelper = mock(ScaffoldInfoHelper.class);
+
+        Mockito.when(scaffoldInfoHelper.getUserDir()).thenReturn(temporaryPath.getAbsolutePath());
+
+        TemplateHandler templateHandler = new TemplateHandler(scaffoldInfoHelper);
+        templateHandler.run("-t", "openj9");
+
+        assertTrue(new File(temporaryPath.getAbsolutePath().concat("/deploy/Dockerfile")).exists());
     }
 
 }
