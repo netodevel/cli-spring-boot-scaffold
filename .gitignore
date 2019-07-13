@@ -1,2 +1,12 @@
 spring-boot-generate/target/
+spring-boot-generate/*.iml
 spring-scaffold-cli/target/
+spring-scaffold-cli/*.iml
+generator-core/target/
+generator-core/*.iml
+templates-java/target/
+templates-java/*.iml
+
+*.iml
+.idea/
+
