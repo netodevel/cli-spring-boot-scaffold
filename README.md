@@ -58,7 +58,8 @@ And install the Spring Scaffold plugin
 
 Default is spring 1.x, edit scaffold.info to change to 2.x before run *spring scaffold*.
 
-### Template usage
+
+### Template command
 
     $ spring template --list
 
@@ -81,6 +82,7 @@ Default is spring 1.x, edit scaffold.info to change to 2.x before run *spring sc
     cloud.aws.stack.auto=false
     cloud.aws.sqs.queue-name=my-queue.fifo
 
+[Template command documentation](https://github.com/NetoDevel/cli-spring-boot-scaffold/wiki/Template-command)
 
 # Structure
 
