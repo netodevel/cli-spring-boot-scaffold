@@ -2,10 +2,10 @@ package br.com.command.template;
 
 import br.com.generate.helpers.ScaffoldInfoHelper;
 import br.com.generator.core.GeneratorOptions;
-import br.com.templates_java.ComposeTemplate;
-import br.com.templates_java.config.jms_aws_sqs.*;
-import br.com.templates_java.config.openj9.OpenJ9DockerfileGenerator;
-import br.com.templates_java.config.openj9.OpenJ9MavenPluginGenerator;
+import br.com.templates.ComposeTemplate;
+import br.com.templates.config.jms_aws_sqs.*;
+import br.com.templates.config.openj9.OpenJ9DockerfileGenerator;
+import br.com.templates.config.openj9.OpenJ9MavenPluginGenerator;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;

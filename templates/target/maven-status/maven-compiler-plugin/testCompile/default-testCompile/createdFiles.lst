@@ -1,7 +1,8 @@
-br\com\templates_java\config\openj9\OpenJ9MavenPluginGeneratorTest.class
-br\com\templates_java\config\jms_aws_sqs\MessageListenerGeneratorTest.class
-br\com\templates_java\config\jms_aws_sqs\SQSDependencyGeneratorTest.class
-br\com\templates_java\helper\LoadTemplateTester.class
-br\com\templates_java\config\openj9\OpenJ9DockerfileGeneratorTest.class
-br\com\templates_java\config\jms_aws_sqs\ProducerMessageGeneratorTest.class
-br\com\templates_java\config\jms_aws_sqs\EntryPointMessageGeneratorTest.class
+br\com\templates\entity\EntityGeneratorTest.class
+br\com\templates\helper\LoadTemplateTester.class
+br\com\templates\config\openj9\OpenJ9DockerfileGeneratorTest.class
+br\com\templates\config\jms_aws_sqs\ProducerMessageGeneratorTest.class
+br\com\templates\config\jms_aws_sqs\EntryPointMessageGeneratorTest.class
+br\com\templates\config\jms_aws_sqs\MessageListenerGeneratorTest.class
+br\com\templates\config\jms_aws_sqs\SQSDependencyGeneratorTest.class
+br\com\templates\config\openj9\OpenJ9MavenPluginGeneratorTest.class
