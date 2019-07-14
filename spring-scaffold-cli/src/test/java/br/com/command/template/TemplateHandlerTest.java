@@ -66,6 +66,10 @@ public class TemplateHandlerTest {
     public void givenOpenJ9_shouldReturnOk() throws Exception {
         ScaffoldInfoHelper scaffoldInfoHelper = mock(ScaffoldInfoHelper.class);
         Mockito.when(scaffoldInfoHelper.getUserDir()).thenReturn(temporaryPath.getAbsolutePath());
+        Mockito.when(scaffoldInfoHelper.getPathPackage()).thenReturn("br.com.example");
+        Mockito.when(scaffoldInfoHelper.getPathMainClass()).thenReturn("br.com.example.DemoApplication");
+        Mockito.when(scaffoldInfoHelper.getPomPath()).thenReturn(getClass().getResource("/templates/template-fake-pom.xml").toURI().getPath());
+        Mockito.when(scaffoldInfoHelper.getPomDest()).thenReturn(temporaryPath.getAbsolutePath().concat("/pom.xml"));
 
         TemplateHandler templateHandler = new TemplateHandler(scaffoldInfoHelper);
         ExitStatus exitStatus = templateHandler.run("-t", "openj9");
@@ -76,12 +80,16 @@ public class TemplateHandlerTest {
     public void givenOpenJ9_shouldCreateDockerfile() throws Exception {
         ScaffoldInfoHelper scaffoldInfoHelper = mock(ScaffoldInfoHelper.class);
 
+        Mockito.when(scaffoldInfoHelper.getPathMainClass()).thenReturn("br.com.example.DemoApplication");
         Mockito.when(scaffoldInfoHelper.getUserDir()).thenReturn(temporaryPath.getAbsolutePath());
+        Mockito.when(scaffoldInfoHelper.getPomPath()).thenReturn(getClass().getResource("/templates/template-fake-pom.xml").toURI().getPath());
+        Mockito.when(scaffoldInfoHelper.getPomDest()).thenReturn(temporaryPath.getAbsolutePath().concat("/pom.xml"));
 
         TemplateHandler templateHandler = new TemplateHandler(scaffoldInfoHelper);
         templateHandler.run("-t", "openj9");
 
         assertTrue(new File(temporaryPath.getAbsolutePath().concat("/deploy/Dockerfile")).exists());
     }
+
 
 }

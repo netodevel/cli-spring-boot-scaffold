@@ -39,6 +39,18 @@ public class GeneratorExecutor {
         return fileGenerated;
     }
 
+    public File addMavenPlugin(GeneratorOptions options) throws IOException {
+        String contentTemplate = loadPom(options.getTemplatePath());
+        String contentReplaced = templateEngine.replaceValues(contentTemplate, options.getKeyValue());
+        String addPluginValues = templateEngine.replaceValues(contentReplaced, options.getPluginValues());
+
+        File fileGenerated = new File(options.getDestination());
+        FileUtils.writeStringToFile(fileGenerated, addPluginValues);
+
+        System.out.println("Add maven plugin in ".concat(options.getName()));
+        return fileGenerated;
+    }
+
     public File addProperties(GeneratorOptions options) throws IOException {
         File loadFiled = new File(options.getTemplatePath());
 

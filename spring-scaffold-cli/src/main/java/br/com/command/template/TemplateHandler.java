@@ -5,6 +5,7 @@ import br.com.generator.core.GeneratorOptions;
 import br.com.templates_java.ComposeTemplate;
 import br.com.templates_java.config.jms_aws_sqs.*;
 import br.com.templates_java.config.openj9.OpenJ9DockerfileGenerator;
+import br.com.templates_java.config.openj9.OpenJ9MavenPluginGenerator;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static java.util.Arrays.asList;
 
@@ -65,7 +67,16 @@ public class TemplateHandler extends OptionHandler {
         try {
             GeneratorOptions generatorOptions = new GeneratorOptions();
             generatorOptions.setDestination(scaffoldInfo.getUserDir().concat("/deploy"));
-            ComposeTemplate.runAll(scaffoldInfo.getPathPackage(), asList(new OpenJ9DockerfileGenerator(generatorOptions)));
+
+            GeneratorOptions pomOptions = new GeneratorOptions();
+            pomOptions.setTemplatePath(scaffoldInfo.getPomPath());
+            pomOptions.setDestination(scaffoldInfo.getPomDest());
+
+            Map<String, String> keyValue = new HashMap<>();
+            keyValue.put("${main_class}", scaffoldInfo.getPathMainClass());
+            pomOptions.setPluginValues(keyValue);
+
+            ComposeTemplate.runAll(scaffoldInfo.getPathPackage(), asList(new OpenJ9DockerfileGenerator(generatorOptions), new OpenJ9MavenPluginGenerator(pomOptions)));
         } catch (Exception e) {
             System.out.println("ERROR: ".concat(e.getMessage()));
             return ExitStatus.ERROR;

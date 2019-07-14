@@ -56,5 +56,11 @@
 			<artifactId>scala-library</artifactId>
 			<version>2.11.0</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>br.com.netodevel</groupId>
+            <artifactId>generator-core</artifactId>
+            <version>0.0.2.BUILD-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 </project>

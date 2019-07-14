@@ -1,10 +1,16 @@
 package br.com.generate.helpers;
 
+import br.com.generator.core.GeneratorExecutor;
+import br.com.generator.core.TemplateEngine;
 import org.apache.commons.lang.SystemUtils;
 
 import java.io.*;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 /**
@@ -135,6 +141,31 @@ public class ScaffoldInfoHelper {
 
     public String getApplicationPropertiesDest() throws URISyntaxException {
         return getUserDir().concat("/src/main/resources/application.properties");
+    }
+
+    public String getPathMainClass() {
+        try (Stream<Path> paths = Files.walk(Paths.get(this.getUserDir()))) {
+            String mainClass = paths
+                    .filter(Files::isRegularFile)
+                    .map(this::findMainClass).collect(Collectors.joining());
+            return this.getPackage().concat(".").concat(mainClass).replace(".java", "");
+        } catch (IOException e) {
+            System.out.println("ERROR: ".concat(e.getMessage()));
+            return null;
+        }
+    }
+
+    private String findMainClass(Path s) {
+        try {
+            String x = new GeneratorExecutor(new TemplateEngine()).loadPom(s.toAbsolutePath().toString());
+            if (x.contains("@SpringBootApplication")) {
+                File file = new File(s.toAbsolutePath().toString());
+                return file.getName();
+            }
+        } catch (IOException e) {
+            System.out.println("ERROR: ".concat(e.getMessage()));
+        }
+        return "";
     }
 
 }
