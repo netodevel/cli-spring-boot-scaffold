@@ -65,6 +65,7 @@ Default is spring 1.x, edit scaffold.info to change to 2.x before run *spring sc
 
       Templates available
       * jms-aws-sqs
+      * openj9
 
 ### Apply template
     $ spring template -t jms-aws-sqs
