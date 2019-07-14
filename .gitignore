@@ -4,8 +4,8 @@ spring-scaffold-cli/target/
 spring-scaffold-cli/*.iml
 generator-core/target/
 generator-core/*.iml
-templates-java/target/
-templates-java/*.iml
+templates/target/
+templates/*.iml
 
 *.iml
 .idea/

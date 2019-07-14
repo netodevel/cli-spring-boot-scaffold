@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="2" failures="0" name="br.com.templates_java.config.jms_aws_sqs.EntryPointMessageGeneratorTest" time="0.774" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\jre\bin"/>
+    <property name="java.vm.version" value="25.212-b03-jvmci-19-b01"/>
+    <property name="user.country.format" value="BR"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\jose.da.silva.neto\Desktop\new-github\cli-spring-boot-scaffold"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="OpenJDK GraalVM CE 19.0.0"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\jose.da.silva.neto\Desktop\new-github\cli-spring-boot-scaffold"/>
+    <property name="java.runtime.version" value="1.8.0_212-20190420110804.buildslave.jdk8u-src-tar--b03"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\JOSEDA~1.NET\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="C:\ProgramData\chocolatey\lib\maven\apache-maven-3.5.4\bin\..\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\jose.da.silva.neto\bin;C:\Users\jose.da.silva.neto\AppData\Local\Programs\Git\mingw64\bin;C:\Users\jose.da.silva.neto\AppData\Local\Programs\Git\usr\local\bin;C:\Users\jose.da.silva.neto\AppData\Local\Programs\Git\usr\bin;C:\Users\jose.da.silva.neto\AppData\Local\Programs\Git\usr\bin;C:\Users\jose.da.silva.neto\AppData\Local\Programs\Git\mingw64\bin;C:\Users\jose.da.silva.neto\AppData\Local\Programs\Git\usr\bin;C:\Users\jose.da.silva.neto\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Docker\Docker\Resources\bin;C:\Python37\Scripts;C:\Python37;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_181\bin;C:\HashiCorp\Vagrant\bin;C:\WINDOWS\System32\OpenSSH;C:\Program Files\nodejs;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn;C:\Program Files\Microsoft SQL Server\140\Tools\Binn;C:\Program Files\Microsoft SQL Server\140\DTS\Binn;C:\Go\bin;C:\Users\jose.da.silva.neto\Documents\spring-2.1.4.RELEASE\bin;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\RailsInstaller\Ruby2.3.3\bin;C:\Users\jose.da.silva.neto\AppData\Local\Microsoft\WindowsApps;C:\Users\jose.da.silva.neto\AppData\Local\Programs\Git\cmd;C:\tools\mysql\current\bin;C:\Users\jose.da.silva.neto\AppData\Roaming\npm;C:\Users\jose.da.silva.neto\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\jose.da.silva.neto\go\bin;C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\bin;C:\Users\jose.da.silva.neto\AppData\Local\Programs\Git\usr\bin\vendor_perl;C:\Users\jose.da.silva.neto\AppData\Local\Programs\Git\usr\bin\core_perl;."/>
+    <property name="maven.conf" value="C:\ProgramData\chocolatey\lib\maven\apache-maven-3.5.4\bin\../conf"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="library.jansi.path" value="C:\ProgramData\chocolatey\lib\maven\apache-maven-3.5.4\bin\..\lib\jansi-native"/>
+    <property name="user.home" value="C:\Users\jose.da.silva.neto"/>
+    <property name="user.timezone" value="America/Sao_Paulo"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="user.name" value="jose.da.silva.neto"/>
+    <property name="java.class.path" value="C:\ProgramData\chocolatey\lib\maven\apache-maven-3.5.4\bin\..\boot\plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="user.language.format" value="pt"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_212"/>
+    <property name="java.ext.dirs" value="C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\jre\lib\resources.jar;C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\jre\lib\rt.jar;C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\jre\lib\sunrsasign.jar;C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\jre\lib\jsse.jar;C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\jre\lib\jce.jar;C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\jre\lib\charsets.jar;C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\jre\lib\jfr.jar;C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\jre\lib\jvmci-services.jar;C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\jre\classes;C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\jre\lib\boot\graal-sdk.jar;C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\jre\lib\boot\graal-sdk.src.zip;C:\Users\jose.da.silva.neto\Downloads\graalvm-ce-19.0.0\jre\lib\boot\graaljs-scriptengine.jar"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\ProgramData\chocolatey\lib\maven\apache-maven-3.5.4\bin\.."/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="jvmci.Compiler" value="graal"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="br.com.templates_java.config.jms_aws_sqs.EntryPointMessageGeneratorTest" name="shouldCreateFile" time="0.754"/>
+  <testcase classname="br.com.templates_java.config.jms_aws_sqs.EntryPointMessageGeneratorTest" name="shouldReturnContent" time="0.02"/>
+</testsuite>

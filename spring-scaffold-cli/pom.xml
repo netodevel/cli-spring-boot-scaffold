@@ -31,7 +31,7 @@
 
         <dependency>
             <groupId>br.com.netodevel</groupId>
-            <artifactId>templates-java</artifactId>
+            <artifactId>templates</artifactId>
             <version>0.0.2.BUILD-SNAPSHOT</version>
         </dependency>
 

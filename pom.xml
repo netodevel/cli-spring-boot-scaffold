@@ -14,7 +14,7 @@
 		<module>spring-scaffold-cli</module>
 		<module>spring-boot-generate</module>
         <module>generator-core</module>
-		<module>templates-java</module>
+		<module>templates</module>
 	</modules>
 
 	<profiles>

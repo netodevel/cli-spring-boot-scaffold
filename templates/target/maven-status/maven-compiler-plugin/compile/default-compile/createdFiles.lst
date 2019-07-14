@@ -1,0 +1,8 @@
+br\com\templates_java\ComposeTemplate.class
+br\com\templates_java\config\jms_aws_sqs\ProducerMessageGenerator.class
+br\com\templates_java\config\jms_aws_sqs\MessageListenerGenerator.class
+br\com\templates_java\config\jms_aws_sqs\SQSDependencyGenerator.class
+br\com\templates_java\config\jms_aws_sqs\SQSPropertiesGenerator.class
+br\com\templates_java\config\openj9\OpenJ9MavenPluginGenerator.class
+br\com\templates_java\config\jms_aws_sqs\EntryPointMessageGenerator.class
+br\com\templates_java\config\openj9\OpenJ9DockerfileGenerator.class

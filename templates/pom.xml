@@ -8,7 +8,7 @@
         <version>0.0.2.BUILD-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>templates-java</artifactId>
+    <artifactId>templates</artifactId>
 
     <build>
         <plugins>
