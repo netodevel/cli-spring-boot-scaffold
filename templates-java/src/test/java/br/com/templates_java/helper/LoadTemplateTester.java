@@ -12,4 +12,5 @@ public class LoadTemplateTester {
         String theString = IOUtils.toString(in, "UTF-8");
         return theString;
     }
+
 }

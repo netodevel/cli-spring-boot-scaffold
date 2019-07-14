@@ -4,6 +4,8 @@ import br.com.generate.helpers.ScaffoldInfoHelper;
 import br.com.generator.core.GeneratorOptions;
 import br.com.templates_java.ComposeTemplate;
 import br.com.templates_java.config.jms_aws_sqs.*;
+import br.com.templates_java.config.openj9.OpenJ9DockerfileGenerator;
+import br.com.templates_java.config.openj9.OpenJ9MavenPluginGenerator;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
@@ -11,15 +13,15 @@ import org.springframework.boot.cli.command.status.ExitStatus;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static java.util.Arrays.asList;
 
 public class TemplateHandler extends OptionHandler {
 
-    private List<String> templates = Collections.singletonList("jms-aws-sqs");
+    private List<String> templates = asList("jms-aws-sqs", "openj9");
 
     private OptionSpec<String> template;
     private OptionSpec<Void> listTemplates;
@@ -54,6 +56,30 @@ public class TemplateHandler extends OptionHandler {
         System.out.println("Generate config to: ".concat(template));
         if (template.equals("jms-aws-sqs")) {
             return generateJmsAwsSQS();
+        }
+        if (template.equals("openj9")) {
+            return generateOpenJ9();
+        }
+        return ExitStatus.OK;
+    }
+
+    private ExitStatus generateOpenJ9() {
+        try {
+            GeneratorOptions generatorOptions = new GeneratorOptions();
+            generatorOptions.setDestination(scaffoldInfo.getUserDir().concat("/deploy"));
+
+            GeneratorOptions pomOptions = new GeneratorOptions();
+            pomOptions.setTemplatePath(scaffoldInfo.getPomPath());
+            pomOptions.setDestination(scaffoldInfo.getPomDest());
+
+            Map<String, String> keyValue = new HashMap<>();
+            keyValue.put("${main_class}", scaffoldInfo.getPathMainClass());
+            pomOptions.setPluginValues(keyValue);
+
+            ComposeTemplate.runAll(scaffoldInfo.getPathPackage(), asList(new OpenJ9DockerfileGenerator(generatorOptions), new OpenJ9MavenPluginGenerator(pomOptions)));
+        } catch (Exception e) {
+            System.out.println("ERROR: ".concat(e.getMessage()));
+            return ExitStatus.ERROR;
         }
         return ExitStatus.OK;
     }
@@ -100,6 +126,7 @@ public class TemplateHandler extends OptionHandler {
     private void output() {
         System.out.println("Templates available");
         System.out.println("* jms-aws-sqs");
+        System.out.println("* openj9");
     }
 
 }

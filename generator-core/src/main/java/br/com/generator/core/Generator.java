@@ -21,6 +21,10 @@ public abstract class Generator implements GeneratorContract {
         return generator.addDependecies(generatorOptions);
     }
 
+    public File addMavenPlugin(GeneratorOptions generatorOptions) throws IOException {
+        return generator.addMavenPlugin(generatorOptions);
+    }
+
     public File addProperties(GeneratorOptions generatorOptions) throws IOException {
         return generator.addProperties(generatorOptions);
     }

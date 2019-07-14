@@ -4,3 +4,8 @@
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 </dependencies>
+
+<build>
+    <plugins>
+    </plugins>
+</build>

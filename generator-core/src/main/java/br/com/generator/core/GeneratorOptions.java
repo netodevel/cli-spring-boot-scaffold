@@ -8,6 +8,7 @@ public class GeneratorOptions {
     private String templatePath;
     private String name;
     private String properties;
+    private Map<String, String> pluginValues;
     private Map<String, String> keyValue;
 
     public String getDestination() {
@@ -48,5 +49,13 @@ public class GeneratorOptions {
 
     public void setProperties(String properties) {
         this.properties = properties;
+    }
+
+    public Map<String, String> getPluginValues() {
+        return pluginValues;
+    }
+
+    public void setPluginValues(Map<String, String> pluginValues) {
+        this.pluginValues = pluginValues;
     }
 }
