@@ -1,0 +1,18 @@
+package ${package};
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.cloud.aws.messaging.listener.SqsMessageDeletionPolicy;
+import org.springframework.cloud.aws.messaging.listener.annotation.SqsListener;
+
+public class EntryPointMessage implements MessageListener {
+
+    private static final Logger log = LogManager.getLogger(EntryPointMessage.class);
+
+    @Override
+    @SqsListener(value = "${cloud.aws.sqs.queue-name}", deletionPolicy = SqsMessageDeletionPolicy.ON_SUCCESS)
+    public void queueListener(String String) {
+
+    }
+
+}

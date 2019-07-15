@@ -18,18 +18,23 @@ public class EntityGeneratorTest {
     public void shouldCreateEntity() {
         String expectedValue = "" +
                 "@Data\n" +
-                "class User {\n" +
-                "    private String name;\n" +
-                "    private Integer age;\n" +
+                "public class User {\n" +
+                "\tprivate String name;\n" +
+                "\tprivate Integer age;\n" +
                 "}\n";
 
         String returnedValue = entityGenerator.run("User", "name:String age:Int");
-        assertEquals(expectedValue, returnedValue);
+        assertEquals(expectedValue.trim(), returnedValue.trim());
     }
 
     @Test(expected = EntityValidator.class)
-    public void shouldReturnException(){
+    public void shouldReturnException() {
         entityGenerator.generateAttribute("name");
+    }
+
+    @Test(expected = EntityValidator.class)
+    public void givenTypeThatNotExists_shouldInvokeException() {
+        entityGenerator.generateAttribute("name:OtherType");
     }
 
     @Test
@@ -46,6 +51,30 @@ public class EntityGeneratorTest {
 
         String returnedValue = entityGenerator.run("User", valueArgument);
         assertEquals(expectedValue, returnedValue);
+    }
+
+    @Test
+    public void shouldGenerateClass() {
+        String expectedValue = "" +
+                "@Data\n" +
+                "public class User {\n" +
+                "${attributes}" +
+                "}";
+
+        String returned = entityGenerator.generateClass("User");
+        assertEquals(expectedValue, returned);
+    }
+
+    @Test
+    public void shouldGenerateClassWithCorrectName() {
+        String expectedValue = "" +
+                "@Data\n" +
+                "public class Foo {\n" +
+                "${attributes}" +
+                "}";
+
+        String returned = entityGenerator.generateClass("Foo");
+        assertEquals(expectedValue, returned);
     }
 
     @Test
