@@ -119,4 +119,45 @@ public class EntityGeneratorTest {
         assertEquals("private Date updated;", valueReturned);
     }
 
+    @Test
+    public void shouldReturnHasManyRelation() {
+        String attributes = "Foo:references(relation:hasMany foo:String)";
+        String valueReturned = entityGenerator.generateAttribute(attributes);
+        assertEquals("private List<Foo> foo;", valueReturned);
+    }
+
+    @Test
+    public void shouldReturnBelongsToRelation() {
+        String attributes = "Foo:references(relation:belongsTo foo:String)";
+        String valueReturned = entityGenerator.generateAttribute(attributes);
+        assertEquals("private Foo foo;", valueReturned);
+    }
+
+    @Test(expected = EntityValidator.class)
+    public void givenReferences_wheRelationEmpty_shouldInvokeException() {
+        String attributes = "Foo:references(foo:String)";
+         entityGenerator.generateAttribute(attributes);
+    }
+
+    @Test
+    public void shouldReturnCorrectNameHasNameRelation() {
+        String attributes = "Books:references(relation:hasMany foo:String)";
+        String valueReturned = entityGenerator.generateAttribute(attributes);
+        assertEquals("private List<Books> books;", valueReturned);
+    }
+
+    @Test
+    public void givenStringBetweenParentheses_shouldReturnAttributes() {
+        String attributes = "Foo:references(relation:belongsTo foo:String)";
+        String getAttributesReferences = entityGenerator.getAttributesOfReferences(attributes);
+        assertEquals("relation:belongsTo foo:String", getAttributesReferences);
+    }
+
+    @Test
+    public void shouldReturnRelation() {
+        String attributes = "relation:belongsTo foo:String";
+        String getAttributesReferences = entityGenerator.getRelation(attributes);
+        assertEquals("belongsTo", getAttributesReferences);
+    }
+
 }
