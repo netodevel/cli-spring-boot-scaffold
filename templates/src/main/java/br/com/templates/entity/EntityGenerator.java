@@ -1,5 +1,6 @@
 package br.com.templates.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,17 +12,19 @@ public class EntityGenerator {
     private static final List<String> supportedTypes = asList("String", "Int", "Date");
 
     public String run(String nameClass, String argumentValue) {
-        if (argumentValue.contains("references")) {
-            return "" +
-                    "@Data\n" +
-                    "class User {\n" +
-                    "    private String name;\n" +
-                    "    private Integer age;\n" +
-                    "    private List<Foo> foo;\n" +
-                    "}\n";
-        }
+//        if (argumentValue.contains("references")) {
+//            return "" +
+//                    "@Data\n" +
+//                    "class User {\n" +
+//                    "    private String name;\n" +
+//                    "    private Integer age;\n" +
+//                    "    private List<Foo> foo;\n" +
+//                    "}\n";
+//        }
 
         String generatedClass = this.generateClass(nameClass);
+
+        argumentValue = toPatternScaffold(argumentValue);
         String[] attributes = argumentValue.split(" ");
 
         StringBuilder attributeToReplace = new StringBuilder();
@@ -29,6 +32,7 @@ public class EntityGenerator {
             String attribute = generateAttribute(attributes[i]);
             attributeToReplace.append("\t".concat(attribute.concat("\n")));
         }
+
         generatedClass = generatedClass.replace("${attributes}", attributeToReplace.toString());
 
         return generatedClass;
@@ -36,16 +40,16 @@ public class EntityGenerator {
 
     public String generateAttribute(String attribute) {
         if (attribute.contains("references")) {
-            String[] splitAttribute = attribute.split(":");
-            String attributesReferences = getAttributesOfReferences(attribute);
-            if (!attributesReferences.contains("relation")) throw new EntityValidator("should contain relation");
-            String relation = getRelation(attributesReferences);
+            String attributesOfReferences = getAttributesOfReferences(attribute);
+            String[] attributes = attributesOfReferences.split(",");
 
-            if (relation.equals("belongsTo")) {
-                return "private ".concat(splitAttribute[0]).concat(" ".concat(splitAttribute[0].toLowerCase()).concat(";"));
-            }
+            String classIdentify = attribute.replace(attributesOfReferences, "");
+            String[] indentifySplit = classIdentify.split(":");
 
-            return "private List<".concat(splitAttribute[0]).concat(">").concat(" ".concat(splitAttribute[0].toLowerCase()).concat(";"));
+            String clazzName = indentifySplit[0];
+            String relation = attributes[0].split(":")[1];
+            if (relation.equals("hasMany")) return "private List<".concat(clazzName).concat(">").concat(" ".concat(clazzName.toLowerCase()).concat(";"));
+            if (relation.equals("belongsTo")) return "private ".concat(clazzName).concat(" ".concat(clazzName.toLowerCase()).concat(";"));
         }
 
         if (!attribute.contains(":")) throw new EntityValidator("attribute should contains ':' ");
@@ -55,6 +59,7 @@ public class EntityGenerator {
         if (attribute.contains("Int")) return "private Integer ".concat(splitAttribute[0]).concat(";");
         if (attribute.contains("Date")) return "private Date ".concat(splitAttribute[0]).concat(";");
         if (attribute.contains("String")) return "private String ".concat(splitAttribute[0]).concat(";");
+
         return null;
     }
 
@@ -86,4 +91,42 @@ public class EntityGenerator {
         return splitRelation[1];
     }
 
+    public List<String> getReferencesComplete(String attributes) {
+        String attributesConverted = toPatternScaffold(attributes);
+        String[] attributesSplited = attributesConverted.split(" ");
+
+        List<String> attributesToReturn = new ArrayList<>();
+        for (int i = 0; i < attributesSplited.length; i++) {
+            if (attributesSplited[i].contains("references")){
+                attributesToReturn.add(attributesSplited[i]);
+            }
+        }
+        return attributesToReturn;
+    }
+
+    public String toPatternScaffold(String attributes) {
+        return attributes.replace(", ", ",");
+    }
+
+    class RelationShip {
+
+        String nameClass;
+        String attributes;
+
+        public String getNameClass() {
+            return nameClass;
+        }
+
+        public void setNameClass(String nameClass) {
+            this.nameClass = nameClass;
+        }
+
+        public String getAttributes() {
+            return attributes;
+        }
+
+        public void setAttributes(String attributes) {
+            this.attributes = attributes;
+        }
+    }
 }

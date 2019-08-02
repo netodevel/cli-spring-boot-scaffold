@@ -3,6 +3,8 @@ package br.com.templates.entity;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 public class EntityGeneratorTest {
@@ -41,16 +43,15 @@ public class EntityGeneratorTest {
     public void shouldReturnWithRelations() {
         String expectedValue = "" +
                 "@Data\n" +
-                "class User {\n" +
-                "    private String name;\n" +
-                "    private Integer age;\n" +
-                "    private List<Foo> foo;\n" +
+                "public class User {\n" +
+                "\tprivate String name;\n" +
+                "\tprivate Integer age;\n" +
+                "\tprivate List<Foo> foo;\n" +
                 "}\n";
 
-        String valueArgument = "name:String age:Int Foo:references(relation:hasMany foo:String)";
-
+        String valueArgument = "name:String age:Int Foo:references(relation:hasMany, foo:String)";
         String returnedValue = entityGenerator.run("User", valueArgument);
-        assertEquals(expectedValue, returnedValue);
+        assertEquals(expectedValue.trim(), returnedValue.trim());
     }
 
     @Test
@@ -121,14 +122,14 @@ public class EntityGeneratorTest {
 
     @Test
     public void shouldReturnHasManyRelation() {
-        String attributes = "Foo:references(relation:hasMany foo:String)";
+        String attributes = "Foo:references(relation:hasMany, foo:String)";
         String valueReturned = entityGenerator.generateAttribute(attributes);
         assertEquals("private List<Foo> foo;", valueReturned);
     }
 
     @Test
     public void shouldReturnBelongsToRelation() {
-        String attributes = "Foo:references(relation:belongsTo foo:String)";
+        String attributes = "Foo:references(relation:belongsTo, foo:String)";
         String valueReturned = entityGenerator.generateAttribute(attributes);
         assertEquals("private Foo foo;", valueReturned);
     }
@@ -136,12 +137,12 @@ public class EntityGeneratorTest {
     @Test(expected = EntityValidator.class)
     public void givenReferences_wheRelationEmpty_shouldInvokeException() {
         String attributes = "Foo:references(foo:String)";
-         entityGenerator.generateAttribute(attributes);
+        entityGenerator.generateAttribute(attributes);
     }
 
     @Test
     public void shouldReturnCorrectNameHasNameRelation() {
-        String attributes = "Books:references(relation:hasMany foo:String)";
+        String attributes = "Books:references(relation:hasMany, foo:String)";
         String valueReturned = entityGenerator.generateAttribute(attributes);
         assertEquals("private List<Books> books;", valueReturned);
     }
@@ -158,6 +159,28 @@ public class EntityGeneratorTest {
         String attributes = "relation:belongsTo foo:String";
         String getAttributesReferences = entityGenerator.getRelation(attributes);
         assertEquals("belongsTo", getAttributesReferences);
+    }
+
+    @Test
+    public void shouldReturnScaffoldPattern() {
+        String attributes = "name:String age:Int Foo:references(relation:hasMany, foo:String)";
+        String returnConverted = entityGenerator.toPatternScaffold(attributes);
+        assertEquals("name:String age:Int Foo:references(relation:hasMany,foo:String)", returnConverted);
+    }
+
+    @Test
+    public void shouldReturnReferencesAttributeComplete() {
+        String attributes = "name:String age:Int Foo:references(relation:hasMany, foo:String)";
+        List<String> getAttributesReferences = entityGenerator.getReferencesComplete(attributes);
+        assertEquals("Foo:references(relation:hasMany,foo:String)", getAttributesReferences.get(0));
+    }
+
+    @Test
+    public void shouldReturnReferencesAttributes() {
+        String attributes = "name:String age:Int Foo:references(relation:hasMany, foo:String) Books:references(relation:belongsTo, foo:String)";
+        List<String> getAttributesReferences = entityGenerator.getReferencesComplete(attributes);
+        assertEquals("Foo:references(relation:hasMany,foo:String)", getAttributesReferences.get(0));
+        assertEquals("Books:references(relation:belongsTo,foo:String)", getAttributesReferences.get(1));
     }
 
 }
