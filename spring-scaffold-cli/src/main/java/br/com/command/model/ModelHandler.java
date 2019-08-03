@@ -71,7 +71,7 @@ public class ModelHandler extends OptionHandler {
 
             Map<String, String> keyValue = new HashMap<>();
             keyValue.put("${content}", entity.getContent());
-            keyValue.put("${package}", scaffoldInfoHelper.getPackage().concat("models"));
+            keyValue.put("${package}", scaffoldInfoHelper.getPackage().concat(".models"));
 
             generatorOptions.setKeyValue(keyValue);
 
