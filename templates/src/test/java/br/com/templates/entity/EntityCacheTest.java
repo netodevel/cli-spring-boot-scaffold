@@ -27,6 +27,7 @@ public class EntityCacheTest {
         entityExecutor.run("User", valueArgument);
 
         String expectedValue = "" +
+                "@Entity\n" +
                 "@Data\n" +
                 "public class User {\n" +
                 "\tprivate String name;\n" +
@@ -44,6 +45,7 @@ public class EntityCacheTest {
         entityExecutor.run("User", valueArgument);
 
         String expectedValue = "" +
+                "@Entity\n" +
                 "@Data\n" +
                 "public class Foo {\n" +
                 "\tprivate String foo;\n" +

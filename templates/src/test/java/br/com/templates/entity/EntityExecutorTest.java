@@ -19,6 +19,7 @@ public class EntityExecutorTest {
     @Test
     public void shouldCreateEntity() {
         String expectedValue = "" +
+                "@Entity\n" +
                 "@Data\n" +
                 "public class User {\n" +
                 "\tprivate String name;\n" +
@@ -42,6 +43,7 @@ public class EntityExecutorTest {
     @Test
     public void givenRelationHasMany_shouldReturnWithRelation() {
         String expectedValue = "" +
+                "@Entity\n" +
                 "@Data\n" +
                 "public class User {\n" +
                 "\tprivate String name;\n" +
@@ -59,6 +61,7 @@ public class EntityExecutorTest {
     @Test
     public void givenRelationBelongsTo_shouldReturnWithRelation() {
         String expectedValue = "" +
+                "@Entity\n" +
                 "@Data\n" +
                 "public class User {\n" +
                 "\tprivate String name;\n" +
@@ -76,6 +79,7 @@ public class EntityExecutorTest {
     @Test
     public void shouldGenerateClass() {
         String expectedValue = "" +
+                "@Entity\n" +
                 "@Data\n" +
                 "public class User {\n" +
                 "${attributes}" +
@@ -88,6 +92,7 @@ public class EntityExecutorTest {
     @Test
     public void shouldGenerateClassWithCorrectName() {
         String expectedValue = "" +
+                "@Entity\n" +
                 "@Data\n" +
                 "public class Foo {\n" +
                 "${attributes}" +

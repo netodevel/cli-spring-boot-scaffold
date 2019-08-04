@@ -93,6 +93,7 @@ public class EntityExecutor {
 
     public String generateClass(String nameClass) {
         return "" +
+                "@Entity\n" +
                 "@Data\n" +
                 "public class ".concat(nameClass).concat(" {\n") +
                 "${attributes}" +
