@@ -1,0 +1,6 @@
+package ${package};
+
+import lombok.Data;
+import java.util.List;
+
+${content}

@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.netodevel</groupId>
 	<artifactId>spring-boot-cli</artifactId>
-	<version>0.0.2.BUILD-SNAPSHOT</version>
+	<version>1.1.0.BUILD-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
 	<name>cli-spring-boot-scaffold</name>
@@ -14,7 +14,7 @@
 		<module>spring-scaffold-cli</module>
 		<module>spring-boot-generate</module>
         <module>generator-core</module>
-		<module>templates-java</module>
+		<module>templates</module>
 	</modules>
 
 	<profiles>

@@ -30,6 +30,18 @@ public class GeneratorExecutor {
 
     public File addDependecies(GeneratorOptions options) throws IOException {
         String contentTemplate = loadPom(options.getTemplatePath());
+
+        Boolean alreadyDeps = false;
+        if (options.getDependencies() != null) {
+            for (int i = 0; i < options.getDependencies().size(); i++) {
+                if (contentTemplate.contains(options.getDependencies().get(i))) {
+                    System.out.println("[INFO] ".concat(options.getDependencies().get(i)).concat(" already added."));
+                    alreadyDeps = true;
+                }
+            }
+        }
+        if (alreadyDeps) return null;
+
         String contentReplaced = templateEngine.replaceValues(contentTemplate, options.getKeyValue());
 
         File fileGenerated = new File(options.getDestination());
