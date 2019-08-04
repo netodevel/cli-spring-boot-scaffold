@@ -20,6 +20,14 @@ public class EntityExecutor {
         String[] attributes = argumentValue.split(" ");
 
         StringBuilder attributeToReplace = new StringBuilder();
+
+        String idAttribute =
+                "\n" +
+                "\t@Id @GeneratedValue(strategy = GenerationType.AUTO)\n" +
+                "\tprivate Integer id;";
+
+        attributeToReplace.append("\t".concat(idAttribute.concat("\n")));
+
         for (int i = 0; i < attributes.length; i++) {
             String attribute = generateAttribute(attributes[i]);
             attributeToReplace.append("\t".concat(attribute.concat("\n")));

@@ -5,6 +5,7 @@ import br.com.generator.core.GeneratorOptions;
 import br.com.templates.entity.EntityCache;
 import br.com.templates.entity.EntityExecutor;
 import br.com.templates.entity.EntityGenerator;
+import br.com.templates.entity.LombokDependencyGenerator;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;
@@ -64,6 +65,8 @@ public class ModelHandler extends OptionHandler {
         EntityExecutor entityExecutor = new EntityExecutor();
         entityExecutor.run(nameClass, parameters);
 
+        lombokGenerate();
+
         for (EntityCache entity : entityExecutor.getEntities()) {
             GeneratorOptions generatorOptions = new GeneratorOptions();
             generatorOptions.setName(entity.getName().concat(".java"));
@@ -78,6 +81,16 @@ public class ModelHandler extends OptionHandler {
             EntityGenerator entityGenerator = new EntityGenerator(generatorOptions);
             entityGenerator.runGenerate();
         }
+
+    }
+
+    private void lombokGenerate() throws IOException {
+        GeneratorOptions lombokDepsOptions = new GeneratorOptions();
+        lombokDepsOptions.setTemplatePath(scaffoldInfoHelper.getPomPath());
+        lombokDepsOptions.setDestination(scaffoldInfoHelper.getPomDest());
+
+        LombokDependencyGenerator lombokDependencyGenerator = new LombokDependencyGenerator(lombokDepsOptions);
+        lombokDependencyGenerator.runGenerate();
     }
 
 }

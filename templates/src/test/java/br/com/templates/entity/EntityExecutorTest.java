@@ -22,6 +22,9 @@ public class EntityExecutorTest {
                 "@Entity\n" +
                 "@Data\n" +
                 "public class User {\n" +
+                "\t\n" +
+                "\t@Id @GeneratedValue(strategy = GenerationType.AUTO)\n" +
+                "\tprivate Integer id;\n" +
                 "\tprivate String name;\n" +
                 "\tprivate Integer age;\n" +
                 "}\n";
@@ -46,6 +49,9 @@ public class EntityExecutorTest {
                 "@Entity\n" +
                 "@Data\n" +
                 "public class User {\n" +
+                "\t\n" +
+                "\t@Id @GeneratedValue(strategy = GenerationType.AUTO)\n" +
+                "\tprivate Integer id;\n" +
                 "\tprivate String name;\n" +
                 "\tprivate Integer age;\n" +
                 "\t\t\n" +
@@ -64,6 +70,9 @@ public class EntityExecutorTest {
                 "@Entity\n" +
                 "@Data\n" +
                 "public class User {\n" +
+                "\t\n" +
+                "\t@Id @GeneratedValue(strategy = GenerationType.AUTO)\n" +
+                "\tprivate Integer id;\n" +
                 "\tprivate String name;\n" +
                 "\tprivate Integer age;\n" +
                 "\t\t\n" +

@@ -1,5 +1,6 @@
 package br.com.generator.core;
 
+import java.util.List;
 import java.util.Map;
 
 public class GeneratorOptions {
@@ -10,6 +11,7 @@ public class GeneratorOptions {
     private String properties;
     private Map<String, String> pluginValues;
     private Map<String, String> keyValue;
+    private List<String> dependencies;
 
     public String getDestination() {
         return destination;
@@ -57,5 +59,13 @@ public class GeneratorOptions {
 
     public void setPluginValues(Map<String, String> pluginValues) {
         this.pluginValues = pluginValues;
+    }
+
+    public List<String> getDependencies() {
+        return dependencies;
+    }
+
+    public void setDependencies(List<String> dependencies) {
+        this.dependencies = dependencies;
     }
 }

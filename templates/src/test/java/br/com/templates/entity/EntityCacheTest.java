@@ -30,13 +30,17 @@ public class EntityCacheTest {
                 "@Entity\n" +
                 "@Data\n" +
                 "public class User {\n" +
+                "\t\n" +
+                "\t@Id @GeneratedValue(strategy = GenerationType.AUTO)\n" +
+                "\tprivate Integer id;\n" +
                 "\tprivate String name;\n" +
                 "\tprivate Integer age;\n" +
                 "\t\t\n" +
                 "\t@OneToMany\n" +
                 "\tprivate List<Foo> foo;\n" +
                 "}\n";
-        assertEquals(expectedValue.trim(), entityExecutor.getEntities().get(1).getContent());
+
+        assertEquals(expectedValue.trim(), entityExecutor.getEntities().get(1).getContent().trim());
     }
 
     @Test
