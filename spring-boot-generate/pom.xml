@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com</groupId>
 	<artifactId>spring-boot-generate</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>1.1.0.BUILD-SNAPSHOT</version>
 	
 	<properties>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

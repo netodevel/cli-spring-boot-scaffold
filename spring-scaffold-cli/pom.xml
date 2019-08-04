@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>br.com.netodevel</groupId>
     <artifactId>spring-scaffold-cli</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>1.1.0.BUILD-SNAPSHOT</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -26,13 +26,13 @@
         <dependency>
             <groupId>br.com</groupId>
             <artifactId>spring-boot-generate</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
+            <version>1.1.0.BUILD-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>br.com.netodevel</groupId>
             <artifactId>templates</artifactId>
-            <version>0.0.2.BUILD-SNAPSHOT</version>
+            <version>1.1.0.BUILD-SNAPSHOT</version>
         </dependency>
 
         <dependency>

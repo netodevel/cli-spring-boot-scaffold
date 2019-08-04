@@ -5,11 +5,8 @@
     <parent>
         <artifactId>spring-boot-cli</artifactId>
         <groupId>br.com.netodevel</groupId>
-        <version>0.0.2.BUILD-SNAPSHOT</version>
+        <version>1.1.0.BUILD-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
-    <artifactId>templates</artifactId>
-
     <build>
         <plugins>
             <plugin>
@@ -22,11 +19,14 @@
             </plugin>
         </plugins>
     </build>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>templates</artifactId>
     <dependencies>
         <dependency>
             <groupId>br.com.netodevel</groupId>
             <artifactId>generator-core</artifactId>
-            <version>0.0.2.BUILD-SNAPSHOT</version>
+            <version>1.1.0.BUILD-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
