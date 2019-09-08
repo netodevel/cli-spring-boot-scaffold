@@ -44,7 +44,7 @@ public class ScaffoldInfoHelper {
             currentLocation = Paths.get(".").toAbsolutePath().toString();
         } else if (SystemUtils.IS_OS_MAC) {
             currentLocation = Paths.get(".").toAbsolutePath().toString();
-        }
+    }
         return currentLocation;
     }
 

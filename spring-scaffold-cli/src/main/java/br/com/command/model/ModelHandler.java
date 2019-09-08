@@ -6,6 +6,8 @@ import br.com.templates.entity.EntityCache;
 import br.com.templates.entity.EntityExecutor;
 import br.com.templates.entity.EntityGenerator;
 import br.com.templates.entity.LombokDependencyGenerator;
+import br.com.templates.liquibase.LiquibaseExecutor;
+import br.com.templates.liquibase.LiquibaseGenerator;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 import org.springframework.boot.cli.command.options.OptionHandler;

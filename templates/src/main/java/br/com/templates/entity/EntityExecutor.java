@@ -1,6 +1,13 @@
 package br.com.templates.entity;
 
+import br.com.generate.helpers.ScaffoldInfoHelper;
+import br.com.generator.core.GeneratorOptions;
+import br.com.templates.liquibase.LiquibaseExecutor;
+import br.com.templates.liquibase.LiquibaseGenerator;
+
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -23,8 +30,8 @@ public class EntityExecutor {
 
         String idAttribute =
                 "\n" +
-                "\t@Id @GeneratedValue(strategy = GenerationType.AUTO)\n" +
-                "\tprivate Integer id;";
+                        "\t@Id @GeneratedValue(strategy = GenerationType.AUTO)\n" +
+                        "\tprivate Integer id;";
 
         attributeToReplace.append("\t".concat(idAttribute.concat("\n")));
 
@@ -35,7 +42,32 @@ public class EntityExecutor {
 
         generatedClass = generatedClass.replace("${attributes}", attributeToReplace.toString());
         entities.add(new EntityCache(nameClass, generatedClass));
+
+        generateMigrate(nameClass);
+
         return generatedClass;
+    }
+
+    private void generateMigrate(String nameClass) {
+        ScaffoldInfoHelper scaffoldInfoHelper = new ScaffoldInfoHelper();
+        LiquibaseExecutor liquibaseExecutor = new LiquibaseExecutor();
+
+        GeneratorOptions optionsLiquibase = new GeneratorOptions();
+        optionsLiquibase.setDestination(scaffoldInfoHelper.getUserDir().concat("/src/main/resources/db/changelog"));
+        optionsLiquibase.setName(liquibaseExecutor.getChangeSetNumber().concat("-create-table-" + nameClass.toLowerCase() + ".xml"));
+
+        HashMap<String, String> keyValue = new HashMap<>();
+        keyValue.put("${changeset_number}", liquibaseExecutor.getChangeSetNumber());
+        keyValue.put("${entity_name}", nameClass.toLowerCase());
+        keyValue.put("${columns}", liquibaseExecutor.generateColumns("User", "name:String age:Int created:Date"));
+        optionsLiquibase.setKeyValue(keyValue);
+
+        LiquibaseGenerator liquibaseGenerator = new LiquibaseGenerator(optionsLiquibase);
+        try {
+            liquibaseGenerator.runGenerate();
+        } catch (IOException e) {
+            System.out.println("[ERROR] ".concat(e.getMessage()));
+        }
     }
 
     public String generateAttribute(String attribute) {
@@ -69,10 +101,10 @@ public class EntityExecutor {
 
         if (relation.equals("hasMany"))
             return ("\t\n" +
-                "\t@OneToMany\n"+
-                "\tprivate List<").concat(clazzName).concat(">").concat(" ".concat(clazzName.toLowerCase()).concat(";"));
+                    "\t@OneToMany\n" +
+                    "\tprivate List<").concat(clazzName).concat(">").concat(" ".concat(clazzName.toLowerCase()).concat(";"));
         if (relation.equals("belongsTo"))
-            return  ("\t\n" +
+            return ("\t\n" +
                     "\t@OneToOne\n" +
                     "\tprivate ").concat(clazzName).concat(" ".concat(clazzName.toLowerCase()).concat(";"));
         return null;

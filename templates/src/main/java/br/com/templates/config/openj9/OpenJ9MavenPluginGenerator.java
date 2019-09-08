@@ -38,7 +38,7 @@ public class OpenJ9MavenPluginGenerator extends Generator {
                 "                            <goal>shade</goal>\n" +
                 "                        </goals>\n" +
                 "                        <configuration>\n" +
-                "                            <transformers>\n" +
+                "                            <TRANSFORMERS>\n" +
                 "                                <transformer\n" +
                 "                                        implementation=\"org.apache.maven.plugins.shade.resource.AppendingTransformer\">\n" +
                 "                                    <resource>META-INF/spring.handlers</resource>\n" +

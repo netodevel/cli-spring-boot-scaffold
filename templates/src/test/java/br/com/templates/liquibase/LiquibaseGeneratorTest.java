@@ -39,12 +39,12 @@ public class LiquibaseGeneratorTest {
         LiquibaseExecutor liquibaseExecutor = new LiquibaseExecutor();
         HashMap<String, String> keyValue = new HashMap<>();
 
-        keyValue.put("${changeset_number}", "01");
+        keyValue.put("${changeset_number}", liquibaseExecutor.getChangeSetNumber());
         keyValue.put("${entity_name}", "user");
         keyValue.put("${columns}", liquibaseExecutor.generateColumns("User", "name:String age:Int created:Date"));
 
         generatorOptions.setKeyValue(keyValue);
-        generatorOptions.setName("01-create-table-user.xml");
+        generatorOptions.setName(liquibaseExecutor.getChangeSetNumber().concat("-create-table-user.xml"));
 
         LiquibaseGenerator liquibaseGenerator =
                 new LiquibaseGenerator(generatorOptions);

@@ -1,6 +1,7 @@
 package br.com.templates.liquibase;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -39,6 +40,14 @@ public class LiquibaseExecutorTest {
         String expected = "<column name=\"created\" type=\"DATETIME\"\\>";
         String result = liquibaseExecutor.generateColumn("created", "Date");
         assertEquals(expected, result);
+    }
+
+    @Test
+    @Ignore
+    public void deveRetornarProximoNumeroMigration() {
+        String expectedValue = "03";
+        String result = liquibaseExecutor.getChangeSetNumber();
+        assertEquals(expectedValue, result);
     }
 
 }

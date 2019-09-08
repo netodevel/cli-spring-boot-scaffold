@@ -1,5 +1,15 @@
 package br.com.templates.liquibase;
 
+import br.com.generate.helpers.ScaffoldInfoHelper;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class LiquibaseExecutor {
 
     public String generateColumns(String className, String parameters) {
@@ -35,6 +45,35 @@ public class LiquibaseExecutor {
             return "DATETIME";
         }
         return null;
+    }
+
+    public String getChangeSetNumber() {
+        ScaffoldInfoHelper scaffoldInfoHelper = new ScaffoldInfoHelper();
+        try (Stream<Path> paths = Files.walk(Paths.get(scaffoldInfoHelper.getUserDir() + "/src/main/resources/db/changelog/"))) {
+            List<Integer> listNumberMigrations = paths
+                    .filter(Files::isRegularFile)
+                    .map(this::getNumber).collect(Collectors.toList());
+            return generateNextNumberMigration(listNumberMigrations);
+        } catch (IOException e) {
+            System.out.println("ERROR: ".concat(e.getMessage()));
+            return null;
+        }
+    }
+
+    private String generateNextNumberMigration(List<Integer> listNumberMigrations) {
+        Integer currentNumber = (listNumberMigrations.get(listNumberMigrations.size() - 1));
+        Integer nextNumber = currentNumber + 1;
+        if (nextNumber < 10) {
+            String padded = String.format("%02d", nextNumber);
+            return padded;
+        }
+        return String.valueOf(nextNumber);
+    }
+
+    private Integer getNumber(Path s) {
+        String fileName = s.getFileName().toString();
+        String[] splitName = fileName.split("-");
+        return Integer.parseInt(splitName[0].replace("0", ""));
     }
 
 }
