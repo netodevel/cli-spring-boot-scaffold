@@ -43,12 +43,12 @@ public class EntityExecutor {
         generatedClass = generatedClass.replace("${attributes}", attributeToReplace.toString());
         entities.add(new EntityCache(nameClass, generatedClass));
 
-        generateMigrate(nameClass);
+        generateMigrate(nameClass, argumentValue);
 
         return generatedClass;
     }
 
-    private void generateMigrate(String nameClass) {
+    private void generateMigrate(String nameClass, String parameters) {
         ScaffoldInfoHelper scaffoldInfoHelper = new ScaffoldInfoHelper();
         LiquibaseExecutor liquibaseExecutor = new LiquibaseExecutor();
 
@@ -59,7 +59,7 @@ public class EntityExecutor {
         HashMap<String, String> keyValue = new HashMap<>();
         keyValue.put("${changeset_number}", liquibaseExecutor.getChangeSetNumber());
         keyValue.put("${entity_name}", nameClass.toLowerCase());
-        keyValue.put("${columns}", liquibaseExecutor.generateColumns("User", "name:String age:Int created:Date"));
+        keyValue.put("${columns}", liquibaseExecutor.generateColumns(nameClass, parameters));
         optionsLiquibase.setKeyValue(keyValue);
 
         LiquibaseGenerator liquibaseGenerator = new LiquibaseGenerator(optionsLiquibase);

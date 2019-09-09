@@ -21,12 +21,6 @@ import org.springframework.boot.cli.command.CommandFactory;
 import java.util.Arrays;
 import java.util.Collection;
 
-/**
- * all commands scaffold
- *
- * @author NetoDevel
- * @since 0.0.1
- */
 public class ScaffoldFactoryCommands implements CommandFactory {
 
     public Collection<Command> getCommands() {
@@ -36,7 +30,7 @@ public class ScaffoldFactoryCommands implements CommandFactory {
                 new RepositoryCommand("repository", "generate repositories", new RepositoryHandler()),
                 new ServiceCommand("service", "generate services", new ServiceHandler()),
                 new ControllerCommand("controller", "generate controllers", new ControllerHandler()),
-                new ScaffoldCommand("scaffold", "generate api scaffold", new ScaffoldHandler()),
+                new ScaffoldCommand("scaffold", "generate api scaffold", new ScaffoldHandler(scaffoldInfoHelper)),
                 new SetupScaffoldCommand("setup:scaffold", "setup scaffold", new SetupScaffoldHandler()),
                 new TemplateCommand("template", "generate setup project", new TemplateHandler(scaffoldInfoHelper)));
     }

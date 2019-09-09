@@ -2,7 +2,6 @@ package br.com.templates.liquibase;
 
 import br.com.generate.helpers.ScaffoldInfoHelper;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -31,7 +30,7 @@ public class LiquibaseExecutor {
     }
 
     public String generateColumn(String paramName, String type) {
-        return "<column name=\"" + paramName + "\" type=\"" + convertType(type) + "\"\\>";
+        return "<column name=\"" + paramName + "\" type=\"" + convertType(type) + "\"/>";
     }
 
     public String convertType(String type) {
@@ -50,12 +49,13 @@ public class LiquibaseExecutor {
     public String getChangeSetNumber() {
         ScaffoldInfoHelper scaffoldInfoHelper = new ScaffoldInfoHelper();
         try (Stream<Path> paths = Files.walk(Paths.get(scaffoldInfoHelper.getUserDir() + "/src/main/resources/db/changelog/"))) {
+            if (paths.count() == 0) return "01";
             List<Integer> listNumberMigrations = paths
                     .filter(Files::isRegularFile)
                     .map(this::getNumber).collect(Collectors.toList());
             return generateNextNumberMigration(listNumberMigrations);
-        } catch (IOException e) {
-            System.out.println("ERROR: ".concat(e.getMessage()));
+        } catch (Exception e) {
+            System.out.println("[ERROR]: ".concat(e.getMessage()));
             return null;
         }
     }
