@@ -5,6 +5,7 @@ import br.com.generator.core.GeneratorOptions;
 import br.com.templates.liquibase.LiquibaseExecutor;
 import br.com.templates.liquibase.LiquibaseGenerator;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -50,6 +51,12 @@ public class EntityExecutor {
 
     private void generateMigrate(String nameClass, String parameters) {
         ScaffoldInfoHelper scaffoldInfoHelper = new ScaffoldInfoHelper();
+
+        if (!new File(scaffoldInfoHelper.getUserDir().concat("/src/main/resources/db/changelog")).exists()) {
+            System.out.println("[INFO] resources/db/changelog not exists.");
+            return;
+        }
+
         LiquibaseExecutor liquibaseExecutor = new LiquibaseExecutor();
 
         GeneratorOptions optionsLiquibase = new GeneratorOptions();
