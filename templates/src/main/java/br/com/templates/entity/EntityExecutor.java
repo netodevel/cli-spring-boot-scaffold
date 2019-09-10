@@ -59,12 +59,13 @@ public class EntityExecutor {
 
         LiquibaseExecutor liquibaseExecutor = new LiquibaseExecutor();
 
+        String changeSetNumber = liquibaseExecutor.getChangeSetNumber();
         GeneratorOptions optionsLiquibase = new GeneratorOptions();
         optionsLiquibase.setDestination(scaffoldInfoHelper.getUserDir().concat("/src/main/resources/db/changelog"));
-        optionsLiquibase.setName(liquibaseExecutor.getChangeSetNumber().concat("-create-table-" + nameClass.toLowerCase() + ".xml"));
+        optionsLiquibase.setName(changeSetNumber.concat("-create-table-" + nameClass.toLowerCase() + ".xml"));
 
         HashMap<String, String> keyValue = new HashMap<>();
-        keyValue.put("${changeset_number}", liquibaseExecutor.getChangeSetNumber());
+        keyValue.put("${changeset_number}", changeSetNumber);
         keyValue.put("${entity_name}", nameClass.toLowerCase());
         keyValue.put("${columns}", liquibaseExecutor.generateColumns(nameClass, parameters));
         optionsLiquibase.setKeyValue(keyValue);

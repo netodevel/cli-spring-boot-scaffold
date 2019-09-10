@@ -49,10 +49,10 @@ public class LiquibaseExecutor {
     public String getChangeSetNumber() {
         ScaffoldInfoHelper scaffoldInfoHelper = new ScaffoldInfoHelper();
         try (Stream<Path> paths = Files.walk(Paths.get(scaffoldInfoHelper.getUserDir() + "/src/main/resources/db/changelog/"))) {
-            if (paths.count() == 0) return "01";
             List<Integer> listNumberMigrations = paths
                     .filter(Files::isRegularFile)
                     .map(this::getNumber).collect(Collectors.toList());
+
             return generateNextNumberMigration(listNumberMigrations);
         } catch (Exception e) {
             System.out.println("[ERROR]: ".concat(e.getMessage()));
@@ -61,6 +61,7 @@ public class LiquibaseExecutor {
     }
 
     private String generateNextNumberMigration(List<Integer> listNumberMigrations) {
+        if (listNumberMigrations.isEmpty()) return "01";
         Integer currentNumber = (listNumberMigrations.get(listNumberMigrations.size() - 1));
         Integer nextNumber = currentNumber + 1;
         if (nextNumber < 10) {
